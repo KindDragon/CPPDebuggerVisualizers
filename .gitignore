@@ -1,0 +1,9 @@
+﻿# ignored files
+Debug/
+Release/
+obj/
+_ReSharper.*/
+*.sdf
+*.suo
+*.opensdf
+*.user

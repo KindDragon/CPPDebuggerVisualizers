@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<Type Name="tinyxml2::StrPair">
+	<DisplayString>{start,s}</DisplayString>
+</Type>
+<Type Name="tinyxml2::XMLNode">
+	<DisplayString>{value}</DisplayString>
+	<Expand>
+		<LinkedListItems> 
+			<HeadPointer>firstChild</HeadPointer> 
+			<NextPointer>next</NextPointer> 
+			<ValueNode>this</ValueNode> 
+		</LinkedListItems>
+	</Expand>
+</Type>
+<Type Name="tinyxml2::XMLElement">
+	<DisplayString>[{closingType}] {value}</DisplayString>
+	<Expand>
+		<Item Name="attributes">rootAttribute</Item>
+		<LinkedListItems> 
+			<HeadPointer>firstChild</HeadPointer> 
+			<NextPointer>next</NextPointer> 
+			<ValueNode>this</ValueNode> 
+		</LinkedListItems>
+	</Expand>
+</Type>
+<Type Name="tinyxml2::XMLAttribute">
+	<DisplayString>{name} = {value}</DisplayString>
+	<Expand>
+		<LinkedListItems> 
+			<HeadPointer>this</HeadPointer> 
+			<NextPointer>next</NextPointer> 
+			<ValueNode>this</ValueNode> 
+		</LinkedListItems>
+	</Expand>
+</Type>
+</AutoVisualizer>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+	<Metadata>
+		<Identity Id="CPPDebuggerVisualizers..e72aa83c-bb6f-4910-8e9f-793052cd112a" Version="1.0" Language="en-US" Publisher="Arkadiy Shapkin" />
+		<DisplayName>CPPDebuggerVisualizers</DisplayName>
+		<Description>C++ Debugger Visualizers for Boost, wxWidgets, TinyXML2</Description>
+	</Metadata>
+	<Installation>
+		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="11.0" />
+	</Installation>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natvis" />
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\directx.natvis" />
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\TinyXML2.natvis" />
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\wxWidgets.natvis" />
+	</Assets>
+</PackageManifest>
