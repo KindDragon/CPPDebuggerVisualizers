@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<!-- based on https://svn.boost.org/trac/boost/wiki/DebuggerVisualizers -->
 <!--boost::adjacency_list<OutEdgeList, VertexList, Directed,VertexProperties, EdgeProperties, GraphProperties, EdgeList>-->
 <Type Name="boost::adjacency_list&lt;*,*,*,*,*&gt;">
     <DisplayString>{{edges={m_edges} vertices={m_vertices}}}</DisplayString>

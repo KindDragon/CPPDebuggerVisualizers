@@ -5,6 +5,7 @@
 		<DisplayName>C++ Debugger Visualizers</DisplayName>
 		<Description>C++ Debugger Visualizers for Boost, wxWidgets, TinyXML2</Description>
 		<MoreInfo>https://github.com/KindDragon/CPPDebuggerVisualizers</MoreInfo>
+		<License>LICENSE_1_0.txt</License>
 		<Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
 	</Metadata>
 	<Installation>
