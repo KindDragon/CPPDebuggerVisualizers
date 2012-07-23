@@ -9,3 +9,5 @@ Debugger Visualizers for Boost based on this visualizers https://svn.boost.org/t
 * wxWidgets: wxPoint, wxSize, wxRect, wxDateTime, wxLongLong, wxString, wxArrayString, wxDir, wxFileName
 * TinyXML2: XMLNode, XMLElement, XMLAttribute
 * HRESULT for DirectX
+
+Please submit a request for support for new libraries and classes to this page https://github.com/KindDragon/CPPDebuggerVisualizers/issues
