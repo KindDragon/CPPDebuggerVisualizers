@@ -17,6 +17,7 @@
 #include <boost/any.hpp>
 #include <boost/optional.hpp>
 #include <boost/bimap.hpp>
+//#include <boost/date_time.hpp>
 
 class Data
 {
@@ -33,19 +34,9 @@ void mallocDeleter(Data*& ptr)
 	}
 }
 
-int main(int, char*[]) {
-	boost::dynamic_bitset<> x(5);
-	x[0] = 1;
-	x[1] = 1;
-	x[4] = 1;
-	boost::dynamic_bitset<unsigned long> y(std::move(x));
-	boost::dynamic_bitset<unsigned long> z;
-	z = std::move(y);
-	std::array<void*, 10> c;
-	boost::array<Data, 10> a;
-	a[0] = Data();
-	for(auto it = a.begin(); it!=a.end();it++)
-		(*it);
+
+void TestPointerContainerLibrary()
+{
 	boost::ptr_array<boost::nullable<Data>, 10> b;
 	b.replace(0, new Data());
 	for(auto it = b.begin(); it!=b.end();it++)
@@ -80,17 +71,25 @@ int main(int, char*[]) {
 	l.insert(new int(5));
 	for(auto it = l.begin(); it!=l.end();it++)
 		(*it);
+}
+
+void TestSmartPointers()
+{
 	boost::scoped_ptr<Data> ptr(new Data());
 	boost::scoped_array<Data> ptrAr(new Data[10]());
 	boost::shared_ptr<Data> shPtr(new Data());
 	boost::shared_ptr<Data> shPtrEx( new Data(), std::ptr_fun(mallocDeleter) );
 	boost::weak_ptr<Data> weakPtr(shPtr);
 	boost::shared_array<Data> shPtrAr(new Data[10]());
+}
+
+void TestVariantAnyOptional()
+{
 	boost::variant<int, std::string, Data> var("gdsg");
 	var = 4;
 	boost::variant<int, std::string, Data, bool> var2(false);
 	var2 = 4;
-	
+
 	typedef boost::make_recursive_variant<
 		int
 		, std::vector< boost::recursive_variant_ >
@@ -109,60 +108,113 @@ int main(int, char*[]) {
 	vartt = result;
 	boost::any valany = 4;
 	boost::optional<int> opt = 4;
+}
 
-	typedef boost::bimap< std::string, int > results_bimap;
-	typedef results_bimap::value_type position;
+/*void TestGregorian() 
+{
+	using namespace boost::gregorian;
+	date weekstart(2002,Feb,1);
+	date weekend  = weekstart + weeks(1);
+	date d1;
+	date d2 = d1 + days(5);
+	date today = day_clock::local_day();
+	if (d2 >= today) {} //date comparison operators 
 
-	results_bimap results;
-	auto itres = position("Argentina"    ,1);
-	results.insert( itres );
-	results.insert( position("Spain"        ,2) );
-	results.insert( position("Germany"      ,3) );
-	results.insert( position("France"       ,4) );
-	for(auto it = results.begin(); it!=results.end();it++)
-	{
+	date_period thisWeek(d1,d2);
+	if (thisWeek.contains(today)) {}//do something 
+
+	//iterate and print the week
+	day_iterator itr(weekstart);
+	while (itr <= weekend) {
+		std::cout << (*itr) << std::endl;
+		++itr;
+	}  
+	//input streaming 
+	std::stringstream ss("2004-Jan-1");
+	date d3;
+	ss >> d3;
+
+	//date generator functions 
+	//date d5 = next_weekday(d1, Sunday); //calculate Sunday following d1
+
+	//US labor day is first Monday in Sept 
+	typedef nth_day_of_the_week_in_month nth_dow;
+	nth_dow labor_day(nth_dow::first,Monday, Sep); 
+	//calculate a specific date for 2004 from functor 
+	date d6 = labor_day.get_date(2004); 
+}
+
+void TestPosixTime()
+{
+	using namespace boost::posix_time;
+	boost::gregorian::date d(2002,boost::date_time::Feb,1); //an arbitrary date 
+	ptime t1(d, hours(5)+microsec(100)); //date + time of day offset 
+	ptime t2 = t1 - minutes(4)+seconds(2);
+	ptime now = second_clock::local_time(); //use the clock 
+	boost::gregorian::date today = now.date(); //Get the date part out of the time 
+	boost::gregorian::date tomorrow = today + boost::gregorian::date_duration(1);
+	ptime tomorrow_start(tomorrow); //midnight 
+
+	//input streaming 
+	std::stringstream ss("2004-Jan-1 05:21:33.20");
+	ss >> t2;
+
+	//starting at current time iterator adds by one hour
+	time_iterator titr(now,hours(1)); 
+	for (; titr < tomorrow_start; ++titr) {
+		std::cout << (*titr) << std::endl;
+	}
+}
+
+void TestLocalTime()
+{
+	using namespace boost::local_time;
+	using namespace boost::date_time;
+	//setup some timezones for creating and adjusting times
+	//first time zone uses the time zone file for regional timezone definitions
+	tz_database tz_db;
+	tz_db.load_from_file("date_time_zonespec.csv");
+	time_zone_ptr nyc_tz = tz_db.time_zone_from_region("America/New_York");
+	//This timezone uses a posix time zone string definition to create a time zone
+	time_zone_ptr phx_tz(new posix_time_zone("MST-07:00:00"));
+
+	//local departure time in phoenix is 11 pm on April 2 2005 
+	// Note that New York changes to daylight savings on Apr 3 at 2 am)
+	local_date_time phx_departure(boost::gregorian::date(2005, Apr, 2), boost::posix_time::hours(23), phx_tz, 
+		local_date_time::NOT_DATE_TIME_ON_ERROR);
+
+	boost::posix_time::time_duration flight_length = boost::posix_time::hours(4) + boost::posix_time::minutes(30);
+	local_date_time phx_arrival = phx_departure + flight_length;
+	//convert the phx time to a nyz time
+	local_date_time nyc_arrival = phx_arrival.local_time_in(nyc_tz);
+
+	//2005-Apr-03 06:30:00 EDT
+	std::cout << nyc_arrival << std::endl;
+}*/
+
+int main(int, char*[]) {
+
+	boost::dynamic_bitset<> x(70);
+	x[0] = 1;
+	x[1] = 1;
+	x[4] = 1;
+
+	boost::array<Data, 10> a;
+	a[0] = Data();
+	for(auto it = a.begin(); it!=a.end();it++)
 		(*it);
-	}
-	auto fff = results.size();
-	auto ooooooo = results.right.at(1);
 
-	struct country  {};
-	struct place    {};
+	TestPointerContainerLibrary();
 
-	// Soccer World cup.
+	TestSmartPointers();
 
-	typedef boost::bimaps::bimap
-		<
-		boost::bimaps::tagged< std::string, country >,
-		boost::bimaps::tagged< int        , place   >
+	TestVariantAnyOptional();
 
-		> results_bimap2;
+	//TestGregorian();
 
-	typedef results_bimap2::value_type position2;
+	//TestPosixTime();
 
-	results_bimap2 results2;
-	results2.insert( position2("Argentina"    ,1) );
-	results2.insert( position2("Spain"        ,2) );
-	results2.insert( position2("Germany"      ,3) );
-	results2.insert( position2("France"       ,4) );
+	//TestLocalTime();
 
-	for( results_bimap2::map_by<place>::const_iterator
-		i    = results2.by<place>().begin(),
-		iend = results2.by<place>().end() ;
-	i != iend; ++i )
-	{
-		std::cout << i->get<place  >() << ") "
-			<< i->get<country>() << std::endl;
-	}
-
-	for( results_bimap2::map_by<country>::const_iterator
-		i    = results2.by<country>().begin(),
-		iend = results2.by<country>().end() ;
-	i != iend; ++i )
-	{
-		std::cout << i->get<country>() << " ends "
-			<< i->get<place  >() << "?"
-			<< std::endl;
-	}
 	return EXIT_SUCCESS;
 }

@@ -1,0 +1,14 @@
+Legend:
++ New
+* Changed
+! Fixed
+
+
+1.0.1 - 25.07.2012
+=========================
+* Boost visualizers divided to several files
+
+
+1.0.0 - 22.07.2012
+=========================
++ First release
