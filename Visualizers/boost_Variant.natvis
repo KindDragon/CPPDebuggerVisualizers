@@ -22,7 +22,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
     <Expand>
 		<Item Name="storage" Condition="(which_ ==  0) || (which_ ==  -1)">*($T1  *)&amp;(storage_.data_.buf)</Item>
@@ -30,7 +30,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
     <Expand>
@@ -40,7 +40,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -52,7 +52,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -66,7 +66,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -82,7 +82,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -100,7 +100,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -120,7 +120,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -142,7 +142,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -166,7 +166,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -192,7 +192,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -220,7 +220,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -250,7 +250,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -282,7 +282,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -316,7 +316,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -352,7 +352,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -390,7 +390,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -430,7 +430,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -472,7 +472,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
-    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>
@@ -516,6 +516,7 @@
 </Type>
 
 <Type Name="boost::variant&lt;*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;">
+    <AlternativeType Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;*&gt;,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*&gt;" />
 	<DisplayString Condition="(which_ ==  0) || (which_ ==  -1)">{*($T1  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  1) || (which_ ==  -2)">{*($T2  *)&amp;(storage_.data_.buf)}</DisplayString>
 	<DisplayString Condition="(which_ ==  2) || (which_ ==  -3)">{*($T3  *)&amp;(storage_.data_.buf)}</DisplayString>

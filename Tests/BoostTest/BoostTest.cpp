@@ -78,8 +78,8 @@ void TestSmartPointers()
 	boost::scoped_ptr<Data> ptr(new Data());
 	boost::scoped_array<Data> ptrAr(new Data[10]());
 	boost::shared_ptr<Data> shPtr(new Data());
-	boost::shared_ptr<Data> shPtrEx( new Data(), std::ptr_fun(mallocDeleter) );
 	boost::weak_ptr<Data> weakPtr(shPtr);
+	boost::shared_ptr<Data> shPtrEx( new Data(), std::ptr_fun(mallocDeleter) );
 	boost::shared_array<Data> shPtrAr(new Data[10]());
 }
 
