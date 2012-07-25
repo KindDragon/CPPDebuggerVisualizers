@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<!-- based on http://wxwidgets.blogspot.com/2009/12/better-display-of-wxtypes-in-msvs.html -->
 <Type Name="wxPoint">
     <DisplayString>{x},{y}</DisplayString>
     <Expand>
@@ -7,6 +8,7 @@
         <Item Name="y">y</Item>
     </Expand>
 </Type>
+
 <Type Name="wxSize">
     <DisplayString>{x}*{y}</DisplayString>
     <Expand>
@@ -14,6 +16,7 @@
         <Item Name="y">y</Item>
     </Expand>
 </Type>
+
 <Type Name="wxRect">
     <DisplayString>{x},{y} {width}*{height}</DisplayString>
     <Expand>
@@ -23,14 +26,17 @@
         <Item Name="height">height</Item>
     </Expand>
 </Type>
+
 <Type Name="wxDateTime">
     <DisplayString>{m_time.m_ll}ms</DisplayString>
     <Expand/>
 </Type>
+
 <Type Name="wxLongLong">
     <DisplayString>{m_ll}</DisplayString>
     <Expand/>
 </Type>
+
 <!--Universal wxString visualiser for wxWidgets 2.8 and 2.9-->
 <Type Name="wxString">
     <DisplayString>{*((wchar_t**)this),su}</DisplayString>
@@ -43,6 +49,7 @@
         <Item Name="[stringData]">*((wxStringData**)this) - 1</Item>
 	</Expand>
 </Type>
+
 <Type Name="wxArrayString">
     <DisplayString>[{m_nCount}]{_Bx._Buf,s}</DisplayString>
     <Expand>
@@ -55,6 +62,7 @@
         </ArrayItems>
 	</Expand>
 </Type>
+
 <Type Name="wxDir">
     <DisplayString Condition="m_data == 0">empty</DisplayString>
     <DisplayString Condition="m_data != 0">wxDir {*((wchar_t**)&amp;m_data-&lt;m_dirname),su}</DisplayString>
@@ -62,6 +70,7 @@
 		<Item Condition="m_data != 0" Name="[data]">m_data</Item> 
 	</Expand>
 </Type>
+
 <Type Name="wxFileName">
     <DisplayString>Volume {*((wchar_t**)&amp;m_volume),su}, Dirs {m_dirs}, Name {*((wchar_t**)&amp;m_name),su}, Ext {*((wchar_t**)&amp;m_ext),su}</DisplayString>
     <Expand/>

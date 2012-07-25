@@ -14,7 +14,7 @@
     </Expand>
 </Type>
 
-<Type Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;boost::detail::variant::over_sequence&lt;*&gt;">
+<Type Name="boost::variant&lt;boost::detail::variant::recursive_flag&lt;boost::detail::variant::over_sequence&lt;*&gt;&gt;&gt;">
     <Expand>
 		<Item Name="which_">which_</Item>
 		<Item Name="storage_">storage_</Item>

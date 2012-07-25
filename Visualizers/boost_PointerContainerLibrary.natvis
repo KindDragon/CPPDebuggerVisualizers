@@ -54,7 +54,7 @@
             <HeadPointer>c_._Myhead-&gt;_Parent</HeadPointer>
             <LeftPointer>_Left</LeftPointer>
             <RightPointer>_Right</RightPointer>
-            <ValueNode Condition="_Isnil == 0"><!--*(std::pair&lt;$T1 const, $T2*&gt;*)&amp;-->(_Myval)</ValueNode>
+            <ValueNode Condition="_Isnil == 0">*(std::pair&lt;$T1 const ,$T2 *&gt;*)&amp;(_Myval)</ValueNode>
         </TreeItems>
     </Expand>
 </Type>

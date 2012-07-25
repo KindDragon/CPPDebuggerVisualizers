@@ -1,5 +1,4 @@
 #include <iostream>
-#include <array>
 #include <boost/dynamic_bitset.hpp>
 #include <boost/ptr_container/ptr_array.hpp>
 #include <boost/ptr_container/ptr_vector.hpp>
@@ -17,6 +16,8 @@
 #include <boost/any.hpp>
 #include <boost/optional.hpp>
 #include <boost/bimap.hpp>
+#include <boost/unordered_map.hpp>
+#include <boost/unordered_set.hpp>
 //#include <boost/date_time.hpp>
 
 class Data
@@ -108,6 +109,26 @@ void TestVariantAnyOptional()
 	vartt = result;
 	boost::any valany = 4;
 	boost::optional<int> opt = 4;
+}
+
+void TestUnordered()
+{
+	boost::unordered_map<std::string, int> um;
+	um["hfh"] = 6;
+	um["jgfsjsf"] = 86;
+	boost::unordered_multimap<std::string, int> umm;
+	umm.insert(std::make_pair(std::string("sdhsh"), 73576));
+	umm.insert(std::make_pair(std::string("sdhsh"), 34578));
+	umm.insert(std::make_pair(std::string("jfsg"), 02));
+	auto p = *um.begin();
+	boost::unordered_set<int> us;
+	us.insert(5);
+	us.insert(6543765);
+	us.insert(468);
+	boost::unordered_multiset<int> uss;
+	uss.insert(63);
+	uss.insert(63);
+	uss.insert(8568);
 }
 
 /*void TestGregorian() 
@@ -209,6 +230,8 @@ int main(int, char*[]) {
 	TestSmartPointers();
 
 	TestVariantAnyOptional();
+
+	TestUnordered();
 
 	//TestGregorian();
 

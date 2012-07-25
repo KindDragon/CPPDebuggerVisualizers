@@ -3,13 +3,15 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.2 - 26.07.2012
+=========================
++ Boost Unordered containers support added
 
-1.0.1 - 26.07.2012
+1.0.1 - 25.07.2012
 =========================
 ! Visualizers for boost::shared_ptr and boost::weak_ptr fixed
 * Boost::Variant visualizer new implementation
 * Boost visualizers divided to several files
-
 
 1.0.0 - 22.07.2012
 =========================
