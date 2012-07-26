@@ -3,6 +3,11 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.3 - 23.07.2012
+=========================
++ Description for DirectX errors added
++ Visualizers for boost::ratio, boost::tuple, boost::chrono::duration added
+
 1.0.2 - 26.07.2012
 =========================
 + Boost Unordered containers support added

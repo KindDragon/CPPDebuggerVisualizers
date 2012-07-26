@@ -56,4 +56,19 @@
 <Type Name="boost::local_time::posix_time_zone_base&lt;*&gt;">
     <DisplayString>{zone_names_.std_zone_abbrev_}{(base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000}:{(base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000)-3600000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000))/60000000}:{((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000)-3600000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000))-60000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000) - 3600000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000))/60000000))/1000000}</DisplayString>
 </Type>
+
+<Type Name="boost::chrono::duration&lt;*,*&gt;">
+    <DisplayString>{rep_} {*(($T2*)0)}</DisplayString>
+    <Expand>
+        <Item Name="rep">rep_</Item>
+        <Item Name="ratio">*(($T2*)0)</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::chrono::time_point&lt;*&gt;">
+    <DisplayString>{d_}</DisplayString>
+    <Expand>
+        <ExpandedItem>d_</ExpandedItem>
+    </Expand>
+</Type>
 </AutoVisualizer>

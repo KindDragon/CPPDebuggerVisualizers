@@ -20,6 +20,7 @@
 #include <boost/unordered_set.hpp>
 #include <boost/date_time.hpp>
 #include <boost/logic/tribool.hpp>
+#include <boost/chrono.hpp>
 
 class Data
 {
@@ -225,6 +226,15 @@ int main(int, char*[]) {
 	boost::tribool b(true);
 	b = false;
 	b = boost::indeterminate;
+
+	boost::chrono::system_clock::time_point start = boost::chrono::system_clock::now();
+
+	for ( long i = 0; i < 10000000; ++i )
+		std::sqrt( 123.456L ); // burn some time
+
+	boost::chrono::duration<double, boost::giga> sec = boost::chrono::system_clock::now() - start;
+
+	auto tupl = boost::make_tuple(1, "terterwt", true);
 
 	TestPointerContainerLibrary();
 
