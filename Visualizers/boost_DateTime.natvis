@@ -30,4 +30,30 @@
 <Type Name="boost::posix_time::ptime">
     <DisplayString>{100*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097)+((4*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4))+3)/1461)-4800+(((5*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4)-(1461*((4*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4))+3)/1461))/4)+2)/153)/10)}-{((5*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4)-(1461*((4*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4))+3)/1461))/4)+2)/153)+3-12*(((5*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4)-(1461*((4*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4))+3)/1461))/4)+2)/153)/10)}-{((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4)-(1461*((4*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4))+3)/1461))/4)-((153*((5*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4)-(1461*((4*((time_.time_count_.value_/86400000000)+32044-((146097*((4*((time_.time_count_.value_/86400000000)+32044)+3)/146097))/4))+3)/1461))/4)+2)/153)+2)/5)+1}  {(time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000))/3600000000}h{(time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000)-3600000000*((time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000))/3600000000))/60000000}m{((time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000)-3600000000*((time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000))/3600000000))-60000000*((time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000) - 3600000000*((time_.time_count_.value_-86400000000*(time_.time_count_.value_/86400000000))/3600000000))/60000000))/1000000}s ({time_.time_count_.value_%1000000}us)</DisplayString>
 </Type>
+
+<Type Name="boost::date_time::period&lt;*&gt;">
+    <DisplayString>{begin_}/{last_}</DisplayString>
+    <Expand>
+        <Item Name="begin">begin_</Item>
+        <Item Name="last">last_</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::date_time::date_itr&lt;*&gt;">
+    <DisplayString>{current_}</DisplayString>
+    <Expand>
+        <ExpandedItem>current_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::date_time::time_itr&lt;*&gt;">
+    <DisplayString>{current_}</DisplayString>
+    <Expand>
+        <ExpandedItem>current_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::local_time::posix_time_zone_base&lt;*&gt;">
+    <DisplayString>{zone_names_.std_zone_abbrev_}{(base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000}:{(base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000)-3600000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000))/60000000}:{((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000)-3600000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000))-60000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000) - 3600000000*((base_utc_offset_.ticks_.value_-86400000000*(base_utc_offset_.ticks_.value_/86400000000))/3600000000))/60000000))/1000000}</DisplayString>
+</Type>
 </AutoVisualizer>

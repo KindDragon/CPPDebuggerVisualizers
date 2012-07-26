@@ -18,7 +18,8 @@
 #include <boost/bimap.hpp>
 #include <boost/unordered_map.hpp>
 #include <boost/unordered_set.hpp>
-//#include <boost/date_time.hpp>
+#include <boost/date_time.hpp>
+#include <boost/logic/tribool.hpp>
 
 class Data
 {
@@ -131,23 +132,22 @@ void TestUnordered()
 	uss.insert(8568);
 }
 
-/*void TestGregorian() 
+void TestGregorian() 
 {
 	using namespace boost::gregorian;
 	date weekstart(2002,Feb,1);
+	date_duration duration = weeks(1);
 	date weekend  = weekstart + weeks(1);
-	date d1;
+	date d1 = day_clock::local_day();
 	date d2 = d1 + days(5);
-	date today = day_clock::local_day();
-	if (d2 >= today) {} //date comparison operators 
+	if (d2 >= d1) {} //date comparison operators 
 
 	date_period thisWeek(d1,d2);
-	if (thisWeek.contains(today)) {}//do something 
+	if (thisWeek.contains(d1)) {}//do something 
 
 	//iterate and print the week
 	day_iterator itr(weekstart);
 	while (itr <= weekend) {
-		std::cout << (*itr) << std::endl;
 		++itr;
 	}  
 	//input streaming 
@@ -183,7 +183,6 @@ void TestPosixTime()
 	//starting at current time iterator adds by one hour
 	time_iterator titr(now,hours(1)); 
 	for (; titr < tomorrow_start; ++titr) {
-		std::cout << (*titr) << std::endl;
 	}
 }
 
@@ -194,9 +193,10 @@ void TestLocalTime()
 	//setup some timezones for creating and adjusting times
 	//first time zone uses the time zone file for regional timezone definitions
 	tz_database tz_db;
-	tz_db.load_from_file("date_time_zonespec.csv");
+	//tz_db.load_from_file("date_time_zonespec.csv");
 	time_zone_ptr nyc_tz = tz_db.time_zone_from_region("America/New_York");
 	//This timezone uses a posix time zone string definition to create a time zone
+	posix_time_zone timezone("MST-07:00:00");
 	time_zone_ptr phx_tz(new posix_time_zone("MST-07:00:00"));
 
 	//local departure time in phoenix is 11 pm on April 2 2005 
@@ -208,10 +208,7 @@ void TestLocalTime()
 	local_date_time phx_arrival = phx_departure + flight_length;
 	//convert the phx time to a nyz time
 	local_date_time nyc_arrival = phx_arrival.local_time_in(nyc_tz);
-
-	//2005-Apr-03 06:30:00 EDT
-	std::cout << nyc_arrival << std::endl;
-}*/
+}
 
 int main(int, char*[]) {
 
@@ -225,6 +222,10 @@ int main(int, char*[]) {
 	for(auto it = a.begin(); it!=a.end();it++)
 		(*it);
 
+	boost::tribool b(true);
+	b = false;
+	b = boost::indeterminate;
+
 	TestPointerContainerLibrary();
 
 	TestSmartPointers();
@@ -233,11 +234,11 @@ int main(int, char*[]) {
 
 	TestUnordered();
 
-	//TestGregorian();
+	TestGregorian();
 
-	//TestPosixTime();
+	TestPosixTime();
 
-	//TestLocalTime();
-
+	TestLocalTime();
+	
 	return EXIT_SUCCESS;
 }
