@@ -17,14 +17,16 @@
 	<Dependencies>
 	</Dependencies>
 	<Assets>
-		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\directx.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\TinyXML2.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\wxWidgets.natvis" />
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_DateTime.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_PointerContainerLibrary.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_SmartPointers.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Variant.natvis" />
 		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Unordered.natvis" />
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natstepfilter" />
+		<Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Containers.natvis" />
 	</Assets>
 </PackageManifest>

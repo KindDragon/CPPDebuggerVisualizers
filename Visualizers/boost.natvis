@@ -10,17 +10,6 @@
 	</Expand>
 </Type>
 
-<Type Name="boost::dynamic_bitset&lt;*&gt;">
-    <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
-    <Expand>
-        <Item Name="[bits]">m_num_bits</Item>
-        <IndexListItems>
-            <Size>m_num_bits</Size>
-            <ValueNode>(bool)((m_bits._Myfirst[$i / bits_per_block] &gt;&gt; ($i % bits_per_block)) &amp; 1)</ValueNode>
-        </IndexListItems>
-    </Expand>
-</Type>
-
 <Type Name="boost::logic::tribool">
     <DisplayString Condition="value == 1">true</DisplayString>
     <DisplayString Condition="value == 2">indeterminate</DisplayString>
@@ -28,25 +17,10 @@
     <Expand/>
 </Type>
 
-<!--Copyright William Buklis 2007. Use, modification and distribution are subject to-->
-<!--the Boost Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt-->
-<!--or copy at http://www.boost.org/LICENSE_1_0.txt)-->
-<!--@author   Bill Buklis-->
-<!--@email    bill at pbjzone dot com-->
-<Type Name="boost::array&lt;*,*&gt;">
-    <DisplayString>{{ size={(size_t) $T2} }}</DisplayString>
-    <Expand>
-        <ArrayItems>
-            <Size>$T2</Size>
-            <ValuePointer>elems</ValuePointer>
-        </ArrayItems>
-    </Expand>
-</Type>
-
 <Type Name="boost::any::holder&lt;*&gt;">
-    <DisplayString>{*($T1*)&amp;held}</DisplayString>
+    <DisplayString>{held}</DisplayString>
     <Expand>
-        <Item Name="[value]">*($T1*)&amp;held</Item>
+        <ExpandedItem>held</ExpandedItem>
     </Expand>
 </Type>
 
@@ -54,7 +28,7 @@
 	<DisplayString Condition="content == 0">empty</DisplayString>
 	<DisplayString Condition="content != 0">any {*content}</DisplayString>
     <Expand>
-		<Item Name="[holder]" Condition="content != 0">content</Item>
+		<Item Name="[holder]" Condition="content != 0">*content</Item>
     </Expand>
 </Type>
 
@@ -330,5 +304,9 @@
         <Item Name="[8]">tail.tail.tail.tail.tail.tail.tail.tail.tail.head</Item>
         <Item Name="[9]">tail.tail.tail.tail.tail.tail.tail.tail.tail.tail.head</Item>
     </Expand>
+</Type>
+
+<Type Name="boost::uuids::uuid">
+    <DisplayString>{*(_GUID*)this}</DisplayString>
 </Type>
 </AutoVisualizer>

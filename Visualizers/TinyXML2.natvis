@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 <Type Name="tinyxml2::StrPair">
-	<DisplayString>{start,s}</DisplayString>
+	<DisplayString>{start, [end-start]s}</DisplayString>
+    <StringView>start, [end-start]s</StringView>
 </Type>
 <Type Name="tinyxml2::XMLNode">
 	<DisplayString>{value}</DisplayString>
+    <StringView>value</StringView>
 	<Expand>
 		<LinkedListItems> 
 			<HeadPointer>firstChild</HeadPointer> 
@@ -14,7 +16,10 @@
 	</Expand>
 </Type>
 <Type Name="tinyxml2::XMLElement">
-	<DisplayString>[{closingType}] {value}</DisplayString>
+	<DisplayString Condition="closingType==1">[CLOSED] {value}</DisplayString>
+	<DisplayString Condition="closingType==2">[CLOSING] {value}</DisplayString>
+	<DisplayString>[OPEN] {value}</DisplayString>
+    <StringView>value</StringView>
 	<Expand>
 		<Item Name="attributes">rootAttribute</Item>
 		<LinkedListItems> 

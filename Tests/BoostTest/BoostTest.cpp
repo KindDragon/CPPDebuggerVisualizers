@@ -21,6 +21,18 @@
 #include <boost/date_time.hpp>
 #include <boost/logic/tribool.hpp>
 #include <boost/chrono.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/intrusive/slist.hpp>
+#include <boost/container/deque.hpp>
+#include <boost/container/flat_map.hpp>
+#include <boost/container/flat_set.hpp>
+#include <boost/container/list.hpp>
+#include <boost/container/map.hpp>
+#include <boost/container/set.hpp>
+#include <boost/container/slist.hpp>
+#include <boost/container/stable_vector.hpp>
+#include <boost/container/string.hpp>
+#include <boost/container/vector.hpp> 
 
 class Data
 {
@@ -110,6 +122,8 @@ void TestVariantAnyOptional()
 	int_tree_t vartt;
 	vartt = result;
 	boost::any valany = 4;
+	valany =  std::string("fdsfsd");
+	valany = true;
 	boost::optional<int> opt = 4;
 }
 
@@ -150,14 +164,7 @@ void TestGregorian()
 	day_iterator itr(weekstart);
 	while (itr <= weekend) {
 		++itr;
-	}  
-	//input streaming 
-	std::stringstream ss("2004-Jan-1");
-	date d3;
-	ss >> d3;
-
-	//date generator functions 
-	//date d5 = next_weekday(d1, Sunday); //calculate Sunday following d1
+	} 
 
 	//US labor day is first Monday in Sept 
 	typedef nth_day_of_the_week_in_month nth_dow;
@@ -176,10 +183,6 @@ void TestPosixTime()
 	boost::gregorian::date today = now.date(); //Get the date part out of the time 
 	boost::gregorian::date tomorrow = today + boost::gregorian::date_duration(1);
 	ptime tomorrow_start(tomorrow); //midnight 
-
-	//input streaming 
-	std::stringstream ss("2004-Jan-1 05:21:33.20");
-	ss >> t2;
 
 	//starting at current time iterator adds by one hour
 	time_iterator titr(now,hours(1)); 
@@ -211,8 +214,8 @@ void TestLocalTime()
 	local_date_time nyc_arrival = phx_arrival.local_time_in(nyc_tz);
 }
 
-int main(int, char*[]) {
-
+void TestContainers()
+{
 	boost::dynamic_bitset<> x(70);
 	x[0] = 1;
 	x[1] = 1;
@@ -223,6 +226,100 @@ int main(int, char*[]) {
 	for(auto it = a.begin(); it!=a.end();it++)
 		(*it);
 
+	using namespace boost::container;
+	deque<int> d;
+	d.push_back(100);
+	flat_map<int, int> fm;
+	fm.insert(std::make_pair(100, 1000));
+	flat_set<int> fs;
+	fs.insert(100);
+	list<int> l;
+	l.push_back(100);
+	auto it = l.cbegin();
+	for (; it != l.cend(); it++)
+	{
+		*it;
+	}
+	map<int, int> m;
+	m[100] = 1000;
+	set<int> s;
+	s.insert(100);
+	slist<int> sl;
+	sl.push_front(100);
+	basic_string<char> str("dsfsdf");
+	basic_string<char> str2("lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
+	vector<int> v;
+	v.push_back(100);
+	stable_vector<int> sv;
+	sv.push_back(100);
+}
+
+//This is a base hook
+class MyClass : public boost::intrusive::slist_base_hook<>
+{
+	int int_;
+
+public:
+	//This is a member hook
+	boost::intrusive::slist_member_hook<> member_hook_;
+
+	MyClass(int i)
+		:  int_(i)
+	{}
+};
+
+void TestIntrusive()
+{
+	using namespace boost::intrusive;
+
+	//Define an slist that will store MyClass using the public base hook
+	typedef slist<MyClass> BaseList;
+
+	//Define an slist that will store MyClass using the public member hook
+	typedef member_hook<MyClass, slist_member_hook<>, &MyClass::member_hook_> MemberOption;
+	typedef slist<MyClass, MemberOption> MemberList;
+
+	typedef std::vector<MyClass>::iterator VectIt;
+	typedef std::vector<MyClass>::reverse_iterator VectRit;
+
+	//Create several MyClass objects, each one with a different value
+	std::vector<MyClass> values;
+	for(int i = 0; i < 100; ++i)  values.push_back(MyClass(i));
+
+	BaseList baselist;
+	MemberList memberlist;
+
+	//Now insert them in the reverse order in the base hook list
+	for(VectIt it(values.begin()), itend(values.end()); it != itend; ++it)
+		baselist.push_front(*it);
+
+	//Now insert them in the same order as in vector in the member hook list
+	for(BaseList::iterator it(baselist.begin()), itend(baselist.end())
+		; it != itend; ++it){
+			memberlist.push_front(*it);
+	}
+
+	//Now test lists
+	{
+		BaseList::iterator bit(baselist.begin()), bitend(baselist.end());
+		MemberList::iterator mit(memberlist.begin()), mitend(memberlist.end());
+		VectRit rit(values.rbegin()), ritend(values.rend());
+		VectIt  it(values.begin()), itend(values.end());
+
+		//Test the objects inserted in the base hook list
+		for(; rit != ritend; ++rit, ++bit)
+			if(&*bit != &*rit)
+				break;
+
+		//Test the objects inserted in the member hook list
+		for(; it != itend; ++it, ++mit)
+			if(&*mit != &*it)  
+				break;
+	}
+}
+
+int main(int, char*[])
+{
 	boost::tribool b(true);
 	b = false;
 	b = boost::indeterminate;
@@ -232,9 +329,24 @@ int main(int, char*[]) {
 	for ( long i = 0; i < 10000000; ++i )
 		std::sqrt( 123.456L ); // burn some time
 
-	boost::chrono::duration<double, boost::giga> sec = boost::chrono::system_clock::now() - start;
+	boost::chrono::duration<double, boost::ratio<2,1>> sec = boost::chrono::system_clock::now() - start;
 
 	auto tupl = boost::make_tuple(1, "terterwt", true);
+
+	unsigned char uuid_data[16];
+	// fill uuid_data
+
+	boost::uuids::uuid u;
+
+	memcpy(&u, uuid_data, 16);
+
+	boost::uuids::uuid u2 =
+	{ 0x12 ,0x34, 0x56, 0x78
+	, 0x90, 0xab
+	, 0xcd, 0xef
+	, 0x12, 0x34
+	, 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef
+	};
 
 	TestPointerContainerLibrary();
 
@@ -249,6 +361,10 @@ int main(int, char*[]) {
 	TestPosixTime();
 
 	TestLocalTime();
+
+	TestContainers();
+
+	TestIntrusive();
 	
 	return EXIT_SUCCESS;
 }
