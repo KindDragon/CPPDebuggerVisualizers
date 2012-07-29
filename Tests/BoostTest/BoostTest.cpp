@@ -22,6 +22,7 @@
 #include <boost/logic/tribool.hpp>
 #include <boost/chrono.hpp>
 #include <boost/uuid/uuid.hpp>
+#include <boost/circular_buffer.hpp>
 #include <boost/intrusive/slist.hpp>
 #include <boost/container/deque.hpp>
 #include <boost/container/flat_map.hpp>
@@ -223,7 +224,16 @@ void TestContainers()
 
 	boost::array<Data, 10> a;
 	a[0] = Data();
-	for(auto it = a.begin(); it!=a.end();it++)
+
+	boost::circular_buffer<int> cb(3);
+
+	// Insert some elements into the buffer.
+	cb.push_back(1);
+	cb.push_back(2);
+	cb.push_back(3);
+	cb.push_back(4);
+
+	for(boost::circular_buffer<int>::const_iterator it = cb.begin(); it!=cb.end();it++)
 		(*it);
 
 	using namespace boost::container;

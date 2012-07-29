@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<Type Name="boost::circular_buffer&lt;*&gt;">
+    <DisplayString>{{ size={m_size} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_size</Item>
+        <Item Name="[capacity]">(size_t)(m_end - m_buff)</Item>
+        <IndexListItems>
+            <Size>m_size</Size>
+            <ValueNode>*(m_first + ($i &lt; (m_end - m_first) ? $i : $i - (size_t)(m_end - m_buff)))</ValueNode>
+        </IndexListItems>
+    </Expand>
+</Type>
+
+<Type Name="boost::cb_details::iterator&lt;*&gt;">
+    <DisplayString>{*m_it}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">m_it</Item>
+    </Expand>
+</Type>
+
 <Type Name="boost::dynamic_bitset&lt;*&gt;">
     <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
     <Expand>

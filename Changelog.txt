@@ -6,7 +6,7 @@ Legend:
 1.0.4 - 29.07.2012
 =========================
 ! TinyXML2 string handling improved
-+ Visualizers for boost::uuid, boost::container::basic_string, boost::container::deque, boost::container::vector added
++ Visualizers for boost::uuid, boost::circular_buffer, boost::container::basic_string, boost::container::deque, boost::container::vector added
 + Disabled step into boost::forward, boost::move and boost::addressof functions
 
 1.0.3 - 23.07.2012
