@@ -225,6 +225,7 @@ void TestContainers()
 	boost::array<Data, 10> a;
 	a[0] = Data();
 
+	auto r = boost::addressof(a);
 	boost::circular_buffer<int> cb(3);
 
 	// Insert some elements into the buffer.

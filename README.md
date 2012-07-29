@@ -19,6 +19,7 @@ Debugger Visualizers for Boost based on this visualizers https://svn.boost.org/t
     * boost::unique_lock
     * boost::uuids::uuid
 * wxWidgets library: wxPoint, wxSize, wxRect, wxDateTime, wxLongLong, wxString, wxArrayString, wxDir, wxFileName
+* TinyXML library: TiXmlNode, TiXmlElement, TiXmlAttribute
 * TinyXML2 library: XMLNode, XMLElement, XMLAttribute
 * HRESULT for DirectX
 

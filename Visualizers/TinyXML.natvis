@@ -2,11 +2,24 @@
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 <Type Name="TiXmlNode">
     <DisplayString>[{type}] {value}</DisplayString>
+    <StringView>value</StringView>
     <Expand>
         <LinkedListItems>
             <HeadPointer>firstChild</HeadPointer>
             <NextPointer>next</NextPointer>
-            <ValueNode>_Myval</ValueNode>
+            <ValueNode>*this</ValueNode>
+        </LinkedListItems>
+	</Expand>
+</Type>
+<Type Name="TiXmlElement">
+    <DisplayString>[{type}] {value}</DisplayString>
+    <StringView>value</StringView>
+    <Expand>
+        <Item Name="[attributes]">attributeSet</Item>
+        <LinkedListItems>
+            <HeadPointer>firstChild</HeadPointer>
+            <NextPointer>next</NextPointer>
+            <ValueNode>*this</ValueNode>
         </LinkedListItems>
 	</Expand>
 </Type>
@@ -15,12 +28,12 @@
     <Expand/>
 </Type>
 <Type Name="TiXmlAttributeSet">
-    <DisplayString>{sentinel}</DisplayString>
+    <DisplayString></DisplayString>
     <Expand>
         <LinkedListItems>
             <HeadPointer>sentinel.next</HeadPointer>
             <NextPointer>next</NextPointer>
-            <ValueNode>_Myval</ValueNode>
+            <ValueNode>this</ValueNode>
         </LinkedListItems>
 	</Expand>
 </Type>

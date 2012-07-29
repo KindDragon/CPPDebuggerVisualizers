@@ -3,6 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.5 - 29.07.2012
+=========================
++ TinyXML visualizers added
+
 1.0.4 - 29.07.2012
 =========================
 ! TinyXML2 string handling improved
