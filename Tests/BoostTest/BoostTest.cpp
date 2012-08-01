@@ -23,6 +23,7 @@
 #include <boost/chrono.hpp>
 #include <boost/uuid/uuid.hpp>
 #include <boost/circular_buffer.hpp>
+#include <boost/filesystem.hpp>
 #include <boost/intrusive/slist.hpp>
 #include <boost/container/deque.hpp>
 #include <boost/container/flat_map.hpp>
@@ -329,8 +330,18 @@ void TestIntrusive()
 	}
 }
 
-int main(int, char*[])
+int main(int argc, const char* argv[])
 {
+	boost::filesystem::path p (argv[0]);   // p reads clearer than argv[1] in the following code
+
+	boost::filesystem::file_status status;
+	if (boost::filesystem::exists(p))    // does p actually exist?
+	{
+		boost::filesystem::directory_iterator dit;
+		dit = boost::filesystem::directory_iterator(p.parent_path());
+		dit;
+	}
+
 	boost::tribool b(true);
 	b = false;
 	b = boost::indeterminate;

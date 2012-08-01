@@ -6,6 +6,7 @@ Legend:
 1.0.5 - 29.07.2012
 =========================
 + TinyXML visualizers added
++ Visualizers for boost::filesystem::path, boost::filesystem::directory_entry, boost::filesystem::file_status added
 
 1.0.4 - 29.07.2012
 =========================

@@ -12,6 +12,7 @@ Debugger Visualizers for Boost based on this visualizers https://svn.boost.org/t
     * boost::unordered_map, boost::unordered_set, boost::unordered_multimap, boost::unordered_multiset
     * boost::container::basic_string, boost::container::deque, boost::container::vector
     * boost::optional, boost::any, boost::variant
+    * boost::filesystem::path, boost::filesystem::directory_entry, boost::filesystem::file_status
     * boost::posix_time::ptime, boost::posix_time::time_duration
     * boost::regex
     * boost::interprocess::offset_ptr

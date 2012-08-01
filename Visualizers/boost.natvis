@@ -10,6 +10,34 @@
 	</Expand>
 </Type>
 
+<Type Name="boost::filesystem::path">
+    <DisplayString>path={m_pathname}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_pathname</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::filesystem::file_status">
+    <DisplayString>type="{m_value}" permissions="{m_perms}"</DisplayString>
+    <Expand>
+        <Item Name="type">m_value</Item>
+        <Item Name="permissions">m_perms</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::filesystem::directory_entry">
+    <DisplayString Condition="m_status.m_value == m_symlink_status.m_value &amp;&amp; m_status.m_perms == m_symlink_status.m_perms">{m_path} status=({m_status})</DisplayString>
+    <DisplayString>{m_path} status=({m_status}) symlink_status=({m_symlink_status})</DisplayString>
+</Type>
+
+<Type Name="boost::filesystem::directory_iterator">
+    <DisplayString Condition="m_imp.px == 0">empty</DisplayString>
+    <DisplayString>{m_imp.px-&gt;dir_entry}</DisplayString>
+    <Expand>
+        <ExpandedItem Condition="m_imp.px != 0">m_imp.px-&gt;dir_entry</ExpandedItem>
+    </Expand>
+</Type>
+
 <Type Name="boost::logic::tribool">
     <DisplayString Condition="value == 1">true</DisplayString>
     <DisplayString Condition="value == 2">indeterminate</DisplayString>
