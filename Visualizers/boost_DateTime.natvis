@@ -17,8 +17,8 @@
 </Type>
 
 <Type Name="boost::gregorian::date_duration">
-	<DisplayString Condition="days_.value_ == 1">{days_.value_} day</DisplayString>
-	<DisplayString Condition="days_.value_ != 1">{days_.value_} days</DisplayString>
+    <DisplayString Condition="days_.value_ == 1">{days_.value_} day</DisplayString>
+    <DisplayString Condition="days_.value_ != 1">{days_.value_} days</DisplayString>
 </Type>
 
 <!--only works with microseconds resolution-->

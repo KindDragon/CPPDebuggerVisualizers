@@ -9,7 +9,7 @@
             <NextPointer>next</NextPointer>
             <ValueNode>*this</ValueNode>
         </LinkedListItems>
-	</Expand>
+    </Expand>
 </Type>
 <Type Name="TiXmlElement">
     <DisplayString>[{type}] {value}</DisplayString>
@@ -21,7 +21,7 @@
             <NextPointer>next</NextPointer>
             <ValueNode>*this</ValueNode>
         </LinkedListItems>
-	</Expand>
+    </Expand>
 </Type>
 <Type Name="TiXmlAttribute">
     <DisplayString>{name} = {value}</DisplayString>
@@ -35,7 +35,7 @@
             <NextPointer>next</NextPointer>
             <ValueNode>this</ValueNode>
         </LinkedListItems>
-	</Expand>
+    </Expand>
 </Type>
 <Type Name="TiXmlString">
     <DisplayString>[{rep_-&lt;size}] {rep_-&lt;str,s}</DisplayString>

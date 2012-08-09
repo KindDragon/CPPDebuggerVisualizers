@@ -256,8 +256,8 @@
         <HRValue>0x88760884</HRValue>
         <HRDescription>The present statistics have no orderly sequence. Direct3D 9Ex under Windows 7 only.</HRDescription>
     </HResult>
-	
-    <!--D3D10-->	
+    
+    <!--D3D10-->    
     <HResult Name="D3D10_ERROR_FILE_NOT_FOUND">
         <HRValue>0x88790002</HRValue>
         <HRDescription>The file was not found.</HRDescription>
@@ -266,8 +266,8 @@
         <HRValue>0x88790001</HRValue>
         <HRDescription>There are too many unique instances of a particular type of state object.</HRDescription>
     </HResult>
-	
-    <!--D3D11-->	
+    
+    <!--D3D11-->    
     <HResult Name="D3D11_ERROR_FILE_NOT_FOUND">
         <HRValue>0x887c0002</HRValue>
         <HRDescription>The file was not found.</HRDescription>
@@ -284,7 +284,7 @@
         <HRValue>0x887c0004</HRValue>
         <HRDescription>The first call to ID3D11DeviceContext::Map after either ID3D11Device::CreateDeferredContext or ID3D11DeviceContext::FinishCommandList per Resource was not D3D11_MAP_WRITE_DISCARD.</HRDescription>
     </HResult>
-	
+    
     <!--DDraw-->
     <HResult Name="DDERR_ALREADYINITIALIZED">
         <HRValue>2289434629</HRValue>

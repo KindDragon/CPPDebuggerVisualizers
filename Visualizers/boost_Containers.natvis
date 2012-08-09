@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
 <Type Name="boost::circular_buffer&lt;*&gt;">
     <DisplayString>{{ size={m_size} }}</DisplayString>
     <Expand>
@@ -90,17 +91,17 @@
 
 <Type Name="boost::container::deque&lt;*&gt;">
     <DisplayString>{{ size={(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * 
-		(members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
-		(members_.m_start.m_last - members_.m_start.m_cur)} }}</DisplayString>
+        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
+        (members_.m_start.m_last - members_.m_start.m_cur)} }}</DisplayString>
     <Expand>
         <Item Name="[size]">(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * 
-		(members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
-		(members_.m_start.m_last - members_.m_start.m_cur)</Item>
+        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
+        (members_.m_start.m_last - members_.m_start.m_cur)</Item>
         <Item Name="[buffer_size]">sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)</Item>
         <IndexListItems>
             <Size>(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * 
-			(members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
-			(members_.m_start.m_last - members_.m_start.m_cur)</Size>
+            (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
+            (members_.m_start.m_last - members_.m_start.m_cur)</Size>
             <ValueNode>members_.m_start.m_node[(($i + (members_.m_start.m_cur - members_.m_start.m_first)) / (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)))][($i + (members_.m_start.m_cur - members_.m_start.m_first)) % (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1))]</ValueNode>
         </IndexListItems>
     </Expand>
@@ -138,6 +139,47 @@
     </Expand>
 </Type>
 
+<Type Name="boost::intrusive::list_impl&lt;*&gt;">
+    <DisplayString Condition="_Myhead == 0">empty</DisplayString>
+    <DisplayString Condition="_Myhead != 0">non-empty</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <HeadPointer>members_.m_icont</HeadPointer>
+            <NextPointer>_Next</NextPointer>
+            <ValueNode>_Myval</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<Type Name="boost::intrusive::list_iterator&lt;*&gt;::members">
+    <DisplayString>{m_data}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">m_data</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::container::list&lt;*&gt;">
+    <DisplayString>{{ size={_Mysize} }}</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <Size>_Mysize</Size>
+            <HeadPointer>_Myhead-&gt;_Next</HeadPointer>
+            <NextPointer>_Next</NextPointer>
+            <ValueNode>_Myval</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<!-- !!! -->
+<Type Name="boost::container::_List_iterator&lt;*&gt;">
+    <AlternativeType Name="boost::container::_List_const_iterator&lt;*&gt;" />
+    <DisplayString>{_Ptr-&gt;_Myval}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">&amp;_Ptr-&gt;_Myval</Item>
+    </Expand>
+</Type>
+
+
 <Type Name="boost::container::vector&lt;*&gt;::members_holder">
     <DisplayString>{{ size={members_.m_size} }}</DisplayString>
     <Expand>
@@ -155,6 +197,33 @@
     <DisplayString>{*m_ptr}</DisplayString>
     <Expand>
         <Item Name="[ptr]">m_ptr</Item>
+    </Expand>
+</Type>
+
+
+<!-- !!! -->
+<Type Name="boost::container::map&lt;*&gt;">
+    <AlternativeType Name="boost::container::multimap&lt;*&gt;" />
+    <AlternativeType Name="boost::container::set&lt;*&gt;" />
+    <AlternativeType Name="boost::container::multiset&lt;*&gt;" />
+    <DisplayString>{{ size={_Mysize} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <Size>_Mysize</Size>
+            <HeadPointer>_Myhead-&gt;_Parent</HeadPointer>
+            <LeftPointer>_Left</LeftPointer>
+            <RightPointer>_Right</RightPointer>
+            <ValueNode Condition="_Isnil == 0">_Myval</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- !!! -->
+<Type Name="boost::container::_Tree_iterator&lt;*&gt;">
+    <AlternativeType Name="boost::container::_Tree_const_iterator&lt;*&gt;" />
+    <DisplayString>{_Ptr-&gt;_Myval}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">&amp;_Ptr-&gt;_Myval</Item>
     </Expand>
 </Type>
 </AutoVisualizer>

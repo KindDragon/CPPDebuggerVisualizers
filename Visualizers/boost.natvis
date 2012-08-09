@@ -7,7 +7,7 @@
     <Expand>
         <Item Name="[edges]">m_edges</Item>
         <Item Name="[vertices]">m_vertices</Item>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="boost::filesystem::path">
@@ -53,10 +53,10 @@
 </Type>
 
 <Type Name="boost::any">
-	<DisplayString Condition="content == 0">empty</DisplayString>
-	<DisplayString Condition="content != 0">any {*content}</DisplayString>
+    <DisplayString Condition="content == 0">empty</DisplayString>
+    <DisplayString Condition="content != 0">any {*content}</DisplayString>
     <Expand>
-		<Item Name="[holder]" Condition="content != 0">*content</Item>
+        <Item Name="[holder]" Condition="content != 0">*content</Item>
     </Expand>
 </Type>
 
@@ -72,10 +72,11 @@
 <!--All of the following text must be placed in the autoexp.dat file.-->
 <!--Usage is automatic. No extra code is required.-->
 <Type Name="boost::optional&lt;*&gt;">
-	<DisplayString Condition="!m_initialized">empty</DisplayString>
-	<DisplayString Condition="m_initialized">{*(($T1 *)m_storage.dummy_.data)}</DisplayString>
+    <AlternativeType Name="boost::optional_detail::optional_base&lt;*&gt;" />
+    <DisplayString Condition="!m_initialized">empty</DisplayString>
+    <DisplayString Condition="m_initialized">{*(($T1 *)m_storage.dummy_.data)}</DisplayString>
     <Expand>
-		<Item Name="value" Condition="m_initialized">*(($T1 *)m_storage.dummy_.data)</Item>
+        <Item Name="value" Condition="m_initialized">*(($T1 *)m_storage.dummy_.data)</Item>
     </Expand>
 </Type>
 
@@ -87,39 +88,39 @@
 <!--@email    filip dot konvicka at logis dot cz-->
 <!--Usage-->
 <Type Name="boost::interprocess::offset_ptr&lt;*&gt;">
-	<DisplayString Condition="m_offset == 1">null</DisplayString>
-	<DisplayString Condition="m_offset != 1">non-null</DisplayString>
+    <DisplayString Condition="m_offset == 1">null</DisplayString>
+    <DisplayString Condition="m_offset != 1">non-null</DisplayString>
     <DisplayString>#if(m_offset==1) (#("null")) #else (#("non-null"))</DisplayString>
     <Expand>
-		<Item Name="[ptr]" Condition="m_offset != 1">($T1*)(((char*)(void*)this)+m_offset)</Item>
+        <Item Name="[ptr]" Condition="m_offset != 1">($T1*)(((char*)(void*)this)+m_offset)</Item>
     </Expand>
 </Type>
 
 <!--boost::basic_regex from <regex>-->
 <Type Name="boost::basic_regex&lt;char,*&gt;">
-	<DisplayString Condition="m_pimpl.px == 0">empty</DisplayString>
-	<DisplayString Condition="m_pimpl.px != 0">regex {m_pimpl.px-&lt;m_expression,s}</DisplayString>
-	<StringView Condition="m_pimpl.px != 0">m_pimpl.px-&lt;m_expression,s</StringView>
+    <DisplayString Condition="m_pimpl.px == 0">empty</DisplayString>
+    <DisplayString Condition="m_pimpl.px != 0">regex {m_pimpl.px-&lt;m_expression,s}</DisplayString>
+    <StringView Condition="m_pimpl.px != 0">m_pimpl.px-&lt;m_expression,s</StringView>
     <Expand>
-		<Item Name="[ptr]" Condition="m_pimpl.px != 0">*(m_pimpl.px)</Item>
+        <Item Name="[ptr]" Condition="m_pimpl.px != 0">*(m_pimpl.px)</Item>
     </Expand>
 </Type>
 
 <Type Name="boost::basic_regex&lt;wchar_t,*&gt;">
-	<DisplayString Condition="m_pimpl.px == 0">empty</DisplayString>
-	<DisplayString Condition="m_pimpl.px != 0">regex {m_pimpl.px-&lt;m_expression,su}</DisplayString>
-	<StringView Condition="m_pimpl.px != 0">m_pimpl.px-&lt;m_expression,su</StringView>
+    <DisplayString Condition="m_pimpl.px == 0">empty</DisplayString>
+    <DisplayString Condition="m_pimpl.px != 0">regex {m_pimpl.px-&lt;m_expression,su}</DisplayString>
+    <StringView Condition="m_pimpl.px != 0">m_pimpl.px-&lt;m_expression,su</StringView>
     <Expand>
-		<Item Name="[ptr]" Condition="m_pimpl.px != 0">*(m_pimpl.px)</Item>
+        <Item Name="[ptr]" Condition="m_pimpl.px != 0">*(m_pimpl.px)</Item>
     </Expand>
 </Type>
 
 <!--boost::mutex::scoped_lock and boost::mutex::scoped_try_lock-->
 <Type Name="boost::unique_lock&lt;*&gt;">
-	<DisplayString Condition="is_locked">locked</DisplayString>
-	<DisplayString Condition="!is_locked">not locked</DisplayString>
+    <DisplayString Condition="is_locked">locked</DisplayString>
+    <DisplayString Condition="!is_locked">not locked</DisplayString>
     <Expand>
-		<Item Name="mutex">m</Item>
+        <Item Name="mutex">m</Item>
     </Expand>
 </Type>
 

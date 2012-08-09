@@ -22,7 +22,7 @@
 </Type>
 
 <Type Name="boost::detail::sp_counted_impl_pd&lt;*&gt;">
-	<!-- make_shared -->
+    <!-- make_shared -->
     <DisplayString>custom deleter</DisplayString>
     <Expand>
         <Item Name="[deleter]">del</Item>

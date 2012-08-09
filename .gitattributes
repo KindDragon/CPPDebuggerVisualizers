@@ -1,0 +1,3 @@
+*.natvis            eol=lf
+*.natstepfilter     eol=lf
+*.xml               eol=lf

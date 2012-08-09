@@ -47,7 +47,7 @@
         <Item Name="[capacity]">(*((wxStringData**)this) - 1)-&lt;nAllocLength</Item>
         <Item Name="[refs]">(*((wxStringData**)this) - 1)-&lt;nRefs</Item>
         <Item Name="[stringData]">*((wxStringData**)this) - 1</Item>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="wxArrayString">
@@ -60,15 +60,15 @@
             <Size>m_nSize</Size>
             <ValuePointer>m_pItems</ValuePointer>
         </ArrayItems>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="wxDir">
     <DisplayString Condition="m_data == 0">empty</DisplayString>
     <DisplayString Condition="m_data != 0">wxDir {*((wchar_t**)&amp;m_data-&lt;m_dirname),su}</DisplayString>
     <Expand>
-		<Item Condition="m_data != 0" Name="[data]">m_data</Item> 
-	</Expand>
+        <Item Condition="m_data != 0" Name="[data]">m_data</Item> 
+    </Expand>
 </Type>
 
 <Type Name="wxFileName">

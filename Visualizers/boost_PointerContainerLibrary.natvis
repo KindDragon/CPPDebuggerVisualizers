@@ -21,11 +21,11 @@
     <DisplayString>{($T1*)(*iter_)}</DisplayString>
     <Expand>
         <Item Name="[ptr]">($T1*)(*iter_)</Item>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="boost::ptr_vector&lt;*,*&gt;">
-	<AlternativeType Name="boost::ptr_vector&lt;boost::nullable&lt;*&gt;,*&gt;" />
+    <AlternativeType Name="boost::ptr_vector&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mylast - c_._Myfirst} }}</DisplayString>
     <Expand>
         <Item Name="[size]">c_._Mylast - c_._Myfirst</Item>
@@ -42,7 +42,7 @@
     <DisplayString>{($T2*)(*iter_._Ptr)}</DisplayString>
     <Expand>
         <Item Name="[ptr]">($T2*)(*iter_._Ptr)</Item>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="boost::ptr_map&lt;*,*&gt;">
@@ -86,11 +86,11 @@
     <DisplayString>{($T2*)(iter_._Ptr-&gt;_Myval)}</DisplayString>
     <Expand>
         <Item Name="[ptr]">($T2*)(iter_._Ptr-&gt;_Myval)</Item>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="boost::ptr_list&lt;*&gt;">
-	<AlternativeType Name="boost::ptr_list&lt;boost::nullable&lt;*&gt;,*&gt;" />
+    <AlternativeType Name="boost::ptr_list&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -107,11 +107,11 @@
     <DisplayString>{($T2*)(iter_._Ptr-&gt;_Myval)}</DisplayString>
     <Expand>
         <Item Name="[ptr]">($T2*)(iter_._Ptr-&gt;_Myval)</Item>
-	</Expand>
+    </Expand>
 </Type>
 
 <Type Name="boost::ptr_deque&lt;*&gt;">
-	<AlternativeType Name="boost::ptr_deque&lt;boost::nullable&lt;*&gt;,*&gt;" />
+    <AlternativeType Name="boost::ptr_deque&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
         <IndexListItems>
