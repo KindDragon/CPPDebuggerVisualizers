@@ -3,6 +3,11 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.6 - 10.08.2012
+=========================
++ Visualizers for boost::geometry added (thanks to Mateusz Loskot)
+! wxWidgets visualizers fixed
+
 1.0.5 - 29.07.2012
 =========================
 + TinyXML visualizers added
