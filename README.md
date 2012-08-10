@@ -3,7 +3,8 @@ C++ Debugger Visualizers
 
 C++ Debugger Visualizers for Boost, wxWidgets, TinyXML2.
 
-Debugger Visualizers for Boost based on this visualizers https://svn.boost.org/trac/boost/wiki/DebuggerVisualizers
+Debugger Visualizers for Boost based on [visualizers for VS2010](https://svn.boost.org/trac/boost/wiki/DebuggerVisualizers) and 
+Microsoft [boost::shared_ptr visualizer](http://archive.msdn.microsoft.com/boostsharedptrvis)
 
 * [Boost library](http://www.boost.org/)
     * boost::shared_ptr, boost::weak_ptr, boost::intrusive_ptr, boost::shared_array, boost::scoped_ptr, boost::scoped_array 
