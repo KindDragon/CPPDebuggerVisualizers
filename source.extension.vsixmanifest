@@ -7,6 +7,8 @@
 		<MoreInfo>https://github.com/KindDragon/CPPDebuggerVisualizers</MoreInfo>
 		<License>LICENSE_1_0.txt</License>
 		<ReleaseNotes>Changelog.txt</ReleaseNotes>
+		<Icon>cppVisualizerIcon.png</Icon>
+		<PreviewImage>cppVisualizerScreenshot.png</PreviewImage>
 		<Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
 	</Metadata>
 	<Installation>
