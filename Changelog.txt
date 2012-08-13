@@ -3,6 +3,12 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.7 - 14.08.2012
+=========================
++ Visualizers for wxVector, wxList, wxArrayShort, wxArrayInt, wxArrayDouble, 
+  wxArrayLong, wxArrayPtrVoid added
+! wxArrayString visualizer fixed
+
 1.0.6 - 10.08.2012
 =========================
 + Visualizers for boost::geometry added (thanks to Mateusz Loskot)
@@ -11,12 +17,14 @@ Legend:
 1.0.5 - 29.07.2012
 =========================
 + TinyXML visualizers added
-+ Visualizers for boost::filesystem::path, boost::filesystem::directory_entry, boost::filesystem::file_status added
++ Visualizers for boost::filesystem::path, boost::filesystem::directory_entry, 
+  boost::filesystem::file_status added
 
 1.0.4 - 29.07.2012
 =========================
 ! TinyXML2 string handling improved
-+ Visualizers for boost::uuid, boost::circular_buffer, boost::container::basic_string, boost::container::deque, boost::container::vector added
++ Visualizers for boost::uuid, boost::circular_buffer, 
+  boost::container::basic_string, boost::container::deque, boost::container::vector added
 + Disabled step into boost::forward, boost::move and boost::addressof functions
 
 1.0.3 - 23.07.2012

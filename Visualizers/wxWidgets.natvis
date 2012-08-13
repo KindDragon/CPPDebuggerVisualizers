@@ -63,6 +63,46 @@
     </Expand>
 </Type>
 
+<Type Name="wxBaseArrayShort">
+    <AlternativeType Name="wxBaseArrayInt" />
+    <AlternativeType Name="wxBaseArrayDouble" />
+    <AlternativeType Name="wxBaseArrayLong" />
+    <AlternativeType Name="wxBaseArrayPtrVoid" />
+    <DisplayString>{{ size={m_nCount} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_nCount</Item>
+        <Item Name="[capacity]">m_nSize</Item>
+        <ArrayItems>
+            <Size>m_nCount</Size>
+            <ValuePointer>m_pItems</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="wxListBase">
+    <DisplayString>{{ size={m_count} }}</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <Size>m_count</Size>
+            <HeadPointer>m_nodeFirst</HeadPointer>
+            <NextPointer>m_next</NextPointer>
+            <ValueNode>m_data</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<Type Name="wxVectorBase">
+    <DisplayString>{{ size={m_size} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_size</Item>
+        <Item Name="[capacity]">m_capacity</Item>
+        <ArrayItems>
+            <Size>m_size</Size>
+            <ValuePointer>m_objects</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
 <Type Name="wxDir">
     <DisplayString Condition="m_data == 0">empty</DisplayString>
     <DisplayString Condition="m_data != 0">wxDir {*((wchar_t**)&amp;m_data-&gt;m_dirname),su}</DisplayString>
