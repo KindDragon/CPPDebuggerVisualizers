@@ -51,13 +51,13 @@
 </Type>
 
 <Type Name="wxArrayString">
-    <DisplayString>[{m_nCount}]{_Bx._Buf,s}</DisplayString>
+    <DisplayString>{{ size={m_nCount} }}</DisplayString>
     <Expand>
-        <Item Name="[str]">m_nSize</Item>
-        <Item Name="[count]">m_nCount</Item>
+        <Item Name="[size]">m_nCount</Item>
+        <Item Name="[capacity]">m_nSize</Item>
         <Item Name="[autoSort]">m_autoSort</Item>
         <ArrayItems>
-            <Size>m_nSize</Size>
+            <Size>m_nCount</Size>
             <ValuePointer>m_pItems</ValuePointer>
         </ArrayItems>
     </Expand>
