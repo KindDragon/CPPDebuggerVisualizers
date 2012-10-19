@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
-		<Identity Id="CPPDebuggerVisualizers..e72aa83c-bb6f-4910-8e9f-793052cd112a" Version="1.0.7" Language="en-US" Publisher="Arkadiy Shapkin" />
+		<Identity Id="CPPDebuggerVisualizers..e72aa83c-bb6f-4910-8e9f-793052cd112a" Version="1.0.8" Language="en-US" Publisher="Arkadiy Shapkin" />
 		<DisplayName>C++ Debugger Visualizers</DisplayName>
 		<Description>C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
-		<MoreInfo>https://github.com/KindDragon/CPPDebuggerVisualizers</MoreInfo>
+		<MoreInfo>https://cppvisualizers.codeplex.com/</MoreInfo>
 		<License>LICENSE_1_0.txt</License>
 		<ReleaseNotes>Changelog.txt</ReleaseNotes>
 		<Icon>cppVisualizerIcon.png</Icon>

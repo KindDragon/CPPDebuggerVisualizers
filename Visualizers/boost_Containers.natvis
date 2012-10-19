@@ -139,22 +139,37 @@
     </Expand>
 </Type>
 
-<Type Name="boost::intrusive::list_impl&lt;*&gt;">
-    <DisplayString Condition="_Myhead == 0">empty</DisplayString>
-    <DisplayString Condition="_Myhead != 0">non-empty</DisplayString>
+<!--BOOST_VISUALIZER_START boost::intrusive::list-->
+
+<!--Copyright Boris [monade] 2010. Use, modification and distribution are subject-->
+<!--to the Boost Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt-->
+<!--or copy at http://www.boost.org/LICENSE_1_0.txt)-->
+
+<!--@guid     CF808B30-3031-11DE-8C30-0800200C9B66-->
+<!--@platform msvc-8, msvc-9, msvc-10-->
+<!--@version  1.0-->
+<!--@author   Boris [monade]-->
+<!--@email    monade at gmail dot com-->
+
+<!-- work only with base hook -->
+<Type Name="boost::intrusive::list&lt;*,*&gt;">
+    <AlternativeType Name="boost::intrusive::slist&lt;*,*&gt;" />
+    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
-            <HeadPointer>members_.m_icont</HeadPointer>
-            <NextPointer>_Next</NextPointer>
-            <ValueNode>_Myval</ValueNode>
+            <Size>data_.root_plus_size_.size_</Size> 
+            <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
+            <NextPointer>next_</NextPointer>
+            <ValueNode>*(($T1 *) this)</ValueNode>
         </LinkedListItems>
     </Expand>
 </Type>
 
-<Type Name="boost::intrusive::list_iterator&lt;*&gt;::members">
-    <DisplayString>{m_data}</DisplayString>
+<Type Name="boost::intrusive::list_iterator&lt;boost::intrusive::list_impl&lt;boost::intrusive::listopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,boost::intrusive::list_node_traits&lt;void*&gt;,*,boost::intrusive::default_tag,*&gt;,unsigned int,*&gt; &gt;,*&gt;">
+    <AlternativeType Name="boost::intrusive::slist_iterator&lt;boost::intrusive::slist_impl&lt;boost::intrusive::slistopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,boost::intrusive::slist_node_traits&lt;void*&gt;,*,boost::intrusive::default_tag,*&gt;,unsigned int,*&gt; &gt;,*&gt;" />
+    <DisplayString>{*($T1*)(members_.nodeptr_)}</DisplayString>
     <Expand>
-        <Item Name="[ptr]">m_data</Item>
+        <Item Name="[ptr]">*($T1*)(members_.nodeptr_)</Item>
     </Expand>
 </Type>
 

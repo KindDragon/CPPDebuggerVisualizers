@@ -24,6 +24,7 @@
 #include <boost/uuid/uuid.hpp>
 #include <boost/circular_buffer.hpp>
 #include <boost/filesystem.hpp>
+#include <boost/intrusive/list.hpp>
 #include <boost/intrusive/slist.hpp>
 #include <boost/container/deque.hpp>
 #include <boost/container/flat_map.hpp>
@@ -266,8 +267,29 @@ void TestContainers()
 	sv.push_back(100);
 }
 
+class MyClass : public boost::intrusive::list_base_hook<>   //This is a derivation hook
+{
+	int int_;
+
+public:
+	//This is a member hook
+	boost::intrusive::list_member_hook<> member_hook_;
+
+	MyClass(int i)
+		:  int_(i)
+	{}
+};
+
+//Define a list that will store MyClass using the public base hook
+typedef boost::intrusive::list<MyClass>   BaseList;
+
+//Define a list that will store MyClass using the public member hook
+typedef boost::intrusive::list< MyClass
+	, boost::intrusive::member_hook< MyClass, boost::intrusive::list_member_hook<>, &MyClass::member_hook_>
+> MemberList;
+
 //This is a base hook
-class MyClass : public boost::intrusive::slist_base_hook<>
+class MyClassS : public boost::intrusive::slist_base_hook<>
 {
 	int int_;
 
@@ -275,7 +297,7 @@ public:
 	//This is a member hook
 	boost::intrusive::slist_member_hook<> member_hook_;
 
-	MyClass(int i)
+	MyClassS(int i)
 		:  int_(i)
 	{}
 };
@@ -284,49 +306,49 @@ void TestIntrusive()
 {
 	using namespace boost::intrusive;
 
-	//Define an slist that will store MyClass using the public base hook
-	typedef slist<MyClass> BaseList;
-
-	//Define an slist that will store MyClass using the public member hook
-	typedef member_hook<MyClass, slist_member_hook<>, &MyClass::member_hook_> MemberOption;
-	typedef slist<MyClass, MemberOption> MemberList;
-
-	typedef std::vector<MyClass>::iterator VectIt;
-	typedef std::vector<MyClass>::reverse_iterator VectRit;
-
-	//Create several MyClass objects, each one with a different value
-	std::vector<MyClass> values;
-	for(int i = 0; i < 100; ++i)  values.push_back(MyClass(i));
-
 	BaseList baselist;
 	MemberList memberlist;
 
-	//Now insert them in the reverse order in the base hook list
-	for(VectIt it(values.begin()), itend(values.end()); it != itend; ++it)
-		baselist.push_front(*it);
+	MyClass val(100);
 
-	//Now insert them in the same order as in vector in the member hook list
-	for(BaseList::iterator it(baselist.begin()), itend(baselist.end())
-		; it != itend; ++it){
-			memberlist.push_front(*it);
+	//Now insert them in the reverse order in the base hook list
+	baselist.push_front(val);
+	for (auto it = baselist.begin(); it != baselist.end(); it++)
+	{
+		*it;
 	}
 
-	//Now test lists
+	//Now insert them in the same order as in vector in the member hook list
+	memberlist.push_back(val);
+	for (auto it = memberlist.begin(); it != memberlist.end(); it++)
 	{
-		BaseList::iterator bit(baselist.begin()), bitend(baselist.end());
-		MemberList::iterator mit(memberlist.begin()), mitend(memberlist.end());
-		VectRit rit(values.rbegin()), ritend(values.rend());
-		VectIt  it(values.begin()), itend(values.end());
+		*it;
+	}
 
-		//Test the objects inserted in the base hook list
-		for(; rit != ritend; ++rit, ++bit)
-			if(&*bit != &*rit)
-				break;
+	//Define an slist that will store MyClass using the public base hook
+	typedef slist<MyClassS> BaseListS;
 
-		//Test the objects inserted in the member hook list
-		for(; it != itend; ++it, ++mit)
-			if(&*mit != &*it)  
-				break;
+	//Define an slist that will store MyClass using the public member hook
+	typedef member_hook<MyClassS, slist_member_hook<>, &MyClassS::member_hook_> MemberOptionS;
+	typedef slist<MyClassS, MemberOptionS> MemberListS;
+
+	BaseListS baselists;
+	MemberListS memberlists;
+
+	MyClassS vals(200);
+
+	//Now insert them in the reverse order in the base hook list
+	baselists.push_front(vals);
+	for (auto it = baselists.begin(); it != baselists.end(); it++)
+	{
+		*it;
+	}
+
+	//Now insert them in the same order as in vector in the member hook list
+	memberlists.push_front(vals);
+	for (auto it = memberlist.begin(); it != memberlist.end(); it++)
+	{
+		*it;
 	}
 }
 
