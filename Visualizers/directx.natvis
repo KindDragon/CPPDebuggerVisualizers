@@ -290,223 +290,332 @@
         <HRValue>2289434629</HRValue>
     </HResult>
     <HResult Name="DDERR_CANNOTATTACHSURFACE">
-        <HRValue>2289434634</HRValue>    </HResult>
+        <HRValue>2289434634</HRValue>
+    </HResult>
     <HResult Name="DDERR_CANNOTDETACHSURFACE">
-        <HRValue>2289434644</HRValue>    </HResult>
+        <HRValue>2289434644</HRValue>
+    </HResult>
     <HResult Name="DDERR_CURRENTLYNOTAVAIL">
-        <HRValue>2289434664</HRValue>    </HResult>
+        <HRValue>2289434664</HRValue>
+    </HResult>
     <HResult Name="DDERR_EXCEPTION">
-        <HRValue>2289434679</HRValue>    </HResult>
+        <HRValue>2289434679</HRValue>
+    </HResult>
     <HResult Name="DDERR_HEIGHTALIGN">
-        <HRValue>2289434714</HRValue>    </HResult>
+        <HRValue>2289434714</HRValue>
+    </HResult>
     <HResult Name="DDERR_INCOMPATIBLEPRIMARY">
-        <HRValue>2289434719</HRValue>    </HResult>
+        <HRValue>2289434719</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDCAPS">
-        <HRValue>2289434724</HRValue>    </HResult>
+        <HRValue>2289434724</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDCLIPLIST">
-        <HRValue>2289434734</HRValue>    </HResult>
+        <HRValue>2289434734</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDMODE">
-        <HRValue>2289434744</HRValue>    </HResult>
+        <HRValue>2289434744</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDOBJECT">
-        <HRValue>2289434754</HRValue>    </HResult>
+        <HRValue>2289434754</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDPIXELFORMAT">
-        <HRValue>2289434769</HRValue>    </HResult>
+        <HRValue>2289434769</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDRECT">
-        <HRValue>2289434774</HRValue>    </HResult>
+        <HRValue>2289434774</HRValue>
+    </HResult>
     <HResult Name="DDERR_LOCKEDSURFACES">
-        <HRValue>2289434784</HRValue>    </HResult>
+        <HRValue>2289434784</HRValue>
+    </HResult>
     <HResult Name="DDERR_NO3D">
-        <HRValue>2289434794</HRValue>    </HResult>
+        <HRValue>2289434794</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOSTEREOHARDWARE">
-        <HRValue>2289434795</HRValue>    </HResult>
+        <HRValue>2289434795</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOSURFACELEFT">
-        <HRValue>2289434796</HRValue>    </HResult>
+        <HRValue>2289434796</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOCLIPLIST">
-        <HRValue>2289434829</HRValue>    </HResult>
+        <HRValue>2289434829</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOCOLORCONVHW">
-        <HRValue>2289434834</HRValue>    </HResult>
+        <HRValue>2289434834</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOCOOPERATIVELEVELSET">
-        <HRValue>2289434836</HRValue>    </HResult>
+        <HRValue>2289434836</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOCOLORKEY">
-        <HRValue>2289434839</HRValue>    </HResult>
+        <HRValue>2289434839</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOCOLORKEYHW">
-        <HRValue>2289434844</HRValue>    </HResult>
+        <HRValue>2289434844</HRValue>
+    </HResult>
     <HResult Name="DDERR_NODIRECTDRAWSUPPORT">
-        <HRValue>2289434846</HRValue>    </HResult>
+        <HRValue>2289434846</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOEXCLUSIVEMODE">
-        <HRValue>2289434849</HRValue>    </HResult>
+        <HRValue>2289434849</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOFLIPHW">
-        <HRValue>2289434854</HRValue>    </HResult>
+        <HRValue>2289434854</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOGDI">
-        <HRValue>2289434864</HRValue>    </HResult>
+        <HRValue>2289434864</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOMIRRORHW">
-        <HRValue>2289434874</HRValue>    </HResult>
+        <HRValue>2289434874</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTFOUND">
-        <HRValue>2289434879</HRValue>    </HResult>
+        <HRValue>2289434879</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOOVERLAYHW">
-        <HRValue>2289434884</HRValue>    </HResult>
+        <HRValue>2289434884</HRValue>
+    </HResult>
     <HResult Name="DDERR_OVERLAPPINGRECTS">
-        <HRValue>2289434894</HRValue>    </HResult>
+        <HRValue>2289434894</HRValue>
+    </HResult>
     <HResult Name="DDERR_NORASTEROPHW">
-        <HRValue>2289434904</HRValue>    </HResult>
+        <HRValue>2289434904</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOROTATIONHW">
-        <HRValue>2289434914</HRValue>    </HResult>
+        <HRValue>2289434914</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOSTRETCHHW">
-        <HRValue>2289434934</HRValue>    </HResult>
+        <HRValue>2289434934</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOT4BITCOLOR">
-        <HRValue>2289434950</HRValue>    </HResult>
+        <HRValue>2289434950</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOT4BITCOLORINDEX">
-        <HRValue>2289434951</HRValue>    </HResult>
+        <HRValue>2289434951</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOT8BITCOLOR">
-        <HRValue>2289434954</HRValue>    </HResult>
+        <HRValue>2289434954</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTEXTUREHW">
-        <HRValue>2289434964</HRValue>    </HResult>
+        <HRValue>2289434964</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOVSYNCHW">
-        <HRValue>2289434969</HRValue>    </HResult>
+        <HRValue>2289434969</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOZBUFFERHW">
-        <HRValue>2289434974</HRValue>    </HResult>
+        <HRValue>2289434974</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOZOVERLAYHW">
-        <HRValue>2289434984</HRValue>    </HResult>
+        <HRValue>2289434984</HRValue>
+    </HResult>
     <HResult Name="DDERR_OUTOFCAPS">
-        <HRValue>2289434994</HRValue>    </HResult>
+        <HRValue>2289434994</HRValue>
+    </HResult>
     <HResult Name="DDERR_OVERLAYCANTCLIP">
-        <HRValue>2289435006</HRValue>    </HResult>
+        <HRValue>2289435006</HRValue>
+    </HResult>
     <HResult Name="DDERR_OVERLAYCOLORKEYONLYONEACTIVE">
-        <HRValue>2289435008</HRValue>    </HResult>
+        <HRValue>2289435008</HRValue>
+    </HResult>
     <HResult Name="DDERR_PALETTEBUSY">
-        <HRValue>2289435011</HRValue>    </HResult>
+        <HRValue>2289435011</HRValue>
+    </HResult>
     <HResult Name="DDERR_COLORKEYNOTSET">
-        <HRValue>2289435024</HRValue>    </HResult>
+        <HRValue>2289435024</HRValue>
+    </HResult>
     <HResult Name="DDERR_SURFACEALREADYATTACHED">
-        <HRValue>2289435034</HRValue>    </HResult>
+        <HRValue>2289435034</HRValue>
+    </HResult>
     <HResult Name="DDERR_SURFACEALREADYDEPENDENT">
-        <HRValue>2289435044</HRValue>    </HResult>
+        <HRValue>2289435044</HRValue>
+    </HResult>
     <HResult Name="DDERR_SURFACEBUSY">
-        <HRValue>2289435054</HRValue>    </HResult>
+        <HRValue>2289435054</HRValue>
+    </HResult>
     <HResult Name="DDERR_CANTLOCKSURFACE">
-        <HRValue>2289435059</HRValue>    </HResult>
+        <HRValue>2289435059</HRValue>
+    </HResult>
     <HResult Name="DDERR_SURFACEISOBSCURED">
-        <HRValue>2289435064</HRValue>    </HResult>
+        <HRValue>2289435064</HRValue>
+    </HResult>
     <HResult Name="DDERR_SURFACELOST">
-        <HRValue>2289435074</HRValue>    </HResult>
+        <HRValue>2289435074</HRValue>
+    </HResult>
     <HResult Name="DDERR_SURFACENOTATTACHED">
-        <HRValue>2289435084</HRValue>    </HResult>
+        <HRValue>2289435084</HRValue>
+    </HResult>
     <HResult Name="DDERR_TOOBIGHEIGHT">
-        <HRValue>2289435094</HRValue>    </HResult>
+        <HRValue>2289435094</HRValue>
+    </HResult>
     <HResult Name="DDERR_TOOBIGSIZE">
-        <HRValue>2289435104</HRValue>    </HResult>
+        <HRValue>2289435104</HRValue>
+    </HResult>
     <HResult Name="DDERR_TOOBIGWIDTH">
-        <HRValue>2289435114</HRValue>    </HResult>
+        <HRValue>2289435114</HRValue>
+    </HResult>
     <HResult Name="DDERR_UNSUPPORTEDFORMAT">
-        <HRValue>2289435134</HRValue>    </HResult>
+        <HRValue>2289435134</HRValue>
+    </HResult>
     <HResult Name="DDERR_UNSUPPORTEDMASK">
-        <HRValue>2289435144</HRValue>    </HResult>
+        <HRValue>2289435144</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDSTREAM">
-        <HRValue>2289435145</HRValue>    </HResult>
+        <HRValue>2289435145</HRValue>
+    </HResult>
     <HResult Name="DDERR_VERTICALBLANKINPROGRESS">
-        <HRValue>2289435161</HRValue>    </HResult>
+        <HRValue>2289435161</HRValue>
+    </HResult>
     <HResult Name="DDERR_DDSCAPSCOMPLEXREQUIRED">
-        <HRValue>2289435166</HRValue>    </HResult>
+        <HRValue>2289435166</HRValue>
+    </HResult>
     <HResult Name="DDERR_XALIGN">
-        <HRValue>2289435184</HRValue>    </HResult>
+        <HRValue>2289435184</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDDIRECTDRAWGUID">
-        <HRValue>2289435185</HRValue>    </HResult>
+        <HRValue>2289435185</HRValue>
+    </HResult>
     <HResult Name="DDERR_DIRECTDRAWALREADYCREATED">
-        <HRValue>2289435186</HRValue>    </HResult>
+        <HRValue>2289435186</HRValue>
+    </HResult>
     <HResult Name="DDERR_NODIRECTDRAWHW">
-        <HRValue>2289435187</HRValue>    </HResult>
+        <HRValue>2289435187</HRValue>
+    </HResult>
     <HResult Name="DDERR_PRIMARYSURFACEALREADYEXISTS">
-        <HRValue>2289435188</HRValue>    </HResult>
+        <HRValue>2289435188</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOEMULATION">
-        <HRValue>2289435189</HRValue>    </HResult>
+        <HRValue>2289435189</HRValue>
+    </HResult>
     <HResult Name="DDERR_REGIONTOOSMALL">
-        <HRValue>2289435190</HRValue>    </HResult>
+        <HRValue>2289435190</HRValue>
+    </HResult>
     <HResult Name="DDERR_CLIPPERISUSINGHWND">
-        <HRValue>2289435191</HRValue>    </HResult>
+        <HRValue>2289435191</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOCLIPPERATTACHED">
-        <HRValue>2289435192</HRValue>    </HResult>
+        <HRValue>2289435192</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOHWND">
-        <HRValue>2289435193</HRValue>    </HResult>
+        <HRValue>2289435193</HRValue>
+    </HResult>
     <HResult Name="DDERR_HWNDSUBCLASSED">
-        <HRValue>2289435194</HRValue>    </HResult>
+        <HRValue>2289435194</HRValue>
+    </HResult>
     <HResult Name="DDERR_HWNDALREADYSET">
-        <HRValue>2289435195</HRValue>    </HResult>
+        <HRValue>2289435195</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOPALETTEATTACHED">
-        <HRValue>2289435196</HRValue>    </HResult>
+        <HRValue>2289435196</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOPALETTEHW">
-        <HRValue>2289435197</HRValue>    </HResult>
+        <HRValue>2289435197</HRValue>
+    </HResult>
     <HResult Name="DDERR_BLTFASTCANTCLIP">
-        <HRValue>2289435198</HRValue>    </HResult>
+        <HRValue>2289435198</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOBLTHW">
-        <HRValue>2289435199</HRValue>    </HResult>
+        <HRValue>2289435199</HRValue>
+    </HResult>
     <HResult Name="DDERR_NODDROPSHW">
-        <HRValue>2289435200</HRValue>    </HResult>
+        <HRValue>2289435200</HRValue>
+    </HResult>
     <HResult Name="DDERR_OVERLAYNOTVISIBLE">
-        <HRValue>2289435201</HRValue>    </HResult>
+        <HRValue>2289435201</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOOVERLAYDEST">
-        <HRValue>2289435202</HRValue>    </HResult>
+        <HRValue>2289435202</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDPOSITION">
-        <HRValue>2289435203</HRValue>    </HResult>
+        <HRValue>2289435203</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTAOVERLAYSURFACE">
-        <HRValue>2289435204</HRValue>    </HResult>
+        <HRValue>2289435204</HRValue>
+    </HResult>
     <HResult Name="DDERR_EXCLUSIVEMODEALREADYSET">
-        <HRValue>2289435205</HRValue>    </HResult>
+        <HRValue>2289435205</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTFLIPPABLE">
-        <HRValue>2289435206</HRValue>    </HResult>
+        <HRValue>2289435206</HRValue>
+    </HResult>
     <HResult Name="DDERR_CANTDUPLICATE">
-        <HRValue>2289435207</HRValue>    </HResult>
+        <HRValue>2289435207</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTLOCKED">
-        <HRValue>2289435208</HRValue>    </HResult>
+        <HRValue>2289435208</HRValue>
+    </HResult>
     <HResult Name="DDERR_CANTCREATEDC">
-        <HRValue>2289435209</HRValue>    </HResult>
+        <HRValue>2289435209</HRValue>
+    </HResult>
     <HResult Name="DDERR_NODC">
-        <HRValue>2289435210</HRValue>    </HResult>
+        <HRValue>2289435210</HRValue>
+    </HResult>
     <HResult Name="DDERR_WRONGMODE">
-        <HRValue>2289435211</HRValue>    </HResult>
+        <HRValue>2289435211</HRValue>
+    </HResult>
     <HResult Name="DDERR_IMPLICITLYCREATED">
-        <HRValue>2289435212</HRValue>    </HResult>
+        <HRValue>2289435212</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTPALETTIZED">
-        <HRValue>2289435213</HRValue>    </HResult>
+        <HRValue>2289435213</HRValue>
+    </HResult>
     <HResult Name="DDERR_UNSUPPORTEDMODE">
-        <HRValue>2289435214</HRValue>    </HResult>
+        <HRValue>2289435214</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOMIPMAPHW">
-        <HRValue>2289435215</HRValue>    </HResult>
+        <HRValue>2289435215</HRValue>
+    </HResult>
     <HResult Name="DDERR_INVALIDSURFACETYPE">
-        <HRValue>2289435216</HRValue>    </HResult>
+        <HRValue>2289435216</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOOPTIMIZEHW">
-        <HRValue>2289435224</HRValue>    </HResult>
+        <HRValue>2289435224</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTLOADED">
-        <HRValue>2289435225</HRValue>    </HResult>
+        <HRValue>2289435225</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOFOCUSWINDOW">
-        <HRValue>2289435226</HRValue>    </HResult>
+        <HRValue>2289435226</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTONMIPMAPSUBLEVEL">
-        <HRValue>2289435227</HRValue>    </HResult>
+        <HRValue>2289435227</HRValue>
+    </HResult>
     <HResult Name="DDERR_DCALREADYCREATED">
-        <HRValue>2289435244</HRValue>    </HResult>
+        <HRValue>2289435244</HRValue>
+    </HResult>
     <HResult Name="DDERR_NONONLOCALVIDMEM">
-        <HRValue>2289435254</HRValue>    </HResult>
+        <HRValue>2289435254</HRValue>
+    </HResult>
     <HResult Name="DDERR_CANTPAGELOCK">
-        <HRValue>2289435264</HRValue>    </HResult>
+        <HRValue>2289435264</HRValue>
+    </HResult>
     <HResult Name="DDERR_CANTPAGEUNLOCK">
-        <HRValue>2289435284</HRValue>    </HResult>
+        <HRValue>2289435284</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOTPAGELOCKED">
-        <HRValue>2289435304</HRValue>    </HResult>
+        <HRValue>2289435304</HRValue>
+    </HResult>
     <HResult Name="DDERR_MOREDATA">
-        <HRValue>2289435314</HRValue>    </HResult>
+        <HRValue>2289435314</HRValue>
+    </HResult>
     <HResult Name="DDERR_EXPIRED">
-        <HRValue>2289435315</HRValue>    </HResult>
+        <HRValue>2289435315</HRValue>
+    </HResult>
     <HResult Name="DDERR_TESTFINISHED">
-        <HRValue>2289435316</HRValue>    </HResult>
+        <HRValue>2289435316</HRValue>
+    </HResult>
     <HResult Name="DDERR_NEWMODE">
-        <HRValue>2289435317</HRValue>    </HResult>
+        <HRValue>2289435317</HRValue>
+    </HResult>
     <HResult Name="DDERR_D3DNOTINITIALIZED">
-        <HRValue>2289435318</HRValue>    </HResult>
+        <HRValue>2289435318</HRValue>
+    </HResult>
     <HResult Name="DDERR_VIDEONOTACTIVE">
-        <HRValue>2289435319</HRValue>    </HResult>
+        <HRValue>2289435319</HRValue>
+    </HResult>
     <HResult Name="DDERR_NOMONITORINFORMATION">
-        <HRValue>2289435320</HRValue>    </HResult>
+        <HRValue>2289435320</HRValue>
+    </HResult>
     <HResult Name="DDERR_NODRIVERSUPPORT">
-        <HRValue>2289435321</HRValue>    </HResult>
+        <HRValue>2289435321</HRValue>
+    </HResult>
     <HResult Name="DDERR_DEVICEDOESNTOWNSURFACE">
         <HRValue>2289435323</HRValue>
     </HResult>

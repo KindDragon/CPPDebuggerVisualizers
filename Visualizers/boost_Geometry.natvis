@@ -19,6 +19,9 @@
 
   <!-- boost::geometry::model::point from <boost/geometry/geometries/point.hpp> -->
   <Type Name="boost::geometry::model::point&lt;*,*,*&gt;">
+    <DisplayString Condition="1 == sizeof(m_values)/sizeof(m_values[0])">[{m_values[0]}]</DisplayString>
+    <DisplayString Condition="2 == sizeof(m_values)/sizeof(m_values[0])">[{m_values[0]}, {m_values[1]}]</DisplayString>
+    <DisplayString Condition="3 == sizeof(m_values)/sizeof(m_values[0])">[{m_values[0]}, {m_values[1]}, {m_values[2]}]</DisplayString>
     <DisplayString>{{size = {sizeof(m_values)/sizeof(m_values[0])}}}</DisplayString>
     <Expand>
       <Item Name="[size]">sizeof(m_values)/sizeof(m_values[0])</Item>
