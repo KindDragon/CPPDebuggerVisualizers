@@ -36,6 +36,8 @@
 #include <boost/container/stable_vector.hpp>
 #include <boost/container/string.hpp>
 #include <boost/container/vector.hpp> 
+#include <boost/numeric/ublas/vector.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
 
 class Data
 {
@@ -267,6 +269,13 @@ void TestContainers()
 	sv.push_back(100);
 }
 
+void TestUblas()
+{
+	using namespace boost::numeric::ublas;
+	vector<double> v (3);
+	matrix<double> m (3, 3);
+}
+
 class MyClass : public boost::intrusive::list_base_hook<>   //This is a derivation hook
 {
 	int int_;
@@ -309,17 +318,19 @@ void TestIntrusive()
 	BaseList baselist;
 	MemberList memberlist;
 
-	MyClass val(100);
+	MyClass val1(100);
 
 	//Now insert them in the reverse order in the base hook list
-	baselist.push_front(val);
+	baselist.push_front(val1);
 	for (auto it = baselist.begin(); it != baselist.end(); it++)
 	{
 		*it;
 	}
 
+	MyClass val2(100);
+
 	//Now insert them in the same order as in vector in the member hook list
-	memberlist.push_back(val);
+	memberlist.push_back(val2);
 	for (auto it = memberlist.begin(); it != memberlist.end(); it++)
 	{
 		*it;
@@ -333,19 +344,20 @@ void TestIntrusive()
 	typedef slist<MyClassS, MemberOptionS> MemberListS;
 
 	BaseListS baselists;
-	MemberListS memberlists;
-
-	MyClassS vals(200);
+	MyClassS vals1(200);
 
 	//Now insert them in the reverse order in the base hook list
-	baselists.push_front(vals);
+	baselists.push_front(vals1);
 	for (auto it = baselists.begin(); it != baselists.end(); it++)
 	{
 		*it;
 	}
 
+	MemberListS memberlists;
+	MyClassS vals2(200);
+
 	//Now insert them in the same order as in vector in the member hook list
-	memberlists.push_front(vals);
+	memberlists.push_front(vals2);
 	for (auto it = memberlist.begin(); it != memberlist.end(); it++)
 	{
 		*it;
@@ -407,6 +419,8 @@ int main(int argc, const char* argv[])
 	TestLocalTime();
 
 	TestContainers();
+
+	TestUblas();
 
 	TestIntrusive();
 	

@@ -3,6 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.10 - 14.11.2012
+=========================
++ Visualizers for boost::numeric::ublas::vector and matrix added
+
 1.0.9 - 13.11.2012
 =========================
 ! wxString visualizer fixed for wxWidgets 2.9
