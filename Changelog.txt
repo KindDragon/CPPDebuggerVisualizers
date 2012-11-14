@@ -3,9 +3,9 @@ Legend:
 * Changed
 ! Fixed
 
-1.0.10 - 14.11.2012
+1.0.10 - 15.11.2012
 =========================
-+ Visualizers for boost::numeric::ublas::vector and matrix added
++ Visualizers for boost::numeric::ublas::vector, mapped_vector, compressed_vector and matrix added
 
 1.0.9 - 13.11.2012
 =========================

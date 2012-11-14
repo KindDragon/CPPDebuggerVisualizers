@@ -37,6 +37,7 @@
 #include <boost/container/string.hpp>
 #include <boost/container/vector.hpp> 
 #include <boost/numeric/ublas/vector.hpp>
+#include <boost/numeric/ublas/vector_sparse.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 
 class Data
@@ -273,6 +274,13 @@ void TestUblas()
 {
 	using namespace boost::numeric::ublas;
 	vector<double> v (3);
+	mapped_vector<double> mv (3, 3);
+	mv[2] = 2.0;
+	mv[1] = 4.0;
+	compressed_vector<double> cv (3, 3);
+	cv[2] = 2.0;
+	cv[1] = 4.0;
+	cv[0] = 2.0;
 	matrix<double> m (3, 3);
 }
 

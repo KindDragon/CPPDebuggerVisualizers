@@ -19,6 +19,25 @@
     </Expand>
 </Type>
 
+<Type Name="boost::numeric::ublas::mapped_vector&lt;*&gt;">
+    <DisplayString>{{ size={size_} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">size_</Item>
+        <ExpandedItem>data_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::numeric::ublas::compressed_vector&lt;*&gt;">
+    <DisplayString>{{ size={size_} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">size_</Item>
+        <Item Name="[capacity]">capacity_</Item>
+        <Item Name="[filled]">filled_</Item>
+        <Item Name="index_data">index_data_</Item>
+        <Item Name="value_data">value_data_</Item>
+    </Expand>
+</Type>
+
 <Type Name="boost::numeric::ublas::matrix&lt;*&gt;">
     <DisplayString>{{ size={size1_}x{size2_} }}</DisplayString>
     <Expand>
