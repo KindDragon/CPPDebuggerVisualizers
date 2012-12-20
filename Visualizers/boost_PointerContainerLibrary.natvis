@@ -46,7 +46,7 @@
 </Type>
 
 <Type Name="boost::ptr_map&lt;*,*&gt;">
-    <AlternativeType Name="boost::ptr_multimap&lt;*&gt;" />
+    <AlternativeType Name="boost::ptr_multimap&lt;*,*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
         <TreeItems>

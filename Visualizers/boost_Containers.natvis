@@ -173,18 +173,6 @@
     </Expand>
 </Type>
 
-<Type Name="boost::container::list&lt;*&gt;">
-    <DisplayString>{{ size={_Mysize} }}</DisplayString>
-    <Expand>
-        <LinkedListItems>
-            <Size>_Mysize</Size>
-            <HeadPointer>_Myhead-&gt;_Next</HeadPointer>
-            <NextPointer>_Next</NextPointer>
-            <ValueNode>_Myval</ValueNode>
-        </LinkedListItems>
-    </Expand>
-</Type>
-
 <!-- !!! -->
 <Type Name="boost::container::_List_iterator&lt;*&gt;">
     <AlternativeType Name="boost::container::_List_const_iterator&lt;*&gt;" />
@@ -212,24 +200,6 @@
     <DisplayString>{*m_ptr}</DisplayString>
     <Expand>
         <Item Name="[ptr]">m_ptr</Item>
-    </Expand>
-</Type>
-
-
-<!-- !!! -->
-<Type Name="boost::container::map&lt;*&gt;">
-    <AlternativeType Name="boost::container::multimap&lt;*&gt;" />
-    <AlternativeType Name="boost::container::set&lt;*&gt;" />
-    <AlternativeType Name="boost::container::multiset&lt;*&gt;" />
-    <DisplayString>{{ size={_Mysize} }}</DisplayString>
-    <Expand>
-        <TreeItems>
-            <Size>_Mysize</Size>
-            <HeadPointer>_Myhead-&gt;_Parent</HeadPointer>
-            <LeftPointer>_Left</LeftPointer>
-            <RightPointer>_Right</RightPointer>
-            <ValueNode Condition="_Isnil == 0">_Myval</ValueNode>
-        </TreeItems>
     </Expand>
 </Type>
 

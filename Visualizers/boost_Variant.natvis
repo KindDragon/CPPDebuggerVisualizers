@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<!-- boost::detail::variant::recursive_flag not completly supported because -->
+<!-- cannot detect when boost::variant use boost::recursive_wrapper -->
+
 <!-- based on https://svn.boost.org/trac/boost/wiki/DebuggerVisualizers -->
 <!--Copyright (c) 2009 Dmitry Vinogradov-->
 <!--Copyright (c) 2009 Steven Watanabe-->

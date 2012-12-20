@@ -42,6 +42,8 @@
 
 class Data
 {
+public:
+	Data() : s(3), f(7.77f) {}
 	int s;
 	float f;
 };
@@ -68,7 +70,7 @@ void TestPointerContainerLibrary()
 	for(auto it = d.begin(); it!=d.end();it++)
 		(*it);
 	boost::ptr_map<int, Data> e;
-	int ival = 0;
+	int ival = 33;
 	e.insert(ival, new Data());
 	for(auto it = e.begin(); it!=e.end();it++)
 		(*it);
@@ -104,6 +106,17 @@ void TestSmartPointers()
 	boost::shared_array<Data> shPtrAr(new Data[10]());
 }
 
+class visitor
+	: public boost::static_visitor<>
+{
+public:
+	template <typename T>
+	void operator()(T & i) const
+	{
+		i;
+	}
+};
+
 void TestVariantAnyOptional()
 {
 	boost::variant<int, std::string, Data> var("gdsg");
@@ -123,6 +136,8 @@ void TestVariantAnyOptional()
 	std::vector< int_tree_t > result;
 	result.push_back(1);
 	result.push_back(subresult);
+	// TODO: result[1] doesn't work ATM, cannot detect when boost::variant use boost::recursive_wrapper
+	boost::apply_visitor( visitor(), result[1] );
 	result.push_back(7);
 
 	int_tree_t vartt;
@@ -136,8 +151,13 @@ void TestVariantAnyOptional()
 void TestUnordered()
 {
 	boost::unordered_map<std::string, int> um;
-	um["hfh"] = 6;
-	um["jgfsjsf"] = 86;
+	um["hfh"] = 73576;
+	um["jgfsjsf"] = 65;
+	boost::unordered_map<std::string, boost::unordered_set<int> > um2;
+	um2["dsfgal;sg"].insert(43534);
+	um2["dsfgal;sg"].insert(563);
+	um2["'/lreg"].insert(646);
+	um2["lfdhk"].insert(752);
 	boost::unordered_multimap<std::string, int> umm;
 	umm.insert(std::make_pair(std::string("sdhsh"), 73576));
 	umm.insert(std::make_pair(std::string("sdhsh"), 34578));
@@ -371,7 +391,7 @@ void TestIntrusive()
 		*it;
 	}
 }
-
+struct s{};
 int main(int argc, const char* argv[])
 {
 	boost::filesystem::path p (argv[0]);   // p reads clearer than argv[1] in the following code
@@ -401,8 +421,14 @@ int main(int argc, const char* argv[])
 	// fill uuid_data
 
 	boost::uuids::uuid u;
-
-	memcpy(&u, uuid_data, 16);
+	std::pair<int const, bool> p1;
+	std::pair<int const, s> p2;
+	std::pair<int const, const s> p3;
+	std::pair<int const, s*> p4;
+	std::pair<int const, boost::tribool> p5;
+	std::pair<int const, boost::filesystem::path> p6;
+	std::pair<int const, boost::unordered_set<int>> p7;
+	std::pair<int const, std::unique_ptr<s>> p8;
 
 	boost::uuids::uuid u2 =
 	{ 0x12 ,0x34, 0x56, 0x78
