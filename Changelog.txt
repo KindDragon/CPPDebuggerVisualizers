@@ -3,6 +3,11 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.11 - 03.03.2013
+=========================
++ Visualizers for "boost::container::flat_map, flat_set and stable_vector added
+! Intrusive containers with member hook fixed
+
 1.0.10 - 15.11.2012
 =========================
 + Visualizers for boost::numeric::ublas::vector, mapped_vector, compressed_vector and matrix added

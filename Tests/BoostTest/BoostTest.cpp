@@ -267,27 +267,44 @@ void TestContainers()
 	d.push_back(100);
 	flat_map<int, int> fm;
 	fm.insert(std::make_pair(100, 1000));
+	for(flat_map<int, int>::const_iterator it = fm.begin(); it!=fm.end();it++)
+		(*it);
 	flat_set<int> fs;
 	fs.insert(100);
+	for(flat_set<int>::const_iterator it = fs.begin(); it!=fs.end();it++)
+		(*it);
+	//TODO: Doesn't work with Boost 1.51 and upper
 	list<int> l;
 	l.push_back(100);
-	auto it = l.cbegin();
-	for (; it != l.cend(); it++)
+	for (auto it = l.cbegin(); it != l.cend(); it++)
 	{
 		*it;
 	}
+	//TODO: Doesn't work with Boost 1.51 and upper
 	map<int, int> m;
 	m[100] = 1000;
+	for(map<int, int>::const_iterator it = m.begin(); it!=m.end();it++)
+		(*it);
+	//TODO: Doesn't work with Boost 1.51 and upper
 	set<int> s;
 	s.insert(100);
+	for(set<int>::const_iterator it = s.begin(); it!=s.end();it++)
+		(*it);
+	//TODO: Doesn't work with Boost 1.51 and upper
 	slist<int> sl;
 	sl.push_front(100);
+	for(slist<int>::const_iterator it = sl.begin(); it!=sl.end();it++)
+		(*it);
 	basic_string<char> str("dsfsdf");
 	basic_string<char> str2("lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
 	vector<int> v;
 	v.push_back(100);
+	for(vector<int>::const_iterator it = v.cbegin(); it!=v.cend();it++)
+		(*it);
 	stable_vector<int> sv;
 	sv.push_back(100);
+	for(stable_vector<int>::const_iterator it = sv.cbegin(); it!=sv.cend();it++)
+		(*it);
 }
 
 void TestUblas()
@@ -344,7 +361,6 @@ void TestIntrusive()
 	using namespace boost::intrusive;
 
 	BaseList baselist;
-	MemberList memberlist;
 
 	MyClass val1(100);
 
@@ -354,6 +370,8 @@ void TestIntrusive()
 	{
 		*it;
 	}
+
+	MemberList memberlist;
 
 	MyClass val2(100);
 
@@ -382,15 +400,16 @@ void TestIntrusive()
 	}
 
 	MemberListS memberlists;
-	MyClassS vals2(200);
+	MyClassS vals2(300);
 
 	//Now insert them in the same order as in vector in the member hook list
 	memberlists.push_front(vals2);
-	for (auto it = memberlist.begin(); it != memberlist.end(); it++)
+	for (auto it = memberlists.begin(); it != memberlists.end(); it++)
 	{
 		*it;
 	}
 }
+
 struct s{};
 int main(int argc, const char* argv[])
 {

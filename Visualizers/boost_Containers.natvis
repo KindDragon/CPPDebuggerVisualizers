@@ -139,51 +139,37 @@
     </Expand>
 </Type>
 
-<!--BOOST_VISUALIZER_START boost::intrusive::list-->
-
-<!--Copyright Boris [monade] 2010. Use, modification and distribution are subject-->
-<!--to the Boost Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt-->
-<!--or copy at http://www.boost.org/LICENSE_1_0.txt)-->
-
-<!--@guid     CF808B30-3031-11DE-8C30-0800200C9B66-->
-<!--@platform msvc-8, msvc-9, msvc-10-->
-<!--@version  1.0-->
-<!--@author   Boris [monade]-->
-<!--@email    monade at gmail dot com-->
-
-<!-- work only with base hook -->
-<Type Name="boost::intrusive::list&lt;*,*&gt;">
-    <AlternativeType Name="boost::intrusive::slist&lt;*,*&gt;" />
-    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
+<Type Name="boost::container::flat_map&lt;*&gt;">
+    <DisplayString>{m_flat_tree.m_data.m_vect}</DisplayString>
     <Expand>
-        <LinkedListItems>
-            <Size>data_.root_plus_size_.size_</Size> 
-            <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
-            <NextPointer>next_</NextPointer>
-            <ValueNode>*(($T1 *) this)</ValueNode>
-        </LinkedListItems>
+        <ExpandedItem>m_flat_tree.m_data.m_vect</ExpandedItem>
     </Expand>
 </Type>
 
-<Type Name="boost::intrusive::list_iterator&lt;boost::intrusive::list_impl&lt;boost::intrusive::listopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,boost::intrusive::list_node_traits&lt;void*&gt;,*,boost::intrusive::default_tag,*&gt;,unsigned int,*&gt; &gt;,*&gt;">
-    <AlternativeType Name="boost::intrusive::slist_iterator&lt;boost::intrusive::slist_impl&lt;boost::intrusive::slistopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,boost::intrusive::slist_node_traits&lt;void*&gt;,*,boost::intrusive::default_tag,*&gt;,unsigned int,*&gt; &gt;,*&gt;" />
-    <DisplayString>{*($T1*)(members_.nodeptr_)}</DisplayString>
+<Type Name="boost::container::container_detail::pair&lt;*,*&gt;">
+    <DisplayString>({first}, {second})</DisplayString>
     <Expand>
-        <Item Name="[ptr]">*($T1*)(members_.nodeptr_)</Item>
+        <Item Name="first">first</Item>
+        <Item Name="second">second</Item>
     </Expand>
 </Type>
 
-<!-- !!! -->
-<Type Name="boost::container::_List_iterator&lt;*&gt;">
-    <AlternativeType Name="boost::container::_List_const_iterator&lt;*&gt;" />
-    <DisplayString>{_Ptr-&gt;_Myval}</DisplayString>
+<Type Name="boost::container::flat_set&lt;*&gt;">
+    <DisplayString>{m_flat_tree.m_data.m_vect}</DisplayString>
     <Expand>
-        <Item Name="[ptr]">&amp;_Ptr-&gt;_Myval</Item>
+        <ExpandedItem>m_flat_tree.m_data.m_vect</ExpandedItem>
     </Expand>
 </Type>
 
+<Type Name="boost::container::container_detail::list_iterator&lt;*&gt;">
+    <AlternativeType Name="boost::container::container_detail::list_const_iterator&lt;*&gt;" />
+    <DisplayString>{m_it->m_data}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">m_it->m_data</Item>
+    </Expand>
+</Type>
 
-<Type Name="boost::container::vector&lt;*&gt;::members_holder">
+<Type Name="boost::container::vector&lt;*&gt;">
     <DisplayString>{{ size={members_.m_size} }}</DisplayString>
     <Expand>
         <Item Name="[size]">members_.m_size</Item>
@@ -203,12 +189,30 @@
     </Expand>
 </Type>
 
-<!-- !!! -->
-<Type Name="boost::container::_Tree_iterator&lt;*&gt;">
-    <AlternativeType Name="boost::container::_Tree_const_iterator&lt;*&gt;" />
-    <DisplayString>{_Ptr-&gt;_Myval}</DisplayString>
+<Type Name="boost::container::stable_vector&lt;*&gt;">
+    <DisplayString>{{ size={index.members_.m_size ? index.members_.m_size - ExtraPointers : 0} }}</DisplayString> 
     <Expand>
-        <Item Name="[ptr]">&amp;_Ptr-&gt;_Myval</Item>
+        <Item Name="[size]">index.members_.m_size ? index.members_.m_size - ExtraPointers : 0</Item>
+        <IndexListItems>
+            <Size>index.members_.m_size ? index.members_.m_size - ExtraPointers : 0</Size>
+            <ValueNode>((boost::container::stable_vector_detail::node_type&lt;void *,$T1&gt;*)index.members_.m_start[$i])->value</ValueNode> 
+        </IndexListItems>
     </Expand>
 </Type>
+
+<Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;">
+    <DisplayString>{pn->value}</DisplayString>
+    <Expand>
+        <Item Name="[value]">pn->value</Item>
+    </Expand>
+</Type>
+
+<!-- Type Name="boost::container::container_detail::rbtree&lt;*&gt;::iterator">
+    <AlternativeType Name="boost::container::container_detail::rbtree&lt;*&gt;::const_iterator" />
+    <DisplayString>{*($T1*)(m_it.members_.nodeptr_)}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">*($T1*)(m_it.members_.nodeptr_)</Item>
+    </Expand>
+</Type -->
+
 </AutoVisualizer>

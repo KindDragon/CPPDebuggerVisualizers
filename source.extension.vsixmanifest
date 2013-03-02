@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="CPPDebuggerVisualizers..e72aa83c-bb6f-4910-8e9f-793052cd112a" Version="1.0.10" Language="en-US" Publisher="Arkadiy Shapkin" />
+    <Identity Id="CPPDebuggerVisualizers..e72aa83c-bb6f-4910-8e9f-793052cd112a" Version="1.0.11" Language="en-US" Publisher="Arkadiy Shapkin" />
     <DisplayName>C++ Debugger Visualizers</DisplayName>
     <Description xml:space="preserve">C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
     <MoreInfo>https://cppvisualizers.codeplex.com/</MoreInfo>
@@ -33,5 +33,6 @@
     <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Containers.natvis" />
     <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Geometry.natvis" />
     <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_uBLAS.natvis" />
+    <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_IntrusiveContainers.natvis" />
   </Assets>
 </PackageManifest>
