@@ -26,6 +26,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/intrusive/list.hpp>
 #include <boost/intrusive/slist.hpp>
+#include <boost/intrusive/set.hpp>
 #include <boost/container/deque.hpp>
 #include <boost/container/flat_map.hpp>
 #include <boost/container/flat_set.hpp>
@@ -356,7 +357,7 @@ public:
 	{}
 };
 
-void TestIntrusive()
+void TestIntrusiveList()
 {
 	using namespace boost::intrusive;
 
@@ -408,6 +409,115 @@ void TestIntrusive()
 	{
 		*it;
 	}
+
+	// Clearing the containers means we avoid the boost debug assertion for
+	// a safe_link hook that checks whether the contained object is still
+	// linked to a container when the object is deleted.
+	baselists.clear();
+	memberlists.clear();
+	baselist.clear();
+	memberlist.clear();
+}
+
+struct Belem : public boost::intrusive::set_base_hook<> 
+{
+	int mval;
+	Belem(int val) : mval(val) {}
+	bool operator<(const Belem& other) const {return mval < other.mval;}
+	bool operator>(const Belem& other) const {return mval > other.mval;}
+	bool operator==(const Belem& other) const {return mval == other.mval;}
+};
+typedef boost::intrusive::set<Belem> Container;
+
+void TestIntrusiveSet_BaseHook()
+{
+	Container container;
+	Belem belem1(1);
+	Belem belem2(2);
+	container.insert(belem1);
+	container.insert(belem2);
+	Container::iterator itr = container.begin();
+	Container::const_iterator citr = container.begin();
+	Container::iterator enditr = container.end();
+	container.clear();
+}
+
+struct Melem
+{
+	int mval;
+	boost::intrusive::set_member_hook<> mhook;
+	Melem(int val) : mval(val) {}
+	bool operator<(const Melem& other) const {return mval < other.mval;}
+	bool operator>(const Melem& other) const {return mval > other.mval;}
+	bool operator==(const Melem& other) const {return mval == other.mval;}
+};
+typedef boost::intrusive::member_hook<Melem, boost::intrusive::set_member_hook<>, &Melem::mhook> MemberHookOptions;
+typedef boost::intrusive::set<Melem, MemberHookOptions> MContainer;
+
+void TestIntrusiveSet_MemberHook()
+{
+	MContainer container;
+	Melem melem1(1);
+	Melem melem2(2);
+	container.insert(melem1);
+	container.insert(melem2);
+	MContainer::iterator itr = container.begin();
+	MContainer::const_iterator citr = container.begin();
+	container.clear();
+}
+
+struct Belem_NoSz : public boost::intrusive::set_base_hook<> 
+{
+	int mval;
+	Belem_NoSz(int val) : mval(val) {}
+	bool operator<(const Belem_NoSz& other) const {return mval < other.mval;}
+	bool operator>(const Belem_NoSz& other) const {return mval > other.mval;}
+	bool operator==(const Belem_NoSz& other) const {return mval == other.mval;}
+};
+typedef boost::intrusive::set<Belem_NoSz, boost::intrusive::constant_time_size<false> > Container_NoSz;
+
+void TestIntrusiveSet_BaseHook_NoSizeMember()
+{
+	Container_NoSz container;
+	Belem_NoSz belem1(1);
+	Belem_NoSz belem2(2);
+	container.insert(belem1);
+	container.insert(belem2);
+	Container_NoSz::iterator itr = container.begin();
+	Container_NoSz::const_iterator citr = container.begin();
+	container.clear();
+}
+
+struct Melem_NoSz
+{
+	int mval;
+	boost::intrusive::set_member_hook<> mhook;
+	Melem_NoSz(int val) : mval(val) {}
+	bool operator<(const Melem_NoSz& other) const {return mval < other.mval;}
+	bool operator>(const Melem_NoSz& other) const {return mval > other.mval;}
+	bool operator==(const Melem_NoSz& other) const {return mval == other.mval;}
+};
+typedef boost::intrusive::member_hook<Melem_NoSz, boost::intrusive::set_member_hook<>, &Melem_NoSz::mhook> MemberHookOptions_NoSz;
+typedef boost::intrusive::set<Melem_NoSz, MemberHookOptions_NoSz, boost::intrusive::constant_time_size<false> > MContainer_NoSz;
+
+void TestIntrusiveSet_MemberHook_NoSizeMember()
+{
+	MContainer_NoSz container;
+	Melem_NoSz melem1(1);
+	Melem_NoSz melem2(2);
+	container.insert(melem1);
+	container.insert(melem2);
+	MContainer_NoSz::iterator itr = container.begin();
+	MContainer_NoSz::const_iterator citr = container.begin();
+	container.clear();
+}
+
+void TestIntrusiveSet()
+{
+	TestIntrusiveSet_BaseHook();
+	TestIntrusiveSet_MemberHook();
+	TestIntrusiveSet_BaseHook_NoSizeMember();
+	TestIntrusiveSet_MemberHook_NoSizeMember();
 }
 
 struct s{};
@@ -475,7 +585,9 @@ int main(int argc, const char* argv[])
 
 	TestUblas();
 
-	TestIntrusive();
+	TestIntrusiveList();
+
+	TestIntrusiveSet();
 	
 	return EXIT_SUCCESS;
 }
