@@ -11,7 +11,7 @@ Microsoft [boost::shared_ptr visualizer](http://archive.msdn.microsoft.com/boost
     * boost::ptr_array, boost::ptr_vector, boost::ptr_list, boost::ptr_deque, boost::ptr_map, boost::ptr_set, boost::ptr_multimap, boost::ptr_multiset
     * boost::array, boost::dynamic_bitset, boost::circular_buffer
     * boost::unordered_map, boost::unordered_set, boost::unordered_multimap, boost::unordered_multiset
-    * boost::intrusive::list, boost::intrusive::slist
+    * boost::intrusive::list, boost::intrusive::slist, boost::intrusive::set
     * boost::container::basic_string, boost::container::deque, boost::container::vector
     * boost::optional, boost::any, boost::variant
     * boost::filesystem::path, boost::filesystem::directory_entry, boost::filesystem::file_status

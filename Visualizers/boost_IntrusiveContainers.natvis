@@ -46,7 +46,7 @@
             <Size>data_.root_plus_size_.size_</Size>
             <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
             <NextPointer>next_</NextPointer>
-            <ValueNode>($T1*)((char*)this - (size_t)($T4))</ValueNode>
+            <ValueNode>*($T1*)((char*)this - (size_t)($T4))</ValueNode>
         </LinkedListItems>
     </Expand>
 </Type>
@@ -59,17 +59,76 @@
     </Expand>
 </Type>
 
-<!-- Type Name="boost::intrusive::list_impl&lt;*&gt;">
-    <AlternativeType Name="boost::intrusive::rbtree_impl&lt;*,*&gt;" />
-    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
+<!-- boost::intrusive::set -->
+
+<!-- default base hook with constant size enabled -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::none,*&gt;">
+    <DisplayString>{{ size={tree_.data_.node_plus_pred_.header_plus_size_.size_} }}</DisplayString>
     <Expand>
-        <LinkedListItems>
-            <Size>data_.root_plus_size_.size_</Size> 
-            <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
-            <NextPointer>next_</NextPointer>
-            <ValueNode>this</ValueNode>
-        </LinkedListItems>
+        <TreeItems>
+            <HeadPointer>tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)(this)</ValueNode>
+        </TreeItems>
     </Expand>
-</Type -->
+</Type>
+
+<!-- default base hook with constant size disabled -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;">
+    <DisplayString Condition="tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_ == 0">{{ empty }}</DisplayString>
+    <DisplayString>{{ non-empty }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)(this)</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- iterator for set with base hook  -->
+<Type Name="boost::intrusive::tree_iterator&lt;boost::intrusive::rbtree_impl&lt;boost::intrusive::setopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,boost::intrusive::rbtree_node_traits&lt;void *,0&gt;,*,boost::intrusive::default_tag,*&gt;,*&gt; &gt;,*&gt;">
+    <DisplayString>{*($T1*)(members_.nodeptr_)}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">*($T1*)(members_.nodeptr_)</Item>
+    </Expand>
+</Type>
+
+<!-- default member hook with constant size enabled -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::none,*&gt;">
+    <DisplayString>{{ size={tree_.data_.node_plus_pred_.header_plus_size_.size_} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1*)((char*)this - (size_t)($T4))</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- default member hook with constant size disabled -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;">
+   <DisplayString Condition="tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_ == 0">{{ empty }}</DisplayString>
+   <DisplayString>{{ non-empty }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1*)((char*)this - (size_t)($T4))</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- iterator for set with member hook -->
+<Type Name="boost::intrusive::tree_iterator&lt;boost::intrusive::rbtree_impl&lt;boost::intrusive::setopt&lt;boost::intrusive::detail::member_hook_traits&lt;*,boost::intrusive::set_member_hook&lt;*&gt;,*&gt;,*&gt; &gt;,*&gt;">
+    <DisplayString>{*($T1*)(((char*)members_.nodeptr_) - (size_t)($T3))}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">*($T1*)(((char*)members_.nodeptr_) - (size_t)($T3))</Item>
+    </Expand>
+</Type>
 
 </AutoVisualizer>
