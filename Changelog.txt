@@ -3,6 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.12 - 08.06.2013
+=========================
++ Visualizers for boost::intrusive::set added. Thanks to johanst
+
 1.0.11 - 03.03.2013
 =========================
 + Visualizers for "boost::container::flat_map, flat_set and stable_vector added
