@@ -3,6 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.13 - 28.06.2013
+=========================
++ Support Visual Studio 2013 Preview
+
 1.0.12 - 08.06.2013
 =========================
 + Visualizers for boost::intrusive::set added. Thanks to johanst
