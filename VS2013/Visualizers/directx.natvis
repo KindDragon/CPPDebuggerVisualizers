@@ -1,0 +1,622 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+    <!--DXGI-->
+    <HResult Name="DXGI_ERROR_DEVICE_HUNG">
+        <HRValue>0x887A0006</HRValue>
+        <HRDescription>The application's device failed due to badly formed commands sent by the application. This is an design-time issue that should be investigated and fixed.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_DEVICE_REMOVED">
+        <HRValue>0x887A0005</HRValue>
+        <HRDescription>The video card has been physically removed from the system, or a driver upgrade for the video card has occurred. The application should destroy and recreate the device. For help debugging the problem, call ID3D10Device::GetDeviceRemovedReason.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_DEVICE_RESET">
+        <HRValue>0x887A0007</HRValue>
+        <HRDescription>The device failed due to a badly formed command. This is a run-time issue; The application should destroy and recreate the device.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_DRIVER_INTERNAL_ERROR">
+        <HRValue>0x887A0020</HRValue>
+        <HRDescription>The driver encountered a problem and was put into the device removed state.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_FRAME_STATISTICS_DISJOINT">
+        <HRValue>0x887A000B</HRValue>
+        <HRDescription>An event (for example, a power cycle) interrupted the gathering of presentation statistics.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE">
+        <HRValue>0x887A000C</HRValue>
+        <HRDescription>The application attempted to acquire exclusive ownership of an output, but failed because some other application (or device within the application) already acquired ownership.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_INVALID_CALL">
+        <HRValue>0x887A0001</HRValue>
+        <HRDescription>The application provided invalid parameter data; this must be debugged and fixed before the application is released.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_MORE_DATA">
+        <HRValue>0x887A0003</HRValue>
+        <HRDescription>The buffer supplied by the application is not big enough to hold the requested data.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_NONEXCLUSIVE">
+        <HRValue>0x887A0021</HRValue>
+        <HRDescription>A global counter resource is in use, and the Direct3D device can't currently use the counter resource.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_NOT_CURRENTLY_AVAILABLE">
+        <HRValue>0x887A0022</HRValue>
+        <HRDescription>The resource or request is not currently available, but it might become available later.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_NOT_FOUND">
+        <HRValue>0x887A0002</HRValue>
+        <HRDescription>When calling IDXGIObject::GetPrivateData, the GUID passed in is not recognized as one previously passed to IDXGIObject::SetPrivateData or IDXGIObject::SetPrivateDataInterface. When calling IDXGIFactory::EnumAdapters or IDXGIAdapter::EnumOutputs, the enumerated ordinal is out of range.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED">
+        <HRValue>0x887a0023</HRValue>
+        <HRDescription>Reserved</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_REMOTE_OUTOFMEMORY">
+        <HRValue>0x887A0024</HRValue>
+        <HRDescription>Reserved</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_WAS_STILL_DRAWING">
+        <HRValue>0x887A000A</HRValue>
+        <HRDescription>The GPU was busy at the moment when a call was made to perform an operation, and did not execute or schedule the operation.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_UNSUPPORTED">
+        <HRValue>0x887A0004</HRValue>
+        <HRDescription>The requested functionality is not supported by the device or the driver.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_ACCESS_LOST">
+        <HRValue>0x887A0026</HRValue>
+        <HRDescription>The desktop duplication interface is invalid. The desktop duplication interface typically becomes invalid when a different type of image is displayed on the desktop.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_WAIT_TIMEOUT">
+        <HRValue>0x887A0027</HRValue>
+        <HRDescription>The time-out interval elapsed before the next desktop frame was available.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_SESSION_DISCONNECTED">
+        <HRValue>0x887A0028</HRValue>
+        <HRDescription>The Remote Desktop Services session is currently disconnected.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_RESTRICT_TO_OUTPUT_STALE">
+        <HRValue>0x887A0029</HRValue>
+        <HRDescription>The DXGI outuput (monitor) to which the swap chain content was restricted is now disconnected or changed.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_CANNOT_PROTECT_CONTENT">
+        <HRValue>0x887A002A</HRValue>
+        <HRDescription>DXGI can't provide content protection on the swap chain. This error is typically caused by an older driver, or when you use a swap chain that is incompatible with content protection.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_ACCESS_DENIED">
+        <HRValue>0x887A002B</HRValue>
+        <HRDescription>You tried to use a resource to which you did not have the required access privileges. This error is most typically caused when you write to a shared resource with read-only access.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_ERROR_NAME_ALREADY_EXISTS">
+        <HRValue>0x887A002C</HRValue>
+        <HRDescription>The supplied name of a resource in a call to IDXGIResource1::CreateSharedHandle is already associated with some other resource.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_OCCLUDED">
+        <HRValue>0x087a0001</HRValue>
+        <HRDescription>The window content is not visible. When receiving this status, an application can stop rendering and use DXGI_PRESENT_TEST to determine when to resume rendering.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_CLIPPED">
+        <HRValue>0x087a0002</HRValue>
+        <HRDescription>The Present operation was partially invisible to the user. </HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_NO_REDIRECTION">
+        <HRValue>0x087a0004</HRValue>
+        <HRDescription>The driver is requesting that the DXGI runtime not use shared resources to communicate with the Desktop Window Manager.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_NO_DESKTOP_ACCESS">
+        <HRValue>0x087a0005</HRValue>
+        <HRDescription>The Present operation was not visible because the Windows session has switched to another desktop (for example, ctrl-alt-del).</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE">
+        <HRValue>0x087a0006</HRValue>
+        <HRDescription>The Present operation was not visible because the target monitor was being used for some other purpose.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_MODE_CHANGED">
+        <HRValue>0x087a0007</HRValue>
+        <HRDescription>The desktop display mode has been changed, there might be color conversion/stretching. The application should call IDXGISwapChain::ResizeBuffers to match the new display mode.</HRDescription>
+    </HResult>
+    <HResult Name="DXGI_STATUS_MODE_CHANGE_IN_PROGRESS">
+        <HRValue>0x087a0008</HRValue>
+        <HRDescription>IDXGISwapChain::ResizeTarget and IDXGISwapChain::SetFullscreenState will return DXGI_STATUS_MODE_CHANGE_IN_PROGRESS if a fullscreen/windowed mode transition is occurring when either API is called.</HRDescription>
+    </HResult>
+
+    <!--D3D9-->
+    <HResult Name="D3DERR_WRONGTEXTUREFORMAT">
+        <HRValue>2289436696</HRValue>
+        <HRDescription>The pixel format of the texture surface is not valid.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDCOLOROPERATION">
+        <HRValue>2289436697</HRValue>
+        <HRDescription>The device does not support a specified texture-blending operation for color values.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDCOLORARG">
+        <HRValue>2289436698</HRValue>
+        <HRDescription>The device does not support a specified texture-blending argument for color values.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDALPHAOPERATION">
+        <HRValue>2289436699</HRValue>
+        <HRDescription>The device does not support a specified texture-blending operation for the alpha channel.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDALPHAARG">
+        <HRValue>2289436700</HRValue>
+        <HRDescription>The device does not support a specified texture-blending argument for the alpha channel.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_TOOMANYOPERATIONS">
+        <HRValue>2289436701</HRValue>
+        <HRDescription>The application is requesting more texture-filtering operations than the device supports.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_CONFLICTINGTEXTUREFILTER">
+        <HRValue>2289436702</HRValue>
+        <HRDescription>The current texture filters cannot be used together.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDFACTORVALUE">
+        <HRValue>2289436703</HRValue>
+        <HRDescription>The device does not support the specified texture factor value. Not used; provided only to support older drivers.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_CONFLICTINGRENDERSTATE">
+        <HRValue>2289436705</HRValue>
+        <HRDescription>The currently set render states cannot be used together.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDTEXTUREFILTER">
+        <HRValue>2289436706</HRValue>
+        <HRDescription>The device does not support the specified texture filter.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_CONFLICTINGTEXTUREPALETTE">
+        <HRValue>2289436710</HRValue>
+        <HRDescription>The current textures cannot be used simultaneously.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_DRIVERINTERNALERROR">
+        <HRValue>2289436711</HRValue>
+        <HRDescription>Internal driver error. Applications should destroy and recreate the device when receiving this error.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_NOTFOUND">
+        <HRValue>2289436774</HRValue>
+        <HRDescription>The requested item was not found.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_MOREDATA">
+        <HRValue>2289436775</HRValue>
+        <HRDescription>There is more data available than the specified buffer size can hold.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_DEVICELOST">
+        <HRValue>2289436776</HRValue>
+        <HRDescription>The device has been lost but cannot be reset at this time. Therefore, rendering is not possible.A Direct 3D device object other than the one that returned this code caused the hardware adapter to be reset by the OS. Delete all video memory objects (surfaces, textures, state blocks) and call Reset() to return the device to a default state. If the application continues rendering without a reset, the rendering calls will succeed.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_DEVICENOTRESET">
+        <HRValue>2289436777</HRValue>
+        <HRDescription>The device has been lost but can be reset at this time.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_NOTAVAILABLE">
+        <HRValue>2289436778</HRValue>
+        <HRDescription>This device does not support the queried technique.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_OUTOFVIDEOMEMORY">
+        <HRValue>2289435004</HRValue>
+        <HRDescription>Direct3D does not have enough display memory to perform the operation. The device is using more resources in a single scene than can fit simultaneously into video memory. Present, PresentEx, or CheckDeviceState can return this error. Recovery is similar to D3DERR_DEVICEHUNG, though the application may want to reduce its per-frame memory usage as well to avoid having the error recur.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_INVALIDDEVICE">
+        <HRValue>2289436779</HRValue>
+        <HRDescription>The requested device type is not valid.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_INVALIDCALL">
+        <HRValue>2289436780</HRValue>
+        <HRDescription>The method call is invalid. For example, a method's parameter may not be a valid pointer.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_DRIVERINVALIDCALL">
+        <HRValue>2289436781</HRValue>
+        <HRDescription>Not used.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_WASSTILLDRAWING">
+        <HRValue>2289435164</HRValue>
+        <HRDescription>The previous blit operation that is transferring information to or from this surface is incomplete.</HRDescription>
+    </HResult>
+    <HResult Name="D3DOK_NOAUTOGEN">
+        <HRValue>141953135</HRValue>
+        <HRDescription>This is a success code. However, the autogeneration of mipmaps is not supported for this format. This means that resource creation will succeed but the mipmap levels will not be automatically generated.</HRDescription>
+    </HResult>
+    <!--D3D9Ex-->
+    <HResult Name="D3DERR_DEVICEREMOVED">
+        <HRValue>2289436784</HRValue>
+        <HRDescription>The hardware adapter has been removed. Application must destroy the device, do enumeration of adapters and create another Direct3D device. If application continues rendering without calling Reset, the rendering calls will succeed. Applies to Direct3D 9Ex only.</HRDescription>
+    </HResult>
+    <HResult Name="S_NOT_RESIDENT">
+        <HRValue>141953141</HRValue>
+        <HRDescription>At least one allocation that comprises the resources is on disk. Direct3D 9Ex only.</HRDescription>
+    </HResult>
+    <HResult Name="S_RESIDENT_IN_SHARED_MEMORY">
+        <HRValue>141953142</HRValue>
+        <HRDescription>No allocations that comprise the resources are on disk. However, at least one allocation is not in GPU-accessible memory. Direct3D 9Ex only.</HRDescription>
+    </HResult>
+    <HResult Name="S_PRESENT_MODE_CHANGED">
+        <HRValue>141953143</HRValue>
+        <HRDescription>The desktop display mode has been changed. The application can continue rendering, but there might be color conversion/stretching. Pick a back buffer format similar to the current display mode, and call Reset to recreate the swap chains. The device will leave this state after a Reset is called. Direct3D 9Ex only.</HRDescription>
+    </HResult>
+    <HResult Name="S_PRESENT_OCCLUDED">
+        <HRValue>141953144</HRValue>
+        <HRDescription>The presentation area is occluded. Occlusion means that the presentation window is minimized or another device entered the fullscreen mode on the same monitor as the presentation window and the presentation window is completely on that monitor. Occlusion will not occur if the client area is covered by another Window. Occluded applications can continue rendering and all calls will succeed, but the occluded presentation window will not be updated. Preferably the application should stop rendering to the presentation window using the device and keep calling CheckDeviceState until S_OK or S_PRESENT_MODE_CHANGED returns. Direct3D 9Ex only.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_DEVICEHUNG">
+        <HRValue>2289436788</HRValue>
+        <HRDescription>The device that returned this code caused the hardware adapter to be reset by the OS. Most applications should destroy the device and quit. Applications that must continue should destroy all video memory objects (surfaces, textures, state blocks etc) and call Reset() to put the device in a default state. If the application then continues rendering in the same way, the device will return to this state. Applies to Direct3D 9Ex only.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDOVERLAY">
+        <HRValue>0x8876087b</HRValue>
+        <HRDescription>The device does not support overlay for the specified size or display mode. Direct3D 9Ex under Windows 7 only.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDOVERLAYFORMAT">
+        <HRValue>0x8876087c</HRValue>
+        <HRDescription>The device does not support overlay for the specified surface format. Direct3D 9Ex under Windows 7 only.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_CANNOTPROTECTCONTENT">
+        <HRValue>0x8876087d</HRValue>
+        <HRDescription>The specified content cannot be protected. Direct3D 9Ex under Windows 7 only.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_UNSUPPORTEDCRYPTO">
+        <HRValue>0x8876087e</HRValue>
+        <HRDescription>The specified cryptographic algorithm is not supported. Direct3D 9Ex under Windows 7 only.</HRDescription>
+    </HResult>
+    <HResult Name="D3DERR_PRESENT_STATISTICS_DISJOINT">
+        <HRValue>0x88760884</HRValue>
+        <HRDescription>The present statistics have no orderly sequence. Direct3D 9Ex under Windows 7 only.</HRDescription>
+    </HResult>
+    
+    <!--D3D10-->    
+    <HResult Name="D3D10_ERROR_FILE_NOT_FOUND">
+        <HRValue>0x88790002</HRValue>
+        <HRDescription>The file was not found.</HRDescription>
+    </HResult>
+    <HResult Name="D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS">
+        <HRValue>0x88790001</HRValue>
+        <HRDescription>There are too many unique instances of a particular type of state object.</HRDescription>
+    </HResult>
+    
+    <!--D3D11-->    
+    <HResult Name="D3D11_ERROR_FILE_NOT_FOUND">
+        <HRValue>0x887c0002</HRValue>
+        <HRDescription>The file was not found.</HRDescription>
+    </HResult>
+    <HResult Name="D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS">
+        <HRValue>0x887c0001</HRValue>
+        <HRDescription>There are too many unique instances of a particular type of state object.</HRDescription>
+    </HResult>
+    <HResult Name="D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS">
+        <HRValue>0x887c0003</HRValue>
+        <HRDescription>There are too many unique instances of a particular type of view object.</HRDescription>
+    </HResult>
+    <HResult Name="D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD">
+        <HRValue>0x887c0004</HRValue>
+        <HRDescription>The first call to ID3D11DeviceContext::Map after either ID3D11Device::CreateDeferredContext or ID3D11DeviceContext::FinishCommandList per Resource was not D3D11_MAP_WRITE_DISCARD.</HRDescription>
+    </HResult>
+    
+    <!--DDraw-->
+    <HResult Name="DDERR_ALREADYINITIALIZED">
+        <HRValue>2289434629</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANNOTATTACHSURFACE">
+        <HRValue>2289434634</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANNOTDETACHSURFACE">
+        <HRValue>2289434644</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CURRENTLYNOTAVAIL">
+        <HRValue>2289434664</HRValue>
+    </HResult>
+    <HResult Name="DDERR_EXCEPTION">
+        <HRValue>2289434679</HRValue>
+    </HResult>
+    <HResult Name="DDERR_HEIGHTALIGN">
+        <HRValue>2289434714</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INCOMPATIBLEPRIMARY">
+        <HRValue>2289434719</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDCAPS">
+        <HRValue>2289434724</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDCLIPLIST">
+        <HRValue>2289434734</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDMODE">
+        <HRValue>2289434744</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDOBJECT">
+        <HRValue>2289434754</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDPIXELFORMAT">
+        <HRValue>2289434769</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDRECT">
+        <HRValue>2289434774</HRValue>
+    </HResult>
+    <HResult Name="DDERR_LOCKEDSURFACES">
+        <HRValue>2289434784</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NO3D">
+        <HRValue>2289434794</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOSTEREOHARDWARE">
+        <HRValue>2289434795</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOSURFACELEFT">
+        <HRValue>2289434796</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOCLIPLIST">
+        <HRValue>2289434829</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOCOLORCONVHW">
+        <HRValue>2289434834</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOCOOPERATIVELEVELSET">
+        <HRValue>2289434836</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOCOLORKEY">
+        <HRValue>2289434839</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOCOLORKEYHW">
+        <HRValue>2289434844</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NODIRECTDRAWSUPPORT">
+        <HRValue>2289434846</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOEXCLUSIVEMODE">
+        <HRValue>2289434849</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOFLIPHW">
+        <HRValue>2289434854</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOGDI">
+        <HRValue>2289434864</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOMIRRORHW">
+        <HRValue>2289434874</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTFOUND">
+        <HRValue>2289434879</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOOVERLAYHW">
+        <HRValue>2289434884</HRValue>
+    </HResult>
+    <HResult Name="DDERR_OVERLAPPINGRECTS">
+        <HRValue>2289434894</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NORASTEROPHW">
+        <HRValue>2289434904</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOROTATIONHW">
+        <HRValue>2289434914</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOSTRETCHHW">
+        <HRValue>2289434934</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOT4BITCOLOR">
+        <HRValue>2289434950</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOT4BITCOLORINDEX">
+        <HRValue>2289434951</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOT8BITCOLOR">
+        <HRValue>2289434954</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTEXTUREHW">
+        <HRValue>2289434964</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOVSYNCHW">
+        <HRValue>2289434969</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOZBUFFERHW">
+        <HRValue>2289434974</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOZOVERLAYHW">
+        <HRValue>2289434984</HRValue>
+    </HResult>
+    <HResult Name="DDERR_OUTOFCAPS">
+        <HRValue>2289434994</HRValue>
+    </HResult>
+    <HResult Name="DDERR_OVERLAYCANTCLIP">
+        <HRValue>2289435006</HRValue>
+    </HResult>
+    <HResult Name="DDERR_OVERLAYCOLORKEYONLYONEACTIVE">
+        <HRValue>2289435008</HRValue>
+    </HResult>
+    <HResult Name="DDERR_PALETTEBUSY">
+        <HRValue>2289435011</HRValue>
+    </HResult>
+    <HResult Name="DDERR_COLORKEYNOTSET">
+        <HRValue>2289435024</HRValue>
+    </HResult>
+    <HResult Name="DDERR_SURFACEALREADYATTACHED">
+        <HRValue>2289435034</HRValue>
+    </HResult>
+    <HResult Name="DDERR_SURFACEALREADYDEPENDENT">
+        <HRValue>2289435044</HRValue>
+    </HResult>
+    <HResult Name="DDERR_SURFACEBUSY">
+        <HRValue>2289435054</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANTLOCKSURFACE">
+        <HRValue>2289435059</HRValue>
+    </HResult>
+    <HResult Name="DDERR_SURFACEISOBSCURED">
+        <HRValue>2289435064</HRValue>
+    </HResult>
+    <HResult Name="DDERR_SURFACELOST">
+        <HRValue>2289435074</HRValue>
+    </HResult>
+    <HResult Name="DDERR_SURFACENOTATTACHED">
+        <HRValue>2289435084</HRValue>
+    </HResult>
+    <HResult Name="DDERR_TOOBIGHEIGHT">
+        <HRValue>2289435094</HRValue>
+    </HResult>
+    <HResult Name="DDERR_TOOBIGSIZE">
+        <HRValue>2289435104</HRValue>
+    </HResult>
+    <HResult Name="DDERR_TOOBIGWIDTH">
+        <HRValue>2289435114</HRValue>
+    </HResult>
+    <HResult Name="DDERR_UNSUPPORTEDFORMAT">
+        <HRValue>2289435134</HRValue>
+    </HResult>
+    <HResult Name="DDERR_UNSUPPORTEDMASK">
+        <HRValue>2289435144</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDSTREAM">
+        <HRValue>2289435145</HRValue>
+    </HResult>
+    <HResult Name="DDERR_VERTICALBLANKINPROGRESS">
+        <HRValue>2289435161</HRValue>
+    </HResult>
+    <HResult Name="DDERR_DDSCAPSCOMPLEXREQUIRED">
+        <HRValue>2289435166</HRValue>
+    </HResult>
+    <HResult Name="DDERR_XALIGN">
+        <HRValue>2289435184</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDDIRECTDRAWGUID">
+        <HRValue>2289435185</HRValue>
+    </HResult>
+    <HResult Name="DDERR_DIRECTDRAWALREADYCREATED">
+        <HRValue>2289435186</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NODIRECTDRAWHW">
+        <HRValue>2289435187</HRValue>
+    </HResult>
+    <HResult Name="DDERR_PRIMARYSURFACEALREADYEXISTS">
+        <HRValue>2289435188</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOEMULATION">
+        <HRValue>2289435189</HRValue>
+    </HResult>
+    <HResult Name="DDERR_REGIONTOOSMALL">
+        <HRValue>2289435190</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CLIPPERISUSINGHWND">
+        <HRValue>2289435191</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOCLIPPERATTACHED">
+        <HRValue>2289435192</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOHWND">
+        <HRValue>2289435193</HRValue>
+    </HResult>
+    <HResult Name="DDERR_HWNDSUBCLASSED">
+        <HRValue>2289435194</HRValue>
+    </HResult>
+    <HResult Name="DDERR_HWNDALREADYSET">
+        <HRValue>2289435195</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOPALETTEATTACHED">
+        <HRValue>2289435196</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOPALETTEHW">
+        <HRValue>2289435197</HRValue>
+    </HResult>
+    <HResult Name="DDERR_BLTFASTCANTCLIP">
+        <HRValue>2289435198</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOBLTHW">
+        <HRValue>2289435199</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NODDROPSHW">
+        <HRValue>2289435200</HRValue>
+    </HResult>
+    <HResult Name="DDERR_OVERLAYNOTVISIBLE">
+        <HRValue>2289435201</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOOVERLAYDEST">
+        <HRValue>2289435202</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDPOSITION">
+        <HRValue>2289435203</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTAOVERLAYSURFACE">
+        <HRValue>2289435204</HRValue>
+    </HResult>
+    <HResult Name="DDERR_EXCLUSIVEMODEALREADYSET">
+        <HRValue>2289435205</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTFLIPPABLE">
+        <HRValue>2289435206</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANTDUPLICATE">
+        <HRValue>2289435207</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTLOCKED">
+        <HRValue>2289435208</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANTCREATEDC">
+        <HRValue>2289435209</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NODC">
+        <HRValue>2289435210</HRValue>
+    </HResult>
+    <HResult Name="DDERR_WRONGMODE">
+        <HRValue>2289435211</HRValue>
+    </HResult>
+    <HResult Name="DDERR_IMPLICITLYCREATED">
+        <HRValue>2289435212</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTPALETTIZED">
+        <HRValue>2289435213</HRValue>
+    </HResult>
+    <HResult Name="DDERR_UNSUPPORTEDMODE">
+        <HRValue>2289435214</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOMIPMAPHW">
+        <HRValue>2289435215</HRValue>
+    </HResult>
+    <HResult Name="DDERR_INVALIDSURFACETYPE">
+        <HRValue>2289435216</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOOPTIMIZEHW">
+        <HRValue>2289435224</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTLOADED">
+        <HRValue>2289435225</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOFOCUSWINDOW">
+        <HRValue>2289435226</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTONMIPMAPSUBLEVEL">
+        <HRValue>2289435227</HRValue>
+    </HResult>
+    <HResult Name="DDERR_DCALREADYCREATED">
+        <HRValue>2289435244</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NONONLOCALVIDMEM">
+        <HRValue>2289435254</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANTPAGELOCK">
+        <HRValue>2289435264</HRValue>
+    </HResult>
+    <HResult Name="DDERR_CANTPAGEUNLOCK">
+        <HRValue>2289435284</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOTPAGELOCKED">
+        <HRValue>2289435304</HRValue>
+    </HResult>
+    <HResult Name="DDERR_MOREDATA">
+        <HRValue>2289435314</HRValue>
+    </HResult>
+    <HResult Name="DDERR_EXPIRED">
+        <HRValue>2289435315</HRValue>
+    </HResult>
+    <HResult Name="DDERR_TESTFINISHED">
+        <HRValue>2289435316</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NEWMODE">
+        <HRValue>2289435317</HRValue>
+    </HResult>
+    <HResult Name="DDERR_D3DNOTINITIALIZED">
+        <HRValue>2289435318</HRValue>
+    </HResult>
+    <HResult Name="DDERR_VIDEONOTACTIVE">
+        <HRValue>2289435319</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NOMONITORINFORMATION">
+        <HRValue>2289435320</HRValue>
+    </HResult>
+    <HResult Name="DDERR_NODRIVERSUPPORT">
+        <HRValue>2289435321</HRValue>
+    </HResult>
+    <HResult Name="DDERR_DEVICEDOESNTOWNSURFACE">
+        <HRValue>2289435323</HRValue>
+    </HResult>
+</AutoVisualizer>

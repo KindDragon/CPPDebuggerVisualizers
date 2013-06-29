@@ -2,7 +2,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="CPPDebuggerVisualizers..e72aa83c-bb6f-4910-8e9f-793052cd112a" Version="1.0.13" Language="en-US" Publisher="Arkadiy Shapkin" />
-    <DisplayName>C++ Debugger Visualizers</DisplayName>
+    <DisplayName>C++ Debugger Visualizers for VS2012</DisplayName>
     <Description xml:space="preserve">C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
     <MoreInfo>https://cppvisualizers.codeplex.com/</MoreInfo>
     <License>LICENSE_1_0.txt</License>
@@ -12,9 +12,9 @@
     <Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
   </Metadata>
   <Installation>
-    <InstallationTarget Version="[11.0,13.0)" Id="Microsoft.VisualStudio.Premium" />
-    <InstallationTarget Version="[11.0,13.0)" Id="Microsoft.VisualStudio.Pro" />
-    <InstallationTarget Version="[11.0,13.0)" Id="Microsoft.VisualStudio.Ultimate" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Premium" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Pro" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Ultimate" />
   </Installation>
   <Dependencies>
   </Dependencies>
