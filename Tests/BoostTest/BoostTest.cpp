@@ -274,27 +274,23 @@ void TestContainers()
 	fs.insert(100);
 	for(flat_set<int>::const_iterator it = fs.begin(); it!=fs.end();it++)
 		(*it);
-	//TODO: Doesn't work with Boost 1.51 and upper
 	list<int> l;
 	l.push_back(100);
 	for (auto it = l.cbegin(); it != l.cend(); it++)
 	{
 		*it;
 	}
-	//TODO: Doesn't work with Boost 1.51 and upper
+	slist<int> sl;
+	sl.push_front(100);
+	for(slist<int>::const_iterator it = sl.begin(); it!=sl.end();it++)
+		(*it);
 	map<int, int> m;
 	m[100] = 1000;
 	for(map<int, int>::const_iterator it = m.begin(); it!=m.end();it++)
 		(*it);
-	//TODO: Doesn't work with Boost 1.51 and upper
 	set<int> s;
 	s.insert(100);
 	for(set<int>::const_iterator it = s.begin(); it!=s.end();it++)
-		(*it);
-	//TODO: Doesn't work with Boost 1.51 and upper
-	slist<int> sl;
-	sl.push_front(100);
-	for(slist<int>::const_iterator it = sl.begin(); it!=sl.end();it++)
 		(*it);
 	basic_string<char> str("dsfsdf");
 	basic_string<char> str2("lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");

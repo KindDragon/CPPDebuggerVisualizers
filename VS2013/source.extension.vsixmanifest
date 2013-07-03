@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="CPPDebuggerVisualizers.VS2013.7422FC7B-9AB6-4860-8E40-0218A0CA3271" Version="1.0.13" Language="en-US" Publisher="Arkadiy Shapkin" />
+    <Identity Id="CPPDebuggerVisualizers.VS2013.7422FC7B-9AB6-4860-8E40-0218A0CA3271" Version="1.0.14" Language="en-US" Publisher="Arkadiy Shapkin" />
     <DisplayName>C++ Debugger Visualizers for VS2013</DisplayName>
     <Description xml:space="preserve">C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
     <MoreInfo>https://cppvisualizers.codeplex.com/</MoreInfo>

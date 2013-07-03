@@ -28,8 +28,8 @@
     <AlternativeType Name="boost::ptr_vector&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mylast - c_._Myfirst} }}</DisplayString>
     <Expand>
-        <Item Name="[size]">c_._Mylast - c_._Myfirst</Item>
-        <Item Name="[capacity]">c_._Myend - c_._Myfirst</Item>
+        <Item Name="[size]" ExcludeView="simple">c_._Mylast - c_._Myfirst</Item>
+        <Item Name="[capacity]" ExcludeView="simple">c_._Myend - c_._Myfirst</Item>
         <ArrayItems>
             <Size>c_._Mylast - c_._Myfirst</Size>
             <ValuePointer>($T1**)c_._Myfirst</ValuePointer>
@@ -54,7 +54,7 @@
             <HeadPointer>c_._Myhead-&gt;_Parent</HeadPointer>
             <LeftPointer>_Left</LeftPointer>
             <RightPointer>_Right</RightPointer>
-            <ValueNode Condition="_Isnil == 0">*(std::pair&lt;$T1 const ,$T2 *&gt;*)&amp;(_Myval)</ValueNode>
+            <ValueNode Condition="_Isnil == 0">*(std::pair&lt;$T1,$T2 *&gt;*)&amp;(_Myval)</ValueNode>
         </TreeItems>
     </Expand>
 </Type>

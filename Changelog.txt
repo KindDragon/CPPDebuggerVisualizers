@@ -3,6 +3,11 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.14 - 03.07.2013
+=========================
+! boost::container::list, slist, set and map containers visualizers fixed
+* boost::local_time::posix_time_zone minor enhancement
+
 1.0.13 - 28.06.2013
 =========================
 + Support Visual Studio 2013 Preview

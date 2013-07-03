@@ -139,6 +139,21 @@
     </Expand>
 </Type>
 
+<Type Name="boost::container::container_detail::list_node&lt;*,void *&gt;">
+    <AlternativeType Name="boost::container::container_detail::slist_node&lt;*,void *&gt;" />
+    <DisplayString>{m_data}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_data</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::container::container_detail::rbtree_node&lt;*,void *&gt;">
+    <DisplayString>{m_data}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_data</ExpandedItem>
+    </Expand>
+</Type>
+
 <Type Name="boost::container::flat_map&lt;*&gt;">
     <DisplayString>{m_flat_tree.m_data.m_vect}</DisplayString>
     <Expand>
@@ -206,13 +221,5 @@
         <Item Name="[value]">pn->value</Item>
     </Expand>
 </Type>
-
-<!-- Type Name="boost::container::container_detail::rbtree&lt;*&gt;::iterator">
-    <AlternativeType Name="boost::container::container_detail::rbtree&lt;*&gt;::const_iterator" />
-    <DisplayString>{*($T1*)(m_it.members_.nodeptr_)}</DisplayString>
-    <Expand>
-        <Item Name="[ptr]">*($T1*)(m_it.members_.nodeptr_)</Item>
-    </Expand>
-</Type -->
 
 </AutoVisualizer>

@@ -15,8 +15,8 @@
 
 <!-- base hook -->
 
-<Type Name="boost::intrusive::list&lt;*,boost::intrusive::none,*&gt;">
-    <AlternativeType Name="boost::intrusive::slist&lt;*,boost::intrusive::none,*&gt;" />
+<Type Name="boost::intrusive::list_impl&lt;boost::intrusive::listopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,*&gt;,*&gt; &gt;">
+    <AlternativeType Name="boost::intrusive::slist_impl&lt;boost::intrusive::slistopt&lt;boost::intrusive::detail::base_hook_traits&lt;*,*&gt;,*&gt; &gt;" />
     <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -60,6 +60,18 @@
 </Type>
 
 <!-- boost::intrusive::set -->
+
+<Type Name="boost::intrusive::rbtree_impl&lt;boost::intrusive::setopt&lt;boost::intrusive::detail::base_hook_traits&lt;*&gt;,*&gt; &gt;">
+    <DisplayString>{{ size={data_.node_plus_pred_.header_plus_size_.size_} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>data_.node_plus_pred_.header_plus_size_.header_.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)(this)</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
 
 <!-- default base hook with constant size enabled -->
 <Type Name="boost::intrusive::set&lt;*,boost::intrusive::none,*&gt;">

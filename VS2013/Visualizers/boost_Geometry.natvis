@@ -24,7 +24,7 @@
     <DisplayString Condition="3 == sizeof(m_values)/sizeof(m_values[0])">[{m_values[0]}, {m_values[1]}, {m_values[2]}]</DisplayString>
     <DisplayString>{{size = {sizeof(m_values)/sizeof(m_values[0])}}}</DisplayString>
     <Expand>
-      <Item Name="[size]">sizeof(m_values)/sizeof(m_values[0])</Item>
+      <Item Name="[size]" ExcludeView="simple">sizeof(m_values)/sizeof(m_values[0])</Item>
       <ArrayItems>
         <Size>sizeof(m_values)/sizeof(m_values[0])</Size>
         <ValuePointer>m_values</ValuePointer>
