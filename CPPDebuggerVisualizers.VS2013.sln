@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{074968F7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPPDebuggerVisualizers", "VS2013\CPPDebuggerVisualizers.csproj", "{D97ABE0D-8F29-4728-8A3F-FF63F42E6A87}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoostTest.VS2013", "Tests\BoostTest\BoostTest.VS2013.vcxproj", "{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,11 +49,26 @@ Global
 		{D97ABE0D-8F29-4728-8A3F-FF63F42E6A87}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D97ABE0D-8F29-4728-8A3F-FF63F42E6A87}.Release|Win32.ActiveCfg = Release|Any CPU
 		{D97ABE0D-8F29-4728-8A3F-FF63F42E6A87}.Release|x64.ActiveCfg = Release|Any CPU
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|Win32.Build.0 = Debug|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|x64.ActiveCfg = Debug|x64
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Debug|x64.Build.0 = Debug|x64
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|Any CPU.ActiveCfg = Release|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|Win32.ActiveCfg = Release|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|Win32.Build.0 = Release|Win32
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|x64.ActiveCfg = Release|x64
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{48A389F6-E2E8-4318-8DB5-65DB8206BA6B} = {074968F7-C3B2-4F5C-8F6F-D8F46582267C}
+		{26925C3F-9C66-44B9-A0A2-7E53D13C5BA4} = {074968F7-C3B2-4F5C-8F6F-D8F46582267C}
 	EndGlobalSection
 EndGlobal

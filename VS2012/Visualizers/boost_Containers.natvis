@@ -131,6 +131,7 @@
     </Expand>
 </Type>
 
+<!-- boost <= 1.54 -->
 <Type Name="boost::container::list&lt;*&gt;::iterator">
     <AlternativeType Name="boost::container::list&lt;*&gt;::const_iterator" />
     <DisplayString>{m_it}</DisplayString>
@@ -151,6 +152,14 @@
     <DisplayString>{m_data}</DisplayString>
     <Expand>
         <ExpandedItem>m_data</ExpandedItem>
+    </Expand>
+</Type>
+
+<!-- boost 1.55 >= -->
+<Type Name="boost::container::container_detail::iterator&lt;*&gt;">
+    <DisplayString>{m_iit}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_iit</ExpandedItem>
     </Expand>
 </Type>
 
@@ -184,6 +193,7 @@
     </Expand>
 </Type>
 
+<!-- boost <= 1.54 -->
 <Type Name="boost::container::vector&lt;*&gt;">
     <DisplayString>{{ size={members_.m_size} }}</DisplayString>
     <Expand>
@@ -196,14 +206,39 @@
     </Expand>
 </Type>
 
+<!-- boost 1.55 >= -->
+<Type Name="boost::container::container_detail::vector_alloc_holder&lt;*,*&gt;">
+    <DisplayString>{{ size={m_size} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_size</Item>
+        <Item Name="[capacity]">m_capacity</Item>
+        <ArrayItems>
+            <Size>m_size</Size>
+            <ValuePointer>m_start</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.55 >= -->
+<Type Name="boost::container::vector&lt;*,*&gt;">
+    <DisplayString>{m_holder}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_holder</ExpandedItem>
+    </Expand>
+</Type>
+
 <Type Name="boost::container::container_detail::vector_iterator&lt;*&gt;">
     <AlternativeType Name="boost::container::container_detail::vector_const_iterator&lt;*&gt;" />
+    <!-- boost 1.55 >= -->
+    <AlternativeType Name="boost::container::container_detail::vec_iterator&lt;*,*&gt;" />
+    <AlternativeType Name="boost::container::container_detail::vec_const_iterator&lt;*,*&gt;" />
     <DisplayString>{*m_ptr}</DisplayString>
     <Expand>
         <Item Name="[ptr]">m_ptr</Item>
     </Expand>
 </Type>
 
+<!-- boost <= 1.54 -->
 <Type Name="boost::container::stable_vector&lt;*&gt;">
     <DisplayString>{{ size={index.members_.m_size ? index.members_.m_size - ExtraPointers : 0} }}</DisplayString> 
     <Expand>
@@ -215,10 +250,31 @@
     </Expand>
 </Type>
 
+<!-- boost <= 1.54 -->
 <Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;">
     <DisplayString>{pn->value}</DisplayString>
     <Expand>
         <Item Name="[value]">pn->value</Item>
+    </Expand>
+</Type>
+
+<!-- boost 1.55 >= -->
+<Type Name="boost::container::stable_vector&lt;*,*&gt;">
+    <DisplayString>{{ size={index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0} }}</DisplayString> 
+    <Expand>
+        <Item Name="[size]">index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0</Item>
+        <IndexListItems>
+            <Size>index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0</Size>
+            <ValueNode>((boost::container::stable_vector_detail::node_type&lt;void *,$T1&gt;*)index.m_holder.m_start[$i])->value</ValueNode> 
+        </IndexListItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.55 >= -->
+<Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;">
+    <DisplayString>{m_pn->value}</DisplayString>
+    <Expand>
+        <Item Name="[value]">m_pn->value</Item>
     </Expand>
 </Type>
 

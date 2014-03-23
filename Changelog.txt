@@ -3,6 +3,12 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.15 - 23.03.2014
+=========================
++ Support changed boost::container::* and boost::intrusive::* in boost 1.55
+* boost::scoped_ptr, boost::shared_ptr operator-> added to no step into
+* boost::scoped_array, boost::shared_array operator[] added to no step into
+
 1.0.14 - 03.07.2013
 =========================
 ! boost::container::list, slist, set and map containers visualizers fixed

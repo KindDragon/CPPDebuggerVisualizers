@@ -58,10 +58,10 @@
 </Type>
 
 <Type Name="boost::chrono::duration&lt;*,*&gt;">
-    <DisplayString>{rep_} {*(($T2*)0)}</DisplayString>
+    <DisplayString>{rep_} {*(($T2*)1)}</DisplayString>
     <Expand>
         <Item Name="rep">rep_</Item>
-        <Item Name="ratio">*(($T2*)0)</Item>
+        <Item Name="ratio">*(($T2*)1)</Item>
     </Expand>
 </Type>
 

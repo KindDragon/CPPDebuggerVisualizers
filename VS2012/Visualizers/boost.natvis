@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 <!-- based on https://svn.boost.org/trac/boost/wiki/DebuggerVisualizers -->
-<!--boost::adjacency_list<OutEdgeList, VertexList, Directed,VertexProperties, EdgeProperties, GraphProperties, EdgeList>-->
+<!--boost::adjacency_list<OutEdgeList, VertexList, Directed, VertexProperties, EdgeProperties, GraphProperties, EdgeList>-->
 <Type Name="boost::adjacency_list&lt;*,*,*,*,*&gt;">
     <DisplayString>{{edges={m_edges} vertices={m_vertices}}}</DisplayString>
     <Expand>
@@ -210,7 +210,7 @@
 </Type>
 
 <Type Name="boost::ratio&lt;*,*&gt;">
-    <DisplayString Condition="$T2 == 1">ratio {$T1}</DisplayString>
+    <DisplayString Condition="$T2 == 1">ratio {"$T1"}</DisplayString>
     <DisplayString>ratio {$T1}/{$T2}</DisplayString>
     <Expand/>
 </Type>
