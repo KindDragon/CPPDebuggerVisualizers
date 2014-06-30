@@ -152,6 +152,26 @@ void TestVariantAnyOptional()
 
     int_tree_t vartt;
     vartt = result;
+
+    typedef boost::mpl::vector4<int, std::string, Data, bool> vec4_t;
+    boost::make_variant_over<vec4_t>::type variant_from_mpl_v4; // now contains int
+    variant_from_mpl_v4 = std::string("Hello word!");
+
+    typedef boost::mpl::vector<Data, std::string, int, bool, double> vec_t;
+    boost::make_variant_over<vec_t>::type variant_from_mpl_v; // now contains Data
+    variant_from_mpl_v = true;
+    variant_from_mpl_v = variant_from_mpl_v4;
+
+    // Testing variant representation on BIG MPL vectors
+    typedef boost::mpl::vector20<
+        boost::array<char, 1>, boost::array<char, 2>, boost::array<char, 3>, boost::array<char, 4>, boost::array<char, 5>,
+        boost::array<char, 6>, boost::array<char, 7>, boost::array<char, 8>, boost::array<char, 9>, boost::array<char, 10>,
+        boost::array<char, 11>, boost::array<char, 12>, boost::array<char, 13>, boost::array<char, 14>, boost::array<char, 15>,
+        boost::array<char, 16>, boost::array<char, 17>, boost::array<char, 18>, boost::array<char, 19>, boost::array<char, 20>
+    > vec20_t;
+    boost::make_variant_over<vec20_t>::type variant20;
+    variant20 = boost::array<char, 19>();
+    
     boost::any valany = 4;
     valany =  std::string("fdsfsd");
     valany = true;
