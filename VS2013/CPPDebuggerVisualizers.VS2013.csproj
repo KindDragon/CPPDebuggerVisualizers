@@ -63,7 +63,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest" />
-    <Content Include="Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll">
+    <Content Include="..\CPPDebuggerVisualizersNatvisAddIn\Release\Win32\CPPDebuggerVisualizersNatvisAddIn.dll">
+      <Link>Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\external.natjmc">

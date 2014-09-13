@@ -52,6 +52,10 @@
       <Link>Changelog.txt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="..\CPPDebuggerVisualizersNatvisAddIn\Release\Win32\CPPDebuggerVisualizersNatvisAddIn.dll">
+      <Link>Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="..\cppVisualizerIcon.png">
       <Link>cppVisualizerIcon.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -65,9 +69,6 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\boost.natvis">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\directx.natvis">
