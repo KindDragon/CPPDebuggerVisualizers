@@ -130,7 +130,9 @@ void TestGregorian()
     typedef nth_day_of_the_week_in_month nth_dow;
     nth_dow labor_day(nth_dow::first,Monday, Sep);
     //calculate a specific date for 2004 from functor
-    date d6 = labor_day.get_date(2004);
+    date d3 = labor_day.get_date(2004);
+    auto ds = to_simple_string(weekstart);
+    auto ds3 = to_simple_string(d3);
 }
 
 void TestPosixTime()
@@ -143,6 +145,7 @@ void TestPosixTime()
     boost::gregorian::date today = now.date(); //Get the date part out of the time
     boost::gregorian::date tomorrow = today + boost::gregorian::date_duration(1);
     ptime tomorrow_start(tomorrow); //midnight
+    auto ts = boost::posix_time::to_simple_string(tomorrow_start);
 
     //starting at current time iterator adds by one hour
     time_iterator titr(now,hours(1));
@@ -172,6 +175,8 @@ void TestLocalTime()
     local_date_time phx_arrival = phx_departure + flight_length;
     //convert the phx time to a nyz time
     local_date_time nyc_arrival = phx_arrival.local_time_in(nyc_tz);
+    auto tzs = timezone.to_posix_string();
+    auto tds = boost::posix_time::to_simple_string(flight_length);
 }
 
 void TestContainers()
