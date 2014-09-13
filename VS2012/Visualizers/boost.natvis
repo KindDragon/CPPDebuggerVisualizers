@@ -96,25 +96,6 @@
     </Expand>
 </Type>
 
-<!--boost::basic_regex from <regex>-->
-<Type Name="boost::basic_regex&lt;char,*&gt;">
-    <DisplayString Condition="m_pimpl.px == 0">empty</DisplayString>
-    <DisplayString Condition="m_pimpl.px != 0">regex {m_pimpl.px-&lt;m_expression,s}</DisplayString>
-    <StringView Condition="m_pimpl.px != 0">m_pimpl.px-&lt;m_expression,s</StringView>
-    <Expand>
-        <Item Name="[ptr]" Condition="m_pimpl.px != 0">*(m_pimpl.px)</Item>
-    </Expand>
-</Type>
-
-<Type Name="boost::basic_regex&lt;wchar_t,*&gt;">
-    <DisplayString Condition="m_pimpl.px == 0">empty</DisplayString>
-    <DisplayString Condition="m_pimpl.px != 0">regex {m_pimpl.px-&lt;m_expression,su}</DisplayString>
-    <StringView Condition="m_pimpl.px != 0">m_pimpl.px-&lt;m_expression,su</StringView>
-    <Expand>
-        <Item Name="[ptr]" Condition="m_pimpl.px != 0">*(m_pimpl.px)</Item>
-    </Expand>
-</Type>
-
 <!--boost::mutex::scoped_lock and boost::mutex::scoped_try_lock-->
 <Type Name="boost::unique_lock&lt;*&gt;">
     <DisplayString Condition="is_locked">locked</DisplayString>

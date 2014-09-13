@@ -5,8 +5,9 @@ Legend:
 
 1.0.16 - 14.09.2014
 =========================
-+ Visualizers for boost::regex, boost::multiprecision, boost::rational added. Thanks to jzmaddock
++ Visualizers for boost::multiprecision, boost::rational added. Thanks to jzmaddock
 + Visualizers for boost::variant<over_sequence<MPL vectors... > > added. Thanks to Antony Polukhin
+* Visualizers for boost::regex improved. Thanks to jzmaddock
 ! boost::uuids::uuid visualizer fixed
 
 1.0.15 - 23.03.2014
