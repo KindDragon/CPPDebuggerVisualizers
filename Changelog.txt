@@ -3,6 +3,11 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.16 - 14.09.2014
+=========================
++ Add visualization of boost::variant<over_sequence<MPL vectors... > > (Antony Polukhin)
+! boost::uuids::uuid visualizer fixed
+
 1.0.15 - 23.03.2014
 =========================
 + Support changed boost::container::* and boost::intrusive::* in boost 1.55

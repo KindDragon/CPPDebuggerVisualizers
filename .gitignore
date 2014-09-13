@@ -1,6 +1,7 @@
 Debug/
 Release/
 obj/
+ipch/*
 _ReSharper.*/
 *.sdf
 *.suo

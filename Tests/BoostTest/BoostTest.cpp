@@ -22,6 +22,7 @@
 #include <boost/logic/tribool.hpp>
 #include <boost/chrono.hpp>
 #include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
 #include <boost/circular_buffer.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/intrusive/list.hpp>
@@ -596,10 +597,6 @@ int main(int argc, const char* argv[])
 
     auto tupl = boost::make_tuple(1, "terterwt", true);
 
-    unsigned char uuid_data[16];
-    // fill uuid_data
-
-    boost::uuids::uuid u;
     std::pair<int const, bool> p1;
     std::pair<int const, s> p2;
     std::pair<int const, const s> p3;
@@ -609,13 +606,8 @@ int main(int argc, const char* argv[])
     std::pair<int const, boost::unordered_set<int>> p7;
     std::pair<int const, std::unique_ptr<s>> p8;
 
-    boost::uuids::uuid u2 =
-    { 0x12 ,0x34, 0x56, 0x78
-    , 0x90, 0xab
-    , 0xcd, 0xef
-    , 0x12, 0x34
-    , 0x56, 0x78, 0x90, 0xab, 0xcd, 0xef
-    };
+    boost::uuids::string_generator gen;
+    boost::uuids::uuid u1 = gen("{92EC2A54-C1FA-42CB-B9F9-2602D507AD17}");
 
     TestPointerContainerLibrary();
 

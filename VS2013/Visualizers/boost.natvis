@@ -336,6 +336,6 @@
 </Type>
 
 <Type Name="boost::uuids::uuid">
-    <DisplayString>{*(_GUID*)this}</DisplayString>
+    <DisplayString LegacyAddin="CPPDebuggerVisualizersNatvisAddIn.dll" Export="BoostUuidFormatter"></DisplayString>
 </Type>
 </AutoVisualizer>
