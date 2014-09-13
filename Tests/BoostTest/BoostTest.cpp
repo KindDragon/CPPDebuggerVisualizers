@@ -1,33 +1,8 @@
 #include <iostream>
-#include <boost/dynamic_bitset.hpp>
-#include <boost/ptr_container/ptr_array.hpp>
-#include <boost/ptr_container/ptr_vector.hpp>
-#include <boost/ptr_container/ptr_map.hpp>
-#include <boost/ptr_container/ptr_list.hpp>
-#include <boost/ptr_container/ptr_deque.hpp>
-#include <boost/ptr_container/ptr_set.hpp>
-#include <boost/scoped_ptr.hpp>
-#include <boost/scoped_array.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/make_shared.hpp>
-#include <boost/weak_ptr.hpp>
-#include <boost/shared_array.hpp>
-#include <boost/variant.hpp>
 #include <boost/any.hpp>
-#include <boost/optional.hpp>
 #include <boost/bimap.hpp>
-#include <boost/unordered_map.hpp>
-#include <boost/unordered_set.hpp>
-#include <boost/date_time.hpp>
-#include <boost/logic/tribool.hpp>
 #include <boost/chrono.hpp>
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
 #include <boost/circular_buffer.hpp>
-#include <boost/filesystem.hpp>
-#include <boost/intrusive/list.hpp>
-#include <boost/intrusive/slist.hpp>
-#include <boost/intrusive/set.hpp>
 #include <boost/container/deque.hpp>
 #include <boost/container/flat_map.hpp>
 #include <boost/container/flat_set.hpp>
@@ -37,13 +12,43 @@
 #include <boost/container/slist.hpp>
 #include <boost/container/stable_vector.hpp>
 #include <boost/container/string.hpp>
-#include <boost/container/vector.hpp> 
+#include <boost/container/vector.hpp>
+#include <boost/date_time.hpp>
+#include <boost/dynamic_bitset.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/foreach.hpp>
+#include <boost/intrusive/list.hpp>
+#include <boost/intrusive/set.hpp>
+#include <boost/intrusive/slist.hpp>
+#include <boost/logic/tribool.hpp>
+#include <boost/make_shared.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_dec_float.hpp>
+#include <boost/multiprecision/number.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/vector_sparse.hpp>
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/foreach.hpp>  
-#include <boost/property_tree/ptree.hpp>  
-#include <boost/property_tree/xml_parser.hpp>  
+#include <boost/optional.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
+#include <boost/ptr_container/ptr_array.hpp>
+#include <boost/ptr_container/ptr_deque.hpp>
+#include <boost/ptr_container/ptr_list.hpp>
+#include <boost/ptr_container/ptr_map.hpp>
+#include <boost/ptr_container/ptr_set.hpp>
+#include <boost/ptr_container/ptr_vector.hpp>
+#include <boost/rational.hpp>
+#include <boost/regex.hpp>
+#include <boost/scoped_array.hpp>
+#include <boost/scoped_ptr.hpp>
+#include <boost/shared_array.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/unordered_map.hpp>
+#include <boost/unordered_set.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/variant.hpp>
+#include <boost/weak_ptr.hpp>
 
 class Data
 {
@@ -102,109 +107,7 @@ void TestPointerContainerLibrary()
         (*it);
 }
 
-void TestSmartPointers()
-{
-    boost::scoped_ptr<Data> ptr(new Data());
-    ptr->Test();
-    boost::scoped_array<Data> ptrAr(new Data[10]());
-    ptrAr[0].Test();
-    boost::shared_ptr<Data> shPtr(new Data());
-    shPtr->Test();
-    boost::weak_ptr<Data> weakPtr(shPtr);
-    boost::shared_ptr<Data> shPtrEx(new Data(), std::ptr_fun(mallocDeleter));
-    shPtrEx->Test();
-    boost::shared_array<Data> shPtrAr(new Data[10]());
-    shPtrAr[0].Test();
-}
-
-class visitor
-    : public boost::static_visitor<>
-{
-public:
-    template <typename T>
-    void operator()(T & i) const
-    {
-        i;
-    }
-};
-
-void TestVariantAnyOptional()
-{
-    boost::variant<int, std::string, Data> var("gdsg");
-    var = 4;
-    boost::variant<int, std::string, Data, bool> var2(false);
-    var2 = 4;
-
-    typedef boost::make_recursive_variant<
-        int
-        , std::vector< boost::recursive_variant_ >
-    >::type int_tree_t;
-
-    std::vector< int_tree_t > subresult;
-    subresult.push_back(3);
-    subresult.push_back(5);
-
-    std::vector< int_tree_t > result;
-    result.push_back(1);
-    result.push_back(subresult);
-    // TODO: result[1] doesn't work ATM, cannot detect when boost::variant use boost::recursive_wrapper
-    boost::apply_visitor( visitor(), result[1] );
-    result.push_back(7);
-
-    int_tree_t vartt;
-    vartt = result;
-
-    typedef boost::mpl::vector4<int, std::string, Data, bool> vec4_t;
-    boost::make_variant_over<vec4_t>::type variant_from_mpl_v4; // now contains int
-    variant_from_mpl_v4 = std::string("Hello word!");
-
-    typedef boost::mpl::vector<Data, std::string, int, bool, double> vec_t;
-    boost::make_variant_over<vec_t>::type variant_from_mpl_v; // now contains Data
-    variant_from_mpl_v = true;
-    variant_from_mpl_v = variant_from_mpl_v4;
-
-    // Testing variant representation on BIG MPL vectors
-    typedef boost::mpl::vector20<
-        boost::array<char, 1>, boost::array<char, 2>, boost::array<char, 3>, boost::array<char, 4>, boost::array<char, 5>,
-        boost::array<char, 6>, boost::array<char, 7>, boost::array<char, 8>, boost::array<char, 9>, boost::array<char, 10>,
-        boost::array<char, 11>, boost::array<char, 12>, boost::array<char, 13>, boost::array<char, 14>, boost::array<char, 15>,
-        boost::array<char, 16>, boost::array<char, 17>, boost::array<char, 18>, boost::array<char, 19>, boost::array<char, 20>
-    > vec20_t;
-    boost::make_variant_over<vec20_t>::type variant20;
-    variant20 = boost::array<char, 19>();
-    
-    boost::any valany = 4;
-    valany =  std::string("fdsfsd");
-    valany = true;
-    boost::optional<int> opt = 4;
-}
-
-void TestUnordered()
-{
-    boost::unordered_map<std::string, int> um;
-    um["hfh"] = 73576;
-    um["jgfsjsf"] = 65;
-    boost::unordered_map<std::string, boost::unordered_set<int> > um2;
-    um2["dsfgal;sg"].insert(43534);
-    um2["dsfgal;sg"].insert(563);
-    um2["'/lreg"].insert(646);
-    um2["lfdhk"].insert(752);
-    boost::unordered_multimap<std::string, int> umm;
-    umm.insert(std::make_pair(std::string("sdhsh"), 73576));
-    umm.insert(std::make_pair(std::string("sdhsh"), 34578));
-    umm.insert(std::make_pair(std::string("jfsg"), 02));
-    auto p = *um.begin();
-    boost::unordered_set<int> us;
-    us.insert(5);
-    us.insert(6543765);
-    us.insert(468);
-    boost::unordered_multiset<int> uss;
-    uss.insert(63);
-    uss.insert(63);
-    uss.insert(8568);
-}
-
-void TestGregorian() 
+void TestGregorian()
 {
     using namespace boost::gregorian;
     date weekstart(2002,Feb,1);
@@ -212,37 +115,37 @@ void TestGregorian()
     date weekend  = weekstart + weeks(1);
     date d1 = day_clock::local_day();
     date d2 = d1 + days(5);
-    if (d2 >= d1) {} //date comparison operators 
+    if (d2 >= d1) {} //date comparison operators
 
     date_period thisWeek(d1,d2);
-    if (thisWeek.contains(d1)) {}//do something 
+    if (thisWeek.contains(d1)) {}//do something
 
     //iterate and print the week
     day_iterator itr(weekstart);
     while (itr <= weekend) {
         ++itr;
-    } 
+    }
 
-    //US labor day is first Monday in Sept 
+    //US labor day is first Monday in Sept
     typedef nth_day_of_the_week_in_month nth_dow;
-    nth_dow labor_day(nth_dow::first,Monday, Sep); 
-    //calculate a specific date for 2004 from functor 
-    date d6 = labor_day.get_date(2004); 
+    nth_dow labor_day(nth_dow::first,Monday, Sep);
+    //calculate a specific date for 2004 from functor
+    date d6 = labor_day.get_date(2004);
 }
 
 void TestPosixTime()
 {
     using namespace boost::posix_time;
-    boost::gregorian::date d(2002,boost::date_time::Feb,1); //an arbitrary date 
-    ptime t1(d, hours(5)+microsec(100)); //date + time of day offset 
+    boost::gregorian::date d(2002,boost::date_time::Feb,1); //an arbitrary date
+    ptime t1(d, hours(5)+microsec(100)); //date + time of day offset
     ptime t2 = t1 - minutes(4)+seconds(2);
-    ptime now = second_clock::local_time(); //use the clock 
-    boost::gregorian::date today = now.date(); //Get the date part out of the time 
+    ptime now = second_clock::local_time(); //use the clock
+    boost::gregorian::date today = now.date(); //Get the date part out of the time
     boost::gregorian::date tomorrow = today + boost::gregorian::date_duration(1);
-    ptime tomorrow_start(tomorrow); //midnight 
+    ptime tomorrow_start(tomorrow); //midnight
 
     //starting at current time iterator adds by one hour
-    time_iterator titr(now,hours(1)); 
+    time_iterator titr(now,hours(1));
     for (; titr < tomorrow_start; ++titr) {
     }
 }
@@ -260,9 +163,9 @@ void TestLocalTime()
     posix_time_zone timezone("MST-07:00:00");
     time_zone_ptr phx_tz(new posix_time_zone("MST-07:00:00"));
 
-    //local departure time in phoenix is 11 pm on April 2 2005 
+    //local departure time in phoenix is 11 pm on April 2 2005
     // Note that New York changes to daylight savings on Apr 3 at 2 am)
-    local_date_time phx_departure(boost::gregorian::date(2005, Apr, 2), boost::posix_time::hours(23), phx_tz, 
+    local_date_time phx_departure(boost::gregorian::date(2005, Apr, 2), boost::posix_time::hours(23), phx_tz,
         local_date_time::NOT_DATE_TIME_ON_ERROR);
 
     boost::posix_time::time_duration flight_length = boost::posix_time::hours(4) + boost::posix_time::minutes(30);
@@ -332,20 +235,6 @@ void TestContainers()
         (*it);
     basic_string<char> str("dsfsdf");
     basic_string<char> str2("lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
-}
-
-void TestUblas()
-{
-    using namespace boost::numeric::ublas;
-    vector<double> v (3);
-    mapped_vector<double> mv (3, 3);
-    mv[2] = 2.0;
-    mv[1] = 4.0;
-    compressed_vector<double> cv (3, 3);
-    cv[2] = 2.0;
-    cv[1] = 4.0;
-    cv[0] = 2.0;
-    matrix<double> m (3, 3);
 }
 
 class MyClass : public boost::intrusive::list_base_hook<>   //This is a derivation hook
@@ -445,7 +334,7 @@ void TestIntrusiveList()
     memberlist.clear();
 }
 
-struct Belem : public boost::intrusive::set_base_hook<> 
+struct Belem : public boost::intrusive::set_base_hook<>
 {
     int mval;
     Belem(int val) : mval(val) {}
@@ -492,7 +381,7 @@ void TestIntrusiveSet_MemberHook()
     container.clear();
 }
 
-struct Belem_NoSz : public boost::intrusive::set_base_hook<> 
+struct Belem_NoSz : public boost::intrusive::set_base_hook<>
 {
     int mval;
     Belem_NoSz(int val) : mval(val) {}
@@ -546,6 +435,15 @@ void TestIntrusiveSet()
     TestIntrusiveSet_MemberHook_NoSizeMember();
 }
 
+void TestMultiprecision()
+{
+    boost::multiprecision::cpp_int n("1522605");
+    boost::multiprecision::cpp_int n2("15226050279");
+    boost::multiprecision::cpp_int n3("152260502792253336053561837813263742971806");
+    boost::multiprecision::cpp_dec_float_50 nf("152260502792253336.053561837813263742971806");
+    boost::multiprecision::cpp_dec_float_100 nf100("1522605027922533.36053561837813263742971806");
+}
+
 void display(int depth, boost::property_tree::ptree& tree)
 {
     using boost::property_tree::ptree;
@@ -553,11 +451,11 @@ void display(int depth, boost::property_tree::ptree& tree)
         ptree subtree = v.second;
         std::string nodestr = tree.get<std::string>(v.first);
 
-        // print current node  
+        // print current node
         //if (nodestr.length() > 0)
         //	cout << "=\"" << tree.get<string>(v.first) << "\"";
 
-        // recursive go down the hierarchy  
+        // recursive go down the hierarchy
         display(depth + 1, subtree);
     }
 }
@@ -569,6 +467,136 @@ void TestPropertyTree()
     std::ifstream input("test.xml");
     read_xml(input, pt);
     display(0, pt);
+}
+
+void TestRational()
+{
+    boost::rational<int> r(15, 3);
+    boost::rational<int> r2(5, 10);
+}
+
+void TestRegex()
+{
+    boost::regex e("a(b+|((c)*))+d");
+    std::string text("abd");
+    boost::smatch what;
+    boost::regex_match(text, what, e, boost::match_extra);
+}
+
+void TestSmartPointers()
+{
+    boost::scoped_ptr<Data> ptr(new Data());
+    ptr->Test();
+    boost::scoped_array<Data> ptrAr(new Data[10]());
+    ptrAr[0].Test();
+    boost::shared_ptr<Data> shPtr(new Data());
+    shPtr->Test();
+    boost::weak_ptr<Data> weakPtr(shPtr);
+    boost::shared_ptr<Data> shPtrEx(new Data(), std::ptr_fun(mallocDeleter));
+    shPtrEx->Test();
+    boost::shared_array<Data> shPtrAr(new Data[10]());
+    shPtrAr[0].Test();
+}
+
+void TestUblas()
+{
+    using namespace boost::numeric::ublas;
+    vector<double> v(3);
+    mapped_vector<double> mv(3, 3);
+    mv[2] = 2.0;
+    mv[1] = 4.0;
+    compressed_vector<double> cv(3, 3);
+    cv[2] = 2.0;
+    cv[1] = 4.0;
+    cv[0] = 2.0;
+    matrix<double> m(3, 3);
+}
+
+void TestUnordered()
+{
+    boost::unordered_map<std::string, int> um;
+    um["hfh"] = 73576;
+    um["jgfsjsf"] = 65;
+    boost::unordered_map<std::string, boost::unordered_set<int> > um2;
+    um2["dsfgal;sg"].insert(43534);
+    um2["dsfgal;sg"].insert(563);
+    um2["'/lreg"].insert(646);
+    um2["lfdhk"].insert(752);
+    boost::unordered_multimap<std::string, int> umm;
+    umm.insert(std::make_pair(std::string("sdhsh"), 73576));
+    umm.insert(std::make_pair(std::string("sdhsh"), 34578));
+    umm.insert(std::make_pair(std::string("jfsg"), 02));
+    auto p = *um.begin();
+    boost::unordered_set<int> us;
+    us.insert(5);
+    us.insert(6543765);
+    us.insert(468);
+    boost::unordered_multiset<int> uss;
+    uss.insert(63);
+    uss.insert(63);
+    uss.insert(8568);
+}
+
+class visitor
+    : public boost::static_visitor < >
+{
+public:
+    template <typename T>
+    void operator()(T & i) const
+    {
+        i;
+    }
+};
+
+void TestVariantAnyOptional()
+{
+    boost::variant<int, std::string, Data> var("gdsg");
+    var = 4;
+    boost::variant<int, std::string, Data, bool> var2(false);
+    var2 = 4;
+
+    typedef boost::make_recursive_variant <
+        int
+        , std::vector < boost::recursive_variant_ >
+    > ::type int_tree_t;
+
+    std::vector< int_tree_t > subresult;
+    subresult.push_back(3);
+    subresult.push_back(5);
+
+    std::vector< int_tree_t > result;
+    result.push_back(1);
+    result.push_back(subresult);
+    // TODO: result[1] doesn't work ATM, cannot detect when boost::variant use boost::recursive_wrapper
+    boost::apply_visitor(visitor(), result[1]);
+    result.push_back(7);
+
+    int_tree_t vartt;
+    vartt = result;
+
+    typedef boost::mpl::vector4<int, std::string, Data, bool> vec4_t;
+    boost::make_variant_over<vec4_t>::type variant_from_mpl_v4; // now contains int
+    variant_from_mpl_v4 = std::string("Hello word!");
+
+    typedef boost::mpl::vector<Data, std::string, int, bool, double> vec_t;
+    boost::make_variant_over<vec_t>::type variant_from_mpl_v; // now contains Data
+    variant_from_mpl_v = true;
+    variant_from_mpl_v = variant_from_mpl_v4;
+
+    // Testing variant representation on BIG MPL vectors
+    typedef boost::mpl::vector20 <
+        boost::array<char, 1>, boost::array<char, 2>, boost::array<char, 3>, boost::array<char, 4>, boost::array<char, 5>,
+        boost::array<char, 6>, boost::array<char, 7>, boost::array<char, 8>, boost::array<char, 9>, boost::array<char, 10>,
+        boost::array<char, 11>, boost::array<char, 12>, boost::array<char, 13>, boost::array<char, 14>, boost::array<char, 15>,
+        boost::array<char, 16>, boost::array<char, 17>, boost::array<char, 18>, boost::array<char, 19>, boost::array < char, 20 >
+    > vec20_t;
+    boost::make_variant_over<vec20_t>::type variant20;
+    variant20 = boost::array<char, 19>();
+
+    boost::any valany = 4;
+    valany = std::string("fdsfsd");
+    valany = true;
+    boost::optional<int> opt = 4;
 }
 
 struct s{};
@@ -609,29 +637,35 @@ int main(int argc, const char* argv[])
     boost::uuids::string_generator gen;
     boost::uuids::uuid u1 = gen("{92EC2A54-C1FA-42CB-B9F9-2602D507AD17}");
 
-    TestPointerContainerLibrary();
-
-    TestSmartPointers();
-
-    TestVariantAnyOptional();
-
-    TestUnordered();
-
-    TestGregorian();
-
-    TestPosixTime();
-
-    TestLocalTime();
-
     TestContainers();
 
-    TestUblas();
+    TestGregorian();
 
     TestIntrusiveList();
 
     TestIntrusiveSet();
 
+    TestLocalTime();
+
+    TestMultiprecision();
+
+    TestPointerContainerLibrary();
+
+    TestPosixTime();
+
     TestPropertyTree();
-    
+
+    TestRational();
+
+    TestRegex();
+
+    TestSmartPointers();
+
+    TestUblas();
+
+    TestUnordered();
+
+    TestVariantAnyOptional();
+
     return EXIT_SUCCESS;
 }

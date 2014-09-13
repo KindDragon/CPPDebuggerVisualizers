@@ -5,7 +5,8 @@ Legend:
 
 1.0.16 - 14.09.2014
 =========================
-+ Add visualization of boost::variant<over_sequence<MPL vectors... > > (Antony Polukhin)
++ Visualizers for boost::regex, boost::multiprecision, boost::rational added. Thanks to jzmaddock
++ Visualizers for boost::variant<over_sequence<MPL vectors... > > added. Thanks to Antony Polukhin
 ! boost::uuids::uuid visualizer fixed
 
 1.0.15 - 23.03.2014
@@ -47,7 +48,7 @@ Legend:
 
 1.0.7 - 14.08.2012
 =========================
-+ Visualizers for wxVector, wxList, wxArrayShort, wxArrayInt, wxArrayDouble, 
++ Visualizers for wxVector, wxList, wxArrayShort, wxArrayInt, wxArrayDouble,
   wxArrayLong, wxArrayPtrVoid added
 ! wxArrayString visualizer fixed
 
@@ -59,13 +60,13 @@ Legend:
 1.0.5 - 29.07.2012
 =========================
 + TinyXML visualizers added
-+ Visualizers for boost::filesystem::path, boost::filesystem::directory_entry, 
++ Visualizers for boost::filesystem::path, boost::filesystem::directory_entry,
   boost::filesystem::file_status added
 
 1.0.4 - 29.07.2012
 =========================
 ! TinyXML2 string handling improved
-+ Visualizers for boost::uuid, boost::circular_buffer, 
++ Visualizers for boost::uuid, boost::circular_buffer,
   boost::container::basic_string, boost::container::deque, boost::container::vector added
 + Disabled step into boost::forward, boost::move and boost::addressof functions
 

@@ -19,22 +19,25 @@
     <Dependencies>
     </Dependencies>
     <Assets>
+        <Asset Type="NativeJustMyCode" d:Source="File" Path="Visualizers\external.natjmc" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Containers.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_DateTime.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Geometry.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_IntrusiveContainers.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Multiprecision.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_PointerContainerLibrary.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Rational.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Regex.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_SmartPointers.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_uBLAS.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Unordered.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Variant.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\directx.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\TinyXML.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\TinyXML2.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\wxWidgets.natvis" />
         <Asset Type="StepFilter" d:Source="File" Path="Visualizers\boost.natstepfilter" />
-        <Asset Type="NativeJustMyCode" d:Source="File" Path="Visualizers\external.natjmc" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_DateTime.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_PointerContainerLibrary.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_SmartPointers.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Variant.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Unordered.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Containers.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Geometry.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_uBLAS.natvis" />
-    <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_IntrusiveContainers.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll" />
     </Assets>
 </PackageManifest>

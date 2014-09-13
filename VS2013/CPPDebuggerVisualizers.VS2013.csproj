@@ -65,11 +65,19 @@
     <None Include="source.extension.vsixmanifest" />
     <Content Include="Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll">
       <IncludeInVSIX>true</IncludeInVSIX>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Visualizers\external.natjmc">
-      <IncludeInVSIX>true</IncludeInVSIX>
       <SubType>Designer</SubType>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Visualizers\boost_Multiprecision.natvis">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Visualizers\boost_Rational.natvis">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Visualizers\boost_Regex.natvis">
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -110,8 +118,8 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\boost.natstepfilter">
-      <IncludeInVSIX>true</IncludeInVSIX>
       <SubType>Designer</SubType>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\boost.natvis">
       <IncludeInVSIX>true</IncludeInVSIX>
