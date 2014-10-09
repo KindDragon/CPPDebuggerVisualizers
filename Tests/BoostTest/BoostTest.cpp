@@ -47,6 +47,7 @@
 #include <boost/unordered_set.hpp>
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+#include <boost/utility/value_init.hpp>
 #include <boost/variant.hpp>
 #include <boost/weak_ptr.hpp>
 
@@ -542,6 +543,17 @@ void TestUnordered()
     uss.insert(8568);
 }
 
+void TestValueInitialized()
+{
+    boost::value_initialized<int> vi_int;
+    boost::value_initialized<double> vi_double;
+    // vi_int == 0 and vi_double == 0.0
+
+    // change values
+    get(vi_int) = 42;
+    get(vi_double) = 12.34;
+}
+
 class visitor
     : public boost::static_visitor < >
 {
@@ -669,6 +681,8 @@ int main(int argc, const char* argv[])
     TestUblas();
 
     TestUnordered();
+
+    TestValueInitialized();
 
     TestVariantAnyOptional();
 

@@ -356,4 +356,18 @@
         </ArrayItems>
     </Expand>
 </Type>
+
+<Type Name="boost::value_initialized&lt;*&gt;">
+    <DisplayString>{*(($T1 *)(&amp;m_data.x))}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_data</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::initialized&lt;*&gt;">
+    <DisplayString>{*(($T1 *)(&amp;x))}</DisplayString>
+    <Expand>
+        <ExpandedItem>x</ExpandedItem>
+    </Expand>
+</Type>
 </AutoVisualizer>
