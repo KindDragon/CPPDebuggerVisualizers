@@ -5,6 +5,7 @@ Legend:
 
 1.0.17
 =========================
++ Image visualizers for boost::gil added.
 + Visualizers for boost::value_initialized, boost::initialized added. Thanks to tobias_loew
 
 1.0.16 - 14.09.2014

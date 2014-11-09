@@ -1,3 +1,4 @@
+#define int_p_NULL NULL
 #include <iostream>
 #include <boost/any.hpp>
 #include <boost/bimap.hpp>
@@ -17,6 +18,8 @@
 #include <boost/dynamic_bitset.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/foreach.hpp>
+#include <boost/gil/rgb.hpp>
+#include <boost/gil/extension/io/png_dynamic_io.hpp>
 #include <boost/intrusive/list.hpp>
 #include <boost/intrusive/set.hpp>
 #include <boost/intrusive/slist.hpp>
@@ -106,6 +109,13 @@ void TestPointerContainerLibrary()
     l.insert(new int(5));
     for(auto it = l.begin(); it!=l.end();it++)
         (*it);
+}
+
+void TestGil()
+{
+    using namespace boost::gil;
+    rgb8s_image_t img;
+    png_read_and_convert_image("C:\\Users\\Аркадий\\Downloads\\1349730285_arrow_up.png", img);
 }
 
 void TestGregorian()
@@ -655,6 +665,8 @@ int main(int argc, const char* argv[])
     boost::uuids::uuid u1 = gen("{92EC2A54-C1FA-42CB-B9F9-2602D507AD17}");
 
     TestContainers();
+
+    TestGil();
 
     TestGregorian();
 

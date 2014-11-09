@@ -122,6 +122,7 @@
     <Content Include="Visualizers\boost_Regex.natvis">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <None Include="Visualizers\boost_Gil.natvis" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
