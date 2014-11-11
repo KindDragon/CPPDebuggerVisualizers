@@ -114,8 +114,11 @@ void TestPointerContainerLibrary()
 void TestGil()
 {
     using namespace boost::gil;
-    rgb8s_image_t img;
+    rgb8_image_t img;
     png_read_and_convert_image("C:\\Users\\Аркадий\\Downloads\\1349730285_arrow_up.png", img);
+    typedef boost::mpl::vector<gray8_image_t, rgb8_image_t, rgba8_image_t, gray16_image_t, rgb16_image_t> my_images_t;
+    any_image<my_images_t> dyn_img;
+    png_read_image("C:\\Users\\Аркадий\\Downloads\\1349730285_arrow_up.png", dyn_img);
 }
 
 void TestGregorian()
