@@ -626,7 +626,9 @@ void TestVariantAnyOptional()
     boost::any valany = 4;
     valany = std::string("fdsfsd");
     valany = true;
+    int val = 5;
     boost::optional<int> opt = 4;
+    boost::optional<int&> optRef = val;
 }
 
 struct s{};

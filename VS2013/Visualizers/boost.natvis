@@ -60,23 +60,26 @@
     </Expand>
 </Type>
 
-<!--Copyright Daniel Kruegler 2008. Use, modification and distribution are subject to-->
-<!--the Boost Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt-->
-<!--or copy at http://www.boost.org/LICENSE_1_0.txt)-->
-<!--@guid     D02681E0-021B-11DD-95FF-0800200C9A66-->
-<!--@platform msvc-8, msvc-9-->
-<!--@version  1.0-->
-<!--@author   Daniel Kruegler-->
-<!--@email    daniel dot kruegler at bdal dot de-->
-<!--Usage-->
-<!--All of the following text must be placed in the autoexp.dat file.-->
-<!--Usage is automatic. No extra code is required.-->
+<Type Name="boost::detail::reference_content&lt;*&gt;">
+    <DisplayString>{content_}</DisplayString>
+    <Expand>
+        <ExpandedItem>content_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::optional_detail::aligned_storage&lt;*&gt;">
+    <DisplayString>{*(($T1 *)dummy_.data)}</DisplayString>
+    <Expand>
+        <ExpandedItem>*(($T1 *)dummy_.data)</ExpandedItem>
+    </Expand>
+</Type>
+
 <Type Name="boost::optional&lt;*&gt;">
     <AlternativeType Name="boost::optional_detail::optional_base&lt;*&gt;" />
     <DisplayString Condition="!m_initialized">empty</DisplayString>
-    <DisplayString Condition="m_initialized">{*(($T1 *)m_storage.dummy_.data)}</DisplayString>
+    <DisplayString Condition="m_initialized">{m_storage}</DisplayString>
     <Expand>
-        <Item Name="value" Condition="m_initialized">*(($T1 *)m_storage.dummy_.data)</Item>
+        <ExpandedItem Condition="m_initialized">m_storage</ExpandedItem>
     </Expand>
 </Type>
 
