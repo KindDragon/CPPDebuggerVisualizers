@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="CPPDebuggerVisualizers.VS2013.7422FC7B-9AB6-4860-8E40-0218A0CA3271" Version="1.0.17" Language="en-US" Publisher="Arkady Shapkin" />
-        <DisplayName>C++ Debugger Visualizers for VS2013</DisplayName>
+        <Identity Id="CPPDebuggerVisualizers.VS2013.7422FC7B-9AB6-4860-8E40-0218A0CA3271" Version="1.0.18" Language="en-US" Publisher="Arkady Shapkin" />
+        <DisplayName>C++ Debugger Visualizers for VS2013/VS2015</DisplayName>
         <Description xml:space="preserve">C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
         <MoreInfo>https://cppvisualizers.codeplex.com/</MoreInfo>
         <License>LICENSE_1_0.txt</License>
@@ -12,9 +12,10 @@
         <Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Version="[12.0,13.0)" Id="Microsoft.VisualStudio.Premium" />
-        <InstallationTarget Version="[12.0,13.0)" Id="Microsoft.VisualStudio.Pro" />
-        <InstallationTarget Version="[12.0,13.0)" Id="Microsoft.VisualStudio.Ultimate" />
+        <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Premium" />
+        <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
+        <InstallationTarget Version="[12.0,15.0)" Id="Microsoft.VisualStudio.Ultimate" />
+        <InstallationTarget Version="[13.0,15.0)" Id="Microsoft.VisualStudio.Community" />
     </Installation>
     <Dependencies>
     </Dependencies>

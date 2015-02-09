@@ -2,6 +2,7 @@ Debug/
 Release/
 obj/
 ipch/*
+Backup/
 _ReSharper.*/
 *.sdf
 *.suo
