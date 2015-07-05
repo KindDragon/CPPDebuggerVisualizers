@@ -113,12 +113,18 @@ void TestPointerContainerLibrary()
 
 void TestGil()
 {
-    using namespace boost::gil;
-    rgb8_image_t img;
-    png_read_and_convert_image("C:\\Users\\Аркадий\\Downloads\\1349730285_arrow_up.png", img);
-    typedef boost::mpl::vector<gray8_image_t, rgb8_image_t, rgba8_image_t, gray16_image_t, rgb16_image_t> my_images_t;
-    any_image<my_images_t> dyn_img;
-    png_read_image("C:\\Users\\Аркадий\\Downloads\\1349730285_arrow_up.png", dyn_img);
+	try
+	{
+		using namespace boost::gil;
+		rgb8_image_t img;
+		png_read_and_convert_image("C:\\User-Dragon\\Downloads\\1349730285_arrow_up.png", img);
+		typedef boost::mpl::vector<gray8_image_t, rgb8_image_t, rgba8_image_t, gray16_image_t, rgb16_image_t> my_images_t;
+		any_image<my_images_t> dyn_img;
+		png_read_image("C:\\User-Dragon\\Downloads\\1349730285_arrow_up.png", dyn_img);
+	}
+	catch (std::ios_base::failure)
+	{
+	}
 }
 
 void TestGregorian()
@@ -142,7 +148,8 @@ void TestGregorian()
 
     //US labor day is first Monday in Sept
     typedef nth_day_of_the_week_in_month nth_dow;
-    nth_dow labor_day(nth_dow::first,Monday, Sep);
+    nth_dow labor_day(nth_dow::first, Monday, Sep);
+	labor_day.to_string();
     //calculate a specific date for 2004 from functor
     date d3 = labor_day.get_date(2004);
     auto ds = to_simple_string(weekstart);
@@ -222,8 +229,8 @@ void TestContainers()
         (*it);
     stable_vector<int> sv;
     sv.push_back(100);
-    for (stable_vector<int>::const_iterator it = sv.cbegin(); it != sv.cend(); it++)
-        (*it);
+	for (stable_vector<int>::const_iterator it = sv.cbegin(); it != sv.cend(); it++)
+		(*it);
     deque<int> d;
     d.push_back(100);
     flat_map<int, int> fm;
@@ -252,8 +259,10 @@ void TestContainers()
     s.insert(100);
     for(set<int>::const_iterator it = s.begin(); it!=s.end();it++)
         (*it);
-    basic_string<char> str("dsfsdf");
-    basic_string<char> str2("lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
+	basic_string<char> str("dsfsdf");
+	basic_string<char> str2("lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
+	basic_string<wchar_t> wstr(L"dsfsdf");
+	basic_string<wchar_t> wstr2(L"lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
 }
 
 class MyClass : public boost::intrusive::list_base_hook<>   //This is a derivation hook
@@ -544,7 +553,7 @@ void TestUnordered()
     boost::unordered_multimap<std::string, int> umm;
     umm.insert(std::make_pair(std::string("sdhsh"), 73576));
     umm.insert(std::make_pair(std::string("sdhsh"), 34578));
-    umm.insert(std::make_pair(std::string("jfsg"), 02));
+    umm.insert(std::make_pair(std::string("jfsg"), 2));
     auto p = *um.begin();
     boost::unordered_set<int> us;
     us.insert(5);
@@ -581,28 +590,32 @@ public:
 void TestVariantAnyOptional()
 {
     boost::variant<int, std::string, Data> var("gdsg");
-    var = 4;
+	var = 4;
     boost::variant<int, std::string, Data, bool> var2(false);
     var2 = 4;
 
     typedef boost::make_recursive_variant <
-        int
-        , std::vector < boost::recursive_variant_ >
+        int,
+		std::string,
+        std::vector < boost::recursive_variant_ >
     > ::type int_tree_t;
 
     std::vector< int_tree_t > subresult;
-    subresult.push_back(3);
+    subresult.push_back("sadsad");
     subresult.push_back(5);
+
+	int_tree_t vartt;
+  	vartt = subresult;
+	std::vector < int_tree_t >& v = boost::get<std::vector < int_tree_t >>(vartt);
+	v[0] = 10;
 
     std::vector< int_tree_t > result;
     result.push_back(1);
     result.push_back(subresult);
+	result.push_back("ahgsh");
     // TODO: result[1] doesn't work ATM, cannot detect when boost::variant use boost::recursive_wrapper
     boost::apply_visitor(visitor(), result[1]);
     result.push_back(7);
-
-    int_tree_t vartt;
-    vartt = result;
 
     typedef boost::mpl::vector4<int, std::string, Data, bool> vec4_t;
     boost::make_variant_over<vec4_t>::type variant_from_mpl_v4; // now contains int

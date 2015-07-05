@@ -20,7 +20,8 @@
     </Expand>
 </Type>
 
-<Type Name="boost::dynamic_bitset&lt;*&gt;">
+<!-- VS == 2013 -->
+<Type Name="boost::dynamic_bitset&lt;*&gt;" Priority="MediumLow">
     <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
     <Expand>
         <Item Name="[bits]">m_num_bits</Item>
@@ -28,6 +29,14 @@
             <Size>m_num_bits</Size>
             <ValueNode>(bool)((m_bits._Myfirst[$i / bits_per_block] &gt;&gt; ($i % bits_per_block)) &amp; 1)</ValueNode>
         </IndexListItems>
+    </Expand>
+</Type>
+
+<!-- VS == 2015 -->
+<Type Name="boost::dynamic_bitset&lt;*&gt;">
+    <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
+    <Expand>
+        <Item Name="[bits]">m_num_bits</Item>
     </Expand>
 </Type>
 
@@ -46,7 +55,7 @@
     </Expand>
 </Type>
 
-<Type Name="boost::container::basic_string&lt;char,*&gt;">
+<Type Name="boost::container::basic_string&lt;char,*&gt;" Priority="MediumLow">
     <DisplayString Condition="members_.m_repr.s.h.is_short != 0">{members_.m_repr.s.data,s}</DisplayString>
     <DisplayString Condition="members_.m_repr.s.h.is_short == 0">{((long_t*)&amp;members_.m_repr.r)->start,s}</DisplayString>
     <StringView Condition="members_.m_repr.s.h.is_short != 0">members_.m_repr.s.data,s</StringView>
@@ -67,7 +76,7 @@
     </Expand>
 </Type>
 
-<Type Name="boost::container::basic_string&lt;unsigned short,*&gt;">
+<Type Name="boost::container::basic_string&lt;unsigned short,*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::container::basic_string&lt;wchar_t,*&gt;" />
     <DisplayString Condition="members_.m_repr.s.h.is_short != 0">{members_.m_repr.s.data,su}</DisplayString>
     <DisplayString Condition="members_.m_repr.s.h.is_short == 0">{((long_t*)&amp;members_.m_repr.r)->start,su}</DisplayString>
@@ -89,18 +98,63 @@
     </Expand>
 </Type>
 
+<!-- VS2015 -->
+<Type Name="boost::container::basic_string&lt;char,*&gt;" Priority="Medium">
+    <DisplayString Condition="members_.m_repr.s.h.is_short != 0">{members_.m_repr.s.data,s}</DisplayString>
+    <DisplayString Condition="members_.m_repr.s.h.is_short == 0">{((long_t*)&amp;members_.m_repr.r)->start,s}</DisplayString>
+    <StringView Condition="members_.m_repr.s.h.is_short != 0">members_.m_repr.s.data,s</StringView>
+    <StringView Condition="members_.m_repr.s.h.is_short == 0">((long_t*)&amp;members_.m_repr.r)->start,s</StringView>
+    <Expand>
+        <Item Condition="members_.m_repr.s.h.is_short != 0" Name="[size]" ExcludeView="simple">(int)members_.m_repr.s.h.length</Item>
+        <Item Condition="members_.m_repr.s.h.is_short == 0" Name="[size]" ExcludeView="simple">((long_t*)&amp;members_.m_repr.r)->length</Item>
+        <Item Condition="members_.m_repr.s.h.is_short != 0" Name="[capacity]" ExcludeView="simple">11 - 1</Item>
+        <Item Condition="members_.m_repr.s.h.is_short == 0" Name="[capacity]" ExcludeView="simple">((long_t*)&amp;members_.m_repr.r)->storage - 1</Item>
+        <ArrayItems Condition="members_.m_repr.s.h.is_short != 0">
+            <Size>(int)members_.m_repr.s.h.length</Size>
+            <ValuePointer>members_.m_repr.s.data</ValuePointer>
+        </ArrayItems>
+        <ArrayItems Condition="members_.m_repr.s.h.is_short == 0">
+            <Size>((long_t*)&amp;members_.m_repr.r)->length</Size>
+            <ValuePointer>((long_t*)&amp;members_.m_repr.r)->start</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<!-- VS2015 -->
+<Type Name="boost::container::basic_string&lt;unsigned short,*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::container::basic_string&lt;wchar_t,*&gt;" />
+    <DisplayString Condition="members_.m_repr.s.h.is_short != 0">{members_.m_repr.s.data,su}</DisplayString>
+    <DisplayString Condition="members_.m_repr.s.h.is_short == 0">{((long_t*)&amp;members_.m_repr.r)->start,su}</DisplayString>
+    <StringView Condition="members_.m_repr.s.h.is_short != 0">members_.m_repr.s.data,su</StringView>
+    <StringView Condition="members_.m_repr.s.h.is_short == 0">((long_t*)&amp;members_.m_repr.r)->start,su</StringView>
+    <Expand>
+        <Item Condition="members_.m_repr.s.h.is_short != 0" Name="[size]" ExcludeView="simple">(int)members_.m_repr.s.h.length</Item>
+        <Item Condition="members_.m_repr.s.h.is_short == 0" Name="[size]" ExcludeView="simple">((long_t*)&amp;members_.m_repr.r)->length</Item>
+        <Item Condition="members_.m_repr.s.h.is_short != 0" Name="[capacity]" ExcludeView="simple">9 - 1</Item>
+        <Item Condition="members_.m_repr.s.h.is_short == 0" Name="[capacity]" ExcludeView="simple">((long_t*)&amp;members_.m_repr.r)->storage - 1</Item>
+        <ArrayItems Condition="members_.m_repr.s.h.is_short != 0">
+            <Size>(int)members_.m_repr.s.h.length</Size>
+            <ValuePointer>members_.m_repr.s.data</ValuePointer>
+        </ArrayItems>
+        <ArrayItems Condition="members_.m_repr.s.h.is_short == 0">
+            <Size>((long_t*)&amp;members_.m_repr.r)->length</Size>
+            <ValuePointer>((long_t*)&amp;members_.m_repr.r)->start</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
 <Type Name="boost::container::deque&lt;*&gt;">
-    <DisplayString>{{ size={(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * 
-        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
+    <DisplayString>{{ size={(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
+        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
         (members_.m_start.m_last - members_.m_start.m_cur)} }}</DisplayString>
     <Expand>
-        <Item Name="[size]" ExcludeView="simple">(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * 
-        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
+        <Item Name="[size]" ExcludeView="simple">(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
+        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
         (members_.m_start.m_last - members_.m_start.m_cur)</Item>
         <Item Name="[buffer_size]" ExcludeView="simple">sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)</Item>
         <IndexListItems>
-            <Size>(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * 
-            (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) + 
+            <Size>(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
+            (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
             (members_.m_start.m_last - members_.m_start.m_cur)</Size>
             <ValueNode>members_.m_start.m_node[(($i + (members_.m_start.m_cur - members_.m_start.m_first)) / (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)))][($i + (members_.m_start.m_cur - members_.m_start.m_first)) % (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1))]</ValueNode>
         </IndexListItems>
@@ -123,11 +177,21 @@
     </Expand>
 </Type>
 
-<Type Name="boost::container::map&lt;*&gt;">
+<!-- boost < 1.58 -->
+<Type Name="boost::container::map&lt;*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::container::set&lt;*&gt;" />
     <DisplayString>{m_tree.members_.m_icont}</DisplayString>
     <Expand>
         <ExpandedItem>m_tree.members_.m_icont</ExpandedItem>
+    </Expand>
+</Type>
+
+<!-- boost >= 1.58 -->
+<Type Name="boost::container::map&lt;*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::container::set&lt;*&gt;" />
+    <DisplayString>{members_.m_icont}</DisplayString>
+    <Expand>
+        <ExpandedItem>members_.m_icont</ExpandedItem>
     </Expand>
 </Type>
 
@@ -155,6 +219,13 @@
     </Expand>
 </Type>
 
+<Type Name="boost::container::container_detail::tree_node&lt;*,void *,*&gt;">
+    <DisplayString>{m_data}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_data</ExpandedItem>
+    </Expand>
+</Type>
+
 <!-- boost 1.55 >= -->
 <Type Name="boost::container::container_detail::iterator&lt;*&gt;">
     <DisplayString>{m_iit}</DisplayString>
@@ -171,17 +242,27 @@
 </Type>
 
 <Type Name="boost::container::container_detail::pair&lt;*,*&gt;">
-    <DisplayString>({first}, {second})</DisplayString>
+    <DisplayString IncludeView="noparens">{first}, {second}</DisplayString>
+    <DisplayString ExcludeView="noparens">({first}, {second})</DisplayString>
     <Expand>
         <Item Name="first">first</Item>
         <Item Name="second">second</Item>
     </Expand>
 </Type>
 
-<Type Name="boost::container::flat_set&lt;*&gt;">
+<!-- boost < 1.58 -->
+<Type Name="boost::container::flat_set&lt;*&gt;" Priority="MediumLow">
     <DisplayString>{m_flat_tree.m_data.m_vect}</DisplayString>
     <Expand>
         <ExpandedItem>m_flat_tree.m_data.m_vect</ExpandedItem>
+    </Expand>
+</Type>
+
+<!-- boost >= 1.58 -->
+<Type Name="boost::container::flat_set&lt;*&gt;" Priority="Medium">
+    <DisplayString>{m_data.m_vect}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_data.m_vect</ExpandedItem>
     </Expand>
 </Type>
 
@@ -190,6 +271,13 @@
     <DisplayString>{m_it->m_data}</DisplayString>
     <Expand>
         <Item Name="[ptr]">m_it->m_data</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::container::container_detail::iterator_from_iiterator&lt;*&gt;">
+    <DisplayString>{m_iit}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_iit</ExpandedItem>
     </Expand>
 </Type>
 
@@ -239,42 +327,63 @@
 </Type>
 
 <!-- boost <= 1.54 -->
-<Type Name="boost::container::stable_vector&lt;*&gt;">
-    <DisplayString>{{ size={index.members_.m_size ? index.members_.m_size - ExtraPointers : 0} }}</DisplayString> 
+<Type Name="boost::container::stable_vector&lt;*&gt;" Priority="MediumLow">
+    <DisplayString>{{ size={index.members_.m_size ? index.members_.m_size - ExtraPointers : 0} }}</DisplayString>
     <Expand>
         <Item Name="[size]" ExcludeView="simple">index.members_.m_size ? index.members_.m_size - ExtraPointers : 0</Item>
         <IndexListItems>
             <Size>index.members_.m_size ? index.members_.m_size - ExtraPointers : 0</Size>
-            <ValueNode>((boost::container::stable_vector_detail::node_type&lt;void *,$T1&gt;*)index.members_.m_start[$i])->value</ValueNode> 
+            <ValueNode>((boost::container::stable_vector_detail::node_type&lt;void *,$T1&gt;*)index.members_.m_start[$i])->value</ValueNode>
         </IndexListItems>
     </Expand>
 </Type>
 
 <!-- boost <= 1.54 -->
-<Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;">
+<Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;" Priority="MediumLow">
     <DisplayString>{pn->value}</DisplayString>
     <Expand>
-        <Item Name="[value]">pn->value</Item>
+        <Item Name="[ptr]">pn->value</Item>
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::container::stable_vector&lt;*,*&gt;">
-    <DisplayString>{{ size={index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0} }}</DisplayString> 
+<!-- boost 1.55 >= && < 1.58 -->
+<Type Name="boost::container::stable_vector&lt;*,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0} }}</DisplayString>
     <Expand>
         <Item Name="[size]" ExcludeView="simple">index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0</Item>
         <IndexListItems>
             <Size>index.m_holder.m_size ? index.m_holder.m_size - ExtraPointers : 0</Size>
-            <ValueNode>((boost::container::stable_vector_detail::node_type&lt;void *,$T1&gt;*)index.m_holder.m_start[$i])->value</ValueNode> 
+            <ValueNode>((boost::container::stable_vector_detail::node_type&lt;void *,$T1&gt;*)index.m_holder.m_start[$i])->value</ValueNode>
         </IndexListItems>
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;">
+<!-- boost 1.55 >= && < 1.58 -->
+<Type Name="boost::container::stable_vector_detail::iterator&lt;*&gt;" Priority="Medium">
     <DisplayString>{m_pn->value}</DisplayString>
     <Expand>
-        <Item Name="[value]">m_pn->value</Item>
+        <Item Name="[ptr]">m_pn->value</Item>
+    </Expand>
+</Type>
+
+
+<!-- boost 1.58 >= -->
+<Type Name="boost::container::stable_vector&lt;*,*&gt;" Priority="MediumHigh">
+    <DisplayString>{{ size={index.m_holder.m_size ? index.m_holder.m_size - 3 : 0} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">index.m_holder.m_size ? index.m_holder.m_size - 3 : 0</Item>
+        <IndexListItems>
+            <Size>index.m_holder.m_size ? index.m_holder.m_size - 3 : 0</Size>
+            <ValueNode>((boost::container::stable_vector_detail::node&lt;$T1 *&gt;*)index.m_holder.m_start[$i])->value</ValueNode>
+        </IndexListItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.58 >= -->
+<Type Name="boost::container::stable_vector_iterator&lt;*&gt;">
+    <DisplayString>{((boost::container::stable_vector_detail::node&lt;$T1&gt;*)m_pn)->value}</DisplayString>
+    <Expand>
+        <Item Name="[value]">((boost::container::stable_vector_detail::node&lt;$T1&gt;*)m_pn)->value</Item>
     </Expand>
 </Type>
 

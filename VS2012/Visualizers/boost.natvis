@@ -12,6 +12,7 @@
 
 <Type Name="boost::filesystem::path">
     <DisplayString>path={m_pathname}</DisplayString>
+    <StringView>m_pathname,su</StringView>
     <Expand>
         <ExpandedItem>m_pathname</ExpandedItem>
     </Expand>

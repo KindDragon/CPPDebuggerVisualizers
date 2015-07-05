@@ -12,6 +12,7 @@
 
 <Type Name="boost::filesystem::path">
     <DisplayString>path={m_pathname}</DisplayString>
+    <StringView>m_pathname,su</StringView>
     <Expand>
         <ExpandedItem>m_pathname</ExpandedItem>
     </Expand>
@@ -200,19 +201,26 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
+    <AlternativeType Name="boost::tuples::tuple&lt;&gt;" />
+    <DisplayString IncludeView="noparens"></DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <DisplayString>()</DisplayString>
     <Expand/>
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
     </Expand>
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -220,7 +228,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -229,7 +239,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -239,7 +251,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head}, {tail.tail.tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}, {tail.tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -250,7 +264,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,*,*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head}, {tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*,*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}, {tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -262,7 +278,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head}, {tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}, {tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -275,7 +293,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*,*,boost::tuples::null_type,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head}, {tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}, {tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -289,7 +309,9 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*,*,*,boost::tuples::null_type&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head}, {tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.tail.tail.head})</DisplayString>
+    <AlternativeType Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*,*,*&gt;" />
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}, {tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>
@@ -304,7 +326,8 @@
 </Type>
 
 <Type Name="boost::tuples::tuple&lt;*,*,*,*,*,*,*,*,*,*&gt;">
-    <DisplayString>({head}, {tail.head}, {tail.tail.head}, {tail.tail.tail.head}, {tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.tail.tail.head}, {tail.tail.tail.tail.tail.tail.tail.tail.tail.head})</DisplayString>
+    <DisplayString IncludeView="noparens">{head,na}, {tail.head,na}, {tail.tail.head,na}, {tail.tail.tail.head,na}, {tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.tail.tail.head,na}, {tail.tail.tail.tail.tail.tail.tail.tail.tail.head,na}</DisplayString>
+    <DisplayString ExcludeView="noparens">({*this,view(noparens)})</DisplayString>
     <Expand>
         <Item Name="[0]">head</Item>
         <Item Name="[1]">tail.head</Item>

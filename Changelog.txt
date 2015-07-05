@@ -3,7 +3,7 @@ Legend:
 * Changed
 ! Fixed
 
-1.0.18 - 10.02.2015
+1.0.18 - 07.07.2015
 =========================
 + Support Visual Studio 2015
 + Visualizers for boost::optional<T&> added. Thanks to mattlindner

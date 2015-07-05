@@ -21,7 +21,7 @@
     <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
-            <Size>data_.root_plus_size_.size_</Size> 
+            <Size>data_.root_plus_size_.size_</Size>
             <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
             <NextPointer>next_</NextPointer>
             <ValueNode>*(($T1 *) this)</ValueNode>
@@ -29,14 +29,39 @@
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::intrusive::list_impl&lt;boost::intrusive::bhtraits&lt;*,*&gt;,*&gt;">
+<!-- boost 1.55 >= && < 1.58 -->
+<Type Name="boost::intrusive::list_impl&lt;boost::intrusive::bhtraits&lt;*,*&gt;,*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::intrusive::slist_impl&lt;boost::intrusive::bhtraits&lt;*,*&gt;,*&gt;" />
     <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
-            <Size>data_.root_plus_size_.size_</Size> 
+            <Size>data_.root_plus_size_.size_</Size>
             <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
+            <NextPointer>next_</NextPointer>
+            <ValueNode>*(($T1*)this)</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.58 >= -->
+<Type Name="boost::intrusive::list_impl&lt;boost::intrusive::bhtraits&lt;*,*&gt;,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <Size>data_.root_plus_size_.size_</Size>
+            <HeadPointer>data_.root_plus_size_.m_header.next_</HeadPointer>
+            <NextPointer>next_</NextPointer>
+            <ValueNode>*(($T1*)this)</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<Type Name="boost::intrusive::slist_impl&lt;boost::intrusive::bhtraits&lt;*,*&gt;,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <Size>data_.root_plus_size_.size_</Size>
+            <HeadPointer>data_.root_plus_size_.header_holder_.next_</HeadPointer>
             <NextPointer>next_</NextPointer>
             <ValueNode>*(($T1*)this)</ValueNode>
         </LinkedListItems>
@@ -63,13 +88,39 @@
 
 <!-- member hook -->
 
-<Type Name="boost::intrusive::list&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;">
+<!-- boost < 1.58 -->
+<Type Name="boost::intrusive::list&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::intrusive::slist&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;" />
     <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
     <Expand>
         <LinkedListItems Condition="data_.root_plus_size_.root_.next_!=data_.root_plus_size_.root_.next_->next_">
             <Size>data_.root_plus_size_.size_</Size>
             <HeadPointer>data_.root_plus_size_.root_.next_</HeadPointer>
+            <NextPointer>next_</NextPointer>
+            <ValueNode>*($T1*)((char*)this - (size_t)($T4))</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<!-- boost >= 1.58 -->
+<Type Name="boost::intrusive::list&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
+    <Expand>
+        <LinkedListItems Condition="data_.root_plus_size_.m_header.next_!=data_.root_plus_size_.m_header.next_->next_">
+            <Size>data_.root_plus_size_.size_</Size>
+            <HeadPointer>data_.root_plus_size_.m_header.next_</HeadPointer>
+            <NextPointer>next_</NextPointer>
+            <ValueNode>*($T1*)((char*)this - (size_t)($T4))</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<Type Name="boost::intrusive::slist&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={data_.root_plus_size_.size_} }}</DisplayString>
+    <Expand>
+        <LinkedListItems Condition="data_.root_plus_size_.header_holder_.next_!=data_.root_plus_size_.header_holder_.next_->next_">
+            <Size>data_.root_plus_size_.size_</Size>
+            <HeadPointer>data_.root_plus_size_.header_holder_.next_</HeadPointer>
             <NextPointer>next_</NextPointer>
             <ValueNode>*($T1*)((char*)this - (size_t)($T4))</ValueNode>
         </LinkedListItems>
@@ -109,12 +160,25 @@
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::intrusive::rbtree_impl&lt;boost::intrusive::bhtraits&lt;*&gt;,*&gt;">
+<!-- boost 1.55 >= && < 1.58 -->
+<Type Name="boost::intrusive::rbtree_impl&lt;boost::intrusive::bhtraits&lt;*&gt;,*&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <TreeItems>
             <HeadPointer>parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)(this)</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.58 >= -->
+<Type Name="boost::intrusive::rbtree_impl&lt;boost::intrusive::bhtraits&lt;*&gt;,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={size_} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>holder.root.parent_</HeadPointer>
             <LeftPointer>left_</LeftPointer>
             <RightPointer>right_</RightPointer>
             <ValueNode>*($T1 *)(this)</ValueNode>
@@ -136,8 +200,8 @@
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::intrusive::set&lt;*,void,*&gt;">
+<!-- boost 1.55 >= && < 1.58-->
+<Type Name="boost::intrusive::set&lt;*,void,*&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <TreeItems>
@@ -149,9 +213,22 @@
     </Expand>
 </Type>
 
+<!-- boost 1.58 >= -->
+<Type Name="boost::intrusive::set&lt;*,void,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={size_} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>holder.root.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)(this)</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
 <!-- default base hook with constant size disabled -->
 <!-- boost <= 1.54 -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;">
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumLow">
     <DisplayString Condition="tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_ == 0">{{ empty }}</DisplayString>
     <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
@@ -164,13 +241,27 @@
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;">
-   <DisplayString Condition="parent_ == 0">{{ empty }}</DisplayString>
-   <DisplayString>{{ non-empty }}</DisplayString>
+<!-- boost 1.55 >= && < 1.58 -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumLow">
+    <DisplayString Condition="parent_ == 0">{{ empty }}</DisplayString>
+    <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
         <TreeItems>
             <HeadPointer>parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1*)(this)</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.58 >= -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="Medium">
+    <DisplayString Condition="holder.root.parent_ == 0">{{ empty }}</DisplayString>
+    <DisplayString>{{ non-empty }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>holder.root.parent_</HeadPointer>
             <LeftPointer>left_</LeftPointer>
             <RightPointer>right_</RightPointer>
             <ValueNode>*($T1*)(this)</ValueNode>
@@ -209,8 +300,8 @@
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;">
+<!-- boost 1.55 >= && < 1.58-->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <TreeItems>
@@ -222,11 +313,25 @@
     </Expand>
 </Type>
 
+<!-- boost 1.58 >= -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,*&gt;" Priority="Medium">
+    <DisplayString>{{ size={size_} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>holder.root.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)((char*)this - (size_t)($T4))</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+
 <!-- default member hook with constant size disabled -->
 <!-- boost <= 1.54 -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;">
-   <DisplayString Condition="tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_ == 0">{{ empty }}</DisplayString>
-   <DisplayString>{{ non-empty }}</DisplayString>
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumLow">
+    <DisplayString Condition="tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_ == 0">{{ empty }}</DisplayString>
+    <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
         <TreeItems>
             <HeadPointer>tree_.data_.node_plus_pred_.header_plus_size_.header_.parent_</HeadPointer>
@@ -237,13 +342,27 @@
     </Expand>
 </Type>
 
-<!-- boost 1.55 >= -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;">
-   <DisplayString Condition="parent_ == 0">{{ empty }}</DisplayString>
-   <DisplayString>{{ non-empty }}</DisplayString>
+<!-- boost 1.55 >= && < 1.58-->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumLow">
+    <DisplayString Condition="parent_ == 0">{{ empty }}</DisplayString>
+    <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
         <TreeItems>
             <HeadPointer>parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode>*($T1 *)((char*)this - (size_t)($T4))</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.58 >= -->
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="Medium">
+    <DisplayString Condition="holder.root.parent_ == 0">{{ empty }}</DisplayString>
+    <DisplayString>{{ non-empty }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>holder.root.parent_</HeadPointer>
             <LeftPointer>left_</LeftPointer>
             <RightPointer>right_</RightPointer>
             <ValueNode>*($T1 *)((char*)this - (size_t)($T4))</ValueNode>
