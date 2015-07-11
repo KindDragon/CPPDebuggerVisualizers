@@ -25,7 +25,7 @@
 </Type>
 
 <!-- VS2013 -->
-<Type Name="boost::ptr_vector&lt;*,*&gt;">
+<Type Name="boost::ptr_vector&lt;*,*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::ptr_vector&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mylast - c_._Myfirst} }}</DisplayString>
     <Expand>
@@ -39,7 +39,7 @@
 </Type>
 
 <!-- VS2015 -->
-<Type Name="boost::ptr_vector&lt;*,*&gt;">
+<Type Name="boost::ptr_vector&lt;*,*&gt;" Priority="Medium">
     <AlternativeType Name="boost::ptr_vector&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mypair._Myval2._Mylast - c_._Mypair._Myval2._Myfirst} }}</DisplayString>
     <Expand>
@@ -61,7 +61,7 @@
 </Type>
 
 <!-- VS2013 -->
-<Type Name="boost::ptr_map&lt;*,*&gt;">
+<Type Name="boost::ptr_map&lt;*,*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::ptr_multimap&lt;*,*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
@@ -76,7 +76,7 @@
 </Type>
 
 <!-- VS2015 -->
-<Type Name="boost::ptr_map&lt;*,*&gt;">
+<Type Name="boost::ptr_map&lt;*,*&gt;" Priority="Medium">
     <AlternativeType Name="boost::ptr_multimap&lt;*,*&gt;" />
     <DisplayString>{{ size={c_._Mypair._Myval2._Myval2._Mysize} }}</DisplayString>
     <Expand>
@@ -99,13 +99,28 @@
 </Type>
 
 <!-- VS2013 -->
-<Type Name="boost::ptr_set&lt;*&gt;">
+<Type Name="boost::ptr_set&lt;*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::ptr_multiset&lt;*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
         <TreeItems>
             <Size>c_._Mysize</Size>
             <HeadPointer>c_._Myhead-&gt;_Parent</HeadPointer>
+            <LeftPointer>_Left</LeftPointer>
+            <RightPointer>_Right</RightPointer>
+            <ValueNode Condition="_Isnil == 0">($T1*)_Myval</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
+<!-- VS2015 -->
+<Type Name="boost::ptr_set&lt;*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::ptr_multiset&lt;*&gt;" />
+    <DisplayString>{{ size={c_._Mypair._Myval2._Myval2._Mysize} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <Size>c_._Mypair._Myval2._Myval2._Mysize</Size>
+            <HeadPointer>c_._Mypair._Myval2._Myval2._Myhead-&gt;_Parent</HeadPointer>
             <LeftPointer>_Left</LeftPointer>
             <RightPointer>_Right</RightPointer>
             <ValueNode Condition="_Isnil == 0">($T1*)_Myval</ValueNode>
@@ -122,7 +137,7 @@
 </Type>
 
 <!-- VS2013 -->
-<Type Name="boost::ptr_list&lt;*&gt;">
+<Type Name="boost::ptr_list&lt;*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::ptr_list&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
@@ -135,14 +150,48 @@
     </Expand>
 </Type>
 
+<!-- VS2015 -->
+<Type Name="boost::ptr_list&lt;*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::ptr_list&lt;boost::nullable&lt;*&gt;,*&gt;" />
+    <DisplayString>{{ size={c_._Mypair._Myval2._Mysize} }}</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <Size>c_._Mypair._Myval2._Mysize</Size>
+            <HeadPointer>c_._Mypair._Myval2._Myhead-&gt;_Next</HeadPointer>
+            <NextPointer>_Next</NextPointer>
+            <ValueNode>($T1*)_Myval</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<Type Name="boost::void_ptr_iterator&lt;std::_List_iterator&lt;*&gt;,*&gt;">
+    <AlternativeType Name="boost::void_ptr_iterator&lt;std::_List_const_iterator&lt;*&gt;,*&gt;" />
+    <DisplayString>{($T2*)(iter_._Ptr-&gt;_Myval)}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">($T2*)(iter_._Ptr-&gt;_Myval)</Item>
+    </Expand>
+</Type>
+
 <!-- VS2013 -->
-<Type Name="boost::ptr_deque&lt;*&gt;">
+<Type Name="boost::ptr_deque&lt;*&gt;" Priority="MediumLow">
     <AlternativeType Name="boost::ptr_deque&lt;boost::nullable&lt;*&gt;,*&gt;" />
     <DisplayString>{{ size={c_._Mysize} }}</DisplayString>
     <Expand>
         <IndexListItems>
             <Size>c_._Mysize</Size>
             <ValueNode>($T1*)c_._Map[(($i + c_._Myoff) / c_._EEN_DS) % c_._Mapsize][($i + c_._Myoff) % c_._EEN_DS]</ValueNode>
+        </IndexListItems>
+    </Expand>
+</Type>
+
+<!-- VS2015 -->
+<Type Name="boost::ptr_deque&lt;*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::ptr_deque&lt;boost::nullable&lt;*&gt;,*&gt;" />
+    <DisplayString>{{ size={c_._Mypair._Myval2._Mysize} }}</DisplayString>
+    <Expand>
+        <IndexListItems>
+            <Size>c_._Mypair._Myval2._Mysize</Size>
+            <ValueNode>($T1*)c_._Mypair._Myval2._Map[(($i + c_._Mypair._Myval2._Myoff) / c_._EEN_DS) % c_._Mypair._Myval2._Mapsize][($i + c_._Mypair._Myval2._Myoff) % c_._EEN_DS]</ValueNode>
         </IndexListItems>
     </Expand>
 </Type>
@@ -156,5 +205,4 @@
         <Item Condition="iter_._Myoff &lt; (($T1 *)iter_._Myproxy-&gt;_Mycont)-&gt;_Myoff + (($T1 *)iter_._Myproxy-&gt;_Mycont)-&gt;_Mysize" Name="[ptr]">($T2*)(($T1 *)iter_._Myproxy-&gt;_Mycont)-&gt;_Map[(iter_._Myoff / iter_._EEN_DS) % (($T1 *)iter_._Myproxy-&gt;_Mycont)-&gt;_Mapsize][iter_._Myoff % iter_._EEN_DS]</Item>
     </Expand>
 </Type>
-
 </AutoVisualizer>

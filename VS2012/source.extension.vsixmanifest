@@ -22,8 +22,8 @@
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Containers.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_DateTime.natvis" />
-        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Gil.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Geometry.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Gil.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_IntrusiveContainers.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Multiprecision.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_PointerContainerLibrary.natvis" />

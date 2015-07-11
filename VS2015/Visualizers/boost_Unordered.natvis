@@ -2,7 +2,7 @@
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 
 <!-- boost < 1.58 -->
-<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::map&lt;*,*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::map&lt;*,*,*&gt;&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -15,7 +15,7 @@
 </Type>
 
 <!-- boost >= 1.58 -->
-<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::map&lt;*,*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::map&lt;*,*,*&gt;&gt;" Priority="Medium">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -28,7 +28,7 @@
 </Type>
 
 <!-- boost < 1.58 -->
-<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multimap&lt;*,*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multimap&lt;*,*,*&gt;&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -41,7 +41,7 @@
 </Type>
 
 <!-- boost >= 1.58 -->
-<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multimap&lt;*,*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multimap&lt;*,*,*&gt;&gt;" Priority="Medium">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -54,7 +54,7 @@
 </Type>
 
 <!-- boost < 1.58 -->
-<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::set&lt;*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::set&lt;*,*&gt;&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -67,7 +67,7 @@
 </Type>
 
 <!-- boost >= 1.58 -->
-<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::set&lt;*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::table_impl&lt;boost::unordered::detail::set&lt;*,*&gt;&gt;" Priority="Medium">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -80,7 +80,7 @@
 </Type>
 
 <!-- boost < 1.58 -->
-<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multiset&lt;*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multiset&lt;*,*&gt;&gt;" Priority="MediumLow">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>
@@ -93,7 +93,7 @@
 </Type>
 
 <!-- boost >= 1.58 -->
-<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multiset&lt;*,*&gt;&gt;">
+<Type Name="boost::unordered::detail::grouped_table_impl&lt;boost::unordered::detail::multiset&lt;*,*&gt;&gt;" Priority="Medium">
     <DisplayString>{{ size={size_} }}</DisplayString>
     <Expand>
         <LinkedListItems>

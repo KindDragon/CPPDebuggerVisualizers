@@ -35,7 +35,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CPPDebuggerVisualizers</RootNamespace>
-    <AssemblyName>CPPDebuggerVisualizers.VS2013-2015</AssemblyName>
+    <AssemblyName>CPPDebuggerVisualizers.VS2015</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>

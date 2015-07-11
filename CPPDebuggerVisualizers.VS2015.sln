@@ -13,7 +13,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoostTest", "Tests\BoostTes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoostTest.VS2015", "Tests\BoostTest\BoostTest.VS2015.vcxproj", "{47D7B3FE-966E-4ACB-BAE3-937522C0C465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPPDebuggerVisualizers.VS2015", "VS2013\CPPDebuggerVisualizers.VS2015.csproj", "{D97ABE0D-8F29-4728-8A3F-FF63F42E6A87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPPDebuggerVisualizers.VS2015", "VS2015\CPPDebuggerVisualizers.VS2015.csproj", "{D97ABE0D-8F29-4728-8A3F-FF63F42E6A87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

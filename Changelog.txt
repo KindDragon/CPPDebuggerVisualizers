@@ -3,9 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
-1.0.18 - 07.07.2015
+1.0.18 - 12.07.2015
 =========================
 + Support Visual Studio 2015
++ Support boost 1.58
 + Visualizers for boost::optional<T&> added. Thanks to mattlindner
 ! "no step into" fixed. Thanks to Brent Smith
 
