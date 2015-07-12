@@ -12,10 +12,8 @@
         <Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Premium" />
-        <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
-        <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Ultimate" />
         <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Community" />
+        <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
     </Installation>
     <Dependencies>
     </Dependencies>
@@ -27,6 +25,7 @@
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Geometry.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Gil.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_IntrusiveContainers.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_MultiArray.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Multiprecision.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_PointerContainerLibrary.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Rational.natvis" />

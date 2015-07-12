@@ -1,6 +1,7 @@
 #define int_p_NULL NULL
 #include <iostream>
 #include <boost/any.hpp>
+#include <boost/atomic.hpp>
 #include <boost/bimap.hpp>
 #include <boost/chrono.hpp>
 #include <boost/circular_buffer.hpp>
@@ -25,6 +26,7 @@
 #include <boost/intrusive/slist.hpp>
 #include <boost/logic/tribool.hpp>
 #include <boost/make_shared.hpp>
+#include <boost/multi_array.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/number.hpp>
@@ -53,6 +55,12 @@
 #include <boost/utility/value_init.hpp>
 #include <boost/variant.hpp>
 #include <boost/weak_ptr.hpp>
+
+void TestAtomic()
+{
+    boost::atomic_flag f;
+    boost::atomic<int> a(0);
+}
 
 class Data
 {
@@ -463,6 +471,31 @@ void TestIntrusiveSet()
     TestIntrusiveSet_MemberHook_NoSizeMember();
 }
 
+void TestMultiArray()
+{
+    // Create a 3D array that is 3 x 4 x 2
+    typedef boost::multi_array<double, 3> array_type;
+    typedef array_type::index index;
+    array_type A(boost::extents[3][4][2]);
+
+    // Assign values to the elements
+    int values = 0;
+    for (index i = 0; i != 3; ++i)
+        for (index j = 0; j != 4; ++j)
+            for (index k = 0; k != 2; ++k)
+                A[i][j][k] = values++;
+
+    typedef boost::multi_array<double, 2> array_type_2D;
+    array_type_2D myarray(boost::extents[3][4]);
+    typedef boost::multi_array_types::index_range range;
+    array_type_2D::array_view<2>::type myview =
+        myarray[boost::indices[range(1, 3)][range(0, 4, 2)]];
+
+    for (array_type_2D::index i = 0; i != 2; ++i)
+        for (array_type_2D::index j = 0; j != 2; ++j)
+            myview[i][j];
+}
+
 void TestMultiprecision()
 {
     boost::multiprecision::cpp_int n("1522605");
@@ -534,10 +567,20 @@ void TestUblas()
     mv[2] = 2.0;
     mv[1] = 4.0;
     compressed_vector<double> cv(3, 3);
-    cv[2] = 2.0;
-    cv[1] = 4.0;
-    cv[0] = 2.0;
-    matrix<double> m(3, 3);
+    cv[2] = 102.0;
+    cv[1] = 101.0;
+    cv[0] = 100.0;
+    coordinate_vector<double> rv(3, 3);
+    rv[2] = 102.0;
+    rv[1] = 101.0;
+    rv[0] = 100.0;
+    matrix<double> m(3, 4);
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 4; j++)
+            m(i, j) = i * 100 + j;
+    identity_matrix<double> im(3);
+    zero_matrix<double> zm(3, 3);
+    scalar_matrix<double> sm(3, 3);
 }
 
 void TestUnordered()
@@ -682,6 +725,8 @@ int main(int argc, const char* argv[])
     boost::uuids::string_generator gen;
     boost::uuids::uuid u1 = gen("{92EC2A54-C1FA-42CB-B9F9-2602D507AD17}");
 
+    TestAtomic();
+
     TestContainers();
 
     TestGil();
@@ -693,6 +738,8 @@ int main(int argc, const char* argv[])
     TestIntrusiveSet();
 
     TestLocalTime();
+
+    TestMultiArray();
 
     TestMultiprecision();
 

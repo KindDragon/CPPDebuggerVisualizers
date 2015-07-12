@@ -38,10 +38,17 @@
     </Expand>
 </Type>
 
-<Type Name="boost::numeric::ublas::matrix&lt;*&gt;">
+<Type Name="boost::numeric::ublas::matrix&lt;*,*&gt;">
     <DisplayString>{{ size={size1_}x{size2_} }}</DisplayString>
     <Expand>
-        <ExpandedItem>data_</ExpandedItem>
+        <Item Name="[size]" ExcludeView="simple">data_.size_</Item>
+        <ArrayItems>
+            <Direction>Forward</Direction>
+            <Rank>2</Rank>
+            <Size Condition="$i == 0">size1_</Size>
+            <Size Condition="$i == 1">size2_</Size>
+            <ValuePointer>data_.data_</ValuePointer>
+        </ArrayItems>
     </Expand>
 </Type>
 

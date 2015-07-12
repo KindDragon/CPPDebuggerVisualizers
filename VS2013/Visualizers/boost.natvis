@@ -10,6 +10,18 @@
     </Expand>
 </Type>
 
+<Type Name="boost::atomics::atomic&lt;*&gt;">
+    <DisplayString>{*($T1 *)&amp;m_storage}</DisplayString>
+    <Expand>
+        <Item Name="[value]">*($T1 *)&amp;m_storage</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::atomics::atomic_flag">
+    <DisplayString>{(bool)(m_storage &amp; 1)}</DisplayString>
+    <Expand/>
+</Type>
+
 <Type Name="boost::filesystem::path">
     <DisplayString>path={m_pathname}</DisplayString>
     <StringView>m_pathname,su</StringView>

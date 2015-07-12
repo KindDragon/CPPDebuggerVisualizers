@@ -27,6 +27,7 @@
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Geometry.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Gil.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_IntrusiveContainers.natvis" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_MultiArray.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Multiprecision.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_PointerContainerLibrary.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\boost_Rational.natvis" />

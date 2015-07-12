@@ -71,6 +71,9 @@
       <SubType>Designer</SubType>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Visualizers\boost_MultiArray.natvis">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Visualizers\boost_Multiprecision.natvis">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
