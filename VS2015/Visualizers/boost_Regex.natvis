@@ -82,7 +82,7 @@
 <!-- VS2015 -->
 <Type Name="boost::match_results&lt;char*,*&gt;" Priority="Medium">
     <Expand>
-        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0">< DisplayString>This item is empty.</DisplayString></Synthetic>
+        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0"><DisplayString>This item is empty.</DisplayString></Synthetic>
         <Item Name="SubexpressionCount" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt; = 0">m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3</Item>
         <Item Name="Location" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].first - m_subs._Mypair._Myval2._Myfirst[1].first</Item>
         <Item Name="Length" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].second - m_subs._Mypair._Myval2._Myfirst[2].first</Item>
@@ -110,7 +110,7 @@
 <!-- VS2015 -->
 <Type Name="boost::match_results&lt;wchar_t const*,*&gt;" Priority="Medium">
     <Expand>
-        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0">< DisplayString>This item is empty.</DisplayString></Synthetic>
+        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0"><DisplayString>This item is empty.</DisplayString></Synthetic>
         <Item Name="SubexpressionCount" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt; = 0">m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3</Item>
         <Item Name="Location" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].first - m_subs._Mypair._Myval2._Myfirst[1].first</Item>
         <Item Name="Length" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].second - m_subs._Mypair._Myval2._Myfirst[2].first</Item>
@@ -138,7 +138,7 @@
 <!-- VS2015 -->
 <Type Name="boost::match_results&lt;wchar_t*,*&gt;" Priority="Medium">
     <Expand>
-        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0">< DisplayString>This item is empty.</DisplayString></Synthetic>
+        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0"><DisplayString>This item is empty.</DisplayString></Synthetic>
         <Item Name="SubexpressionCount" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt; = 0">m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3</Item>
         <Item Name="Location" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].first - m_subs._Mypair._Myval2._Myfirst[1].first</Item>
         <Item Name="Length" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].second - m_subs._Mypair._Myval2._Myfirst[2].first</Item>
