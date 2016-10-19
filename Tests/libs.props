@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibsFolder>D:\Work</LibsFolder>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(PlatformToolset)'!='v140'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(LibsFolder)\boost\;$(LibsFolder)\zlib-1.2.8\;$(LibsFolder)\lpng1617\;$(LibsFolder)\lpng1617\lib32\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>zlibstatic.lib;libpng16_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='Win32'">$(LibsFolder)\zlib-1.2.8\lib32\Release\;$(LibsFolder)\lpng1617\lib32\Release\;$(LibsFolder)\boost\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Platform)'=='x64'">$(LibsFolder)\zlib-1.2.8\lib64\Release\;$(LibsFolder)\lpng1617\lib64\Release\;$(LibsFolder)\boost\stage64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibsFolder">
+      <Value>$(LibsFolder)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
