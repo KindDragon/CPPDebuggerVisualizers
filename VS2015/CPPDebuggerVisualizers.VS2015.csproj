@@ -161,6 +161,10 @@
     <Content Include="Visualizers\directx.natvis">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Visualizers\gsl.natvis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Visualizers\TinyXML.natvis">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

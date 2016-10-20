@@ -52,6 +52,8 @@
 #include <boost/unordered_set.hpp>
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+#include <boost/utility/string_view.hpp>
+#include <boost/utility/string_ref.hpp>
 #include <boost/utility/value_init.hpp>
 #include <boost/variant.hpp>
 #include <boost/weak_ptr.hpp>
@@ -688,6 +690,12 @@ void TestVariantAnyOptional()
     int val = 5;
     boost::optional<int> opt = 4;
     boost::optional<int&> optRef = val;
+
+    boost::string_view sv("boost::string_view");
+    boost::wstring_view wsv(L"boost::wstring_view");
+
+    boost::string_ref rsv("boost::string_ref");
+    boost::wstring_ref rwsv(L"boost::wstring_ref");
 }
 
 struct s{};

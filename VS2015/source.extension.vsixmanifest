@@ -39,5 +39,6 @@
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\TinyXML2.natvis" />
         <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\wxWidgets.natvis" />
         <Asset Type="StepFilter" d:Source="File" Path="Visualizers\boost.natstepfilter" />
+        <Asset Type="NativeVisualizer" d:Source="File" Path="Visualizers\gsl.natvis" />
     </Assets>
 </PackageManifest>

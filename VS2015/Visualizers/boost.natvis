@@ -228,6 +228,19 @@
     <Expand/>
 </Type>
 
+<Type Name="boost::basic_string_view&lt;*&gt;">
+    <AlternativeType Name="boost::basic_string_ref&lt;*&gt;" />
+    <DisplayString>{ptr_}</DisplayString>
+    <StringView>ptr_</StringView>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">len_</Item>
+        <ArrayItems>
+            <Size>len_</Size>
+            <ValuePointer>ptr_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
 <Type Name="boost::tuples::tuple&lt;boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type&gt;">
     <AlternativeType Name="boost::tuples::tuple&lt;&gt;" />
     <DisplayString IncludeView="noparens"></DisplayString>
