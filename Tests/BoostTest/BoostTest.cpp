@@ -59,7 +59,8 @@
 void TestAtomic()
 {
     boost::atomic_flag f;
-    boost::atomic<int> a(0);
+    f.test_and_set();
+    boost::atomic<int> a(5);
 }
 
 class Data

@@ -10,6 +10,7 @@
     </Expand>
 </Type>
 
+<!--  boost < 1.61 -->
 <Type Name="boost::atomics::atomic&lt;*&gt;">
     <DisplayString>{*($T1 *)&amp;m_storage}</DisplayString>
     <Expand>
@@ -17,8 +18,23 @@
     </Expand>
 </Type>
 
+<!--  boost < 1.61 -->
 <Type Name="boost::atomics::atomic_flag">
     <DisplayString>{(bool)(m_storage &amp; 1)}</DisplayString>
+    <Expand/>
+</Type>
+
+<!--  boost >= 1.61 -->
+<Type Name="boost::atomic&lt;*&gt;">
+    <DisplayString>{*($T1 *)&amp;m_storage}</DisplayString>
+    <Expand>
+        <Item Name="[value]">*($T1 *)&amp;m_storage</Item>
+    </Expand>
+</Type>
+
+<!--  boost >= 1.61 -->
+<Type Name="boost::atomics::atomic_flag">
+    <DisplayString>{(bool)(m_storage.value &amp; 1)}</DisplayString>
     <Expand/>
 </Type>
 
