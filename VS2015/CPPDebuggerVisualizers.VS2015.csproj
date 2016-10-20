@@ -120,8 +120,8 @@
       <Link>cppVisualizerScreenshot.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\LICENSE_1_0.txt">
-      <Link>LICENSE_1_0.txt</Link>
+    <Content Include="..\LICENSE.txt">
+      <Link>LICENSE.txt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\boost.natstepfilter">

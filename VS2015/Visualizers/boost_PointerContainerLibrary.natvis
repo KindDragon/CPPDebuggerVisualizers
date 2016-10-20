@@ -90,11 +90,20 @@
     </Expand>
 </Type>
 
-<Type Name="boost::ptr_map_iterator&lt;*,*,*&gt;">
-    <DisplayString>{m_iterator._Ptr-&gt;_Myval.first}, {($T3)m_iterator._Ptr-&gt;_Myval.second}</DisplayString>
+<!-- Starting in VS 2015, Update 2, they added a new visualization for map that shows the key in the name column,
+   and the value in the value column.  If desired, the "ShowElementsByIndex" view can be used to fall back to the prior
+   behavior and show the index in the name column and the key-value pair in the value column. -->
+<Type Name="boost::ptr_map&lt;*,*&gt;" ExcludeView="ShowElementsByIndex" Priority="MediumHigh">
+    <AlternativeType Name="boost::ptr_multimap&lt;*,*&gt;" />
+    <DisplayString>{{ size={c_._Mypair._Myval2._Myval2._Mysize} }}</DisplayString>
     <Expand>
-        <Item Name="first">m_iterator._Ptr-&gt;_Myval.first</Item>
-        <Item Name="second">($T3)m_iterator._Ptr-&gt;_Myval.second</Item>
+        <TreeItems>
+            <Size>c_._Mypair._Myval2._Myval2._Mysize</Size>
+            <HeadPointer>c_._Mypair._Myval2._Myval2._Myhead-&gt;_Parent</HeadPointer>
+            <LeftPointer>_Left</LeftPointer>
+            <RightPointer>_Right</RightPointer>
+            <ValueNode Condition="_Isnil == 0" Name="[{_Myval.first}]">*(std::pair&lt;$T1,$T2 *&gt;*)&amp;(_Myval),view(MapHelper)</ValueNode>
+        </TreeItems>
     </Expand>
 </Type>
 

@@ -168,14 +168,14 @@
 <!-- VS2015 -->
 <Type Name="boost::match_results&lt;std::_String_const_iterator&lt;std::_String_val&lt;std::_Simple_types&lt;char&gt; &gt;  &gt;,*&gt;" Priority="Medium">
     <Expand>
-        <Item Name="SubexpressionCount" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt; = 0">m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3</Item>
-        <Item Name="Location" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].first._Ptr - m_subs._Mypair._Myval2._Myfirst[1].first._Ptr</Item>
-        <Item Name="Length" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].second._Ptr - m_subs._Mypair._Myval2._Myfirst[2].first._Ptr</Item>
-        <ArrayItems Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &gt;= 0">
+        <Item Name="SubexpressionCount" Condition="(m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3) &gt;= 0">m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3</Item>
+        <Item Name="Location" Condition="(m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3) &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].first._Ptr - m_subs._Mypair._Myval2._Myfirst[1].first._Ptr</Item>
+        <Item Name="Length" Condition="(m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3) &gt;= 0"> m_subs._Mypair._Myval2._Myfirst[2].second._Ptr - m_subs._Mypair._Myval2._Myfirst[2].first._Ptr</Item>
+        <ArrayItems Condition="(m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3) &gt;= 0">
             <Size>m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 2</Size>
             <ValuePointer>m_subs._Mypair._Myval2._Myfirst + 2</ValuePointer>
         </ArrayItems>
-        <Synthetic Name="Empty" Condition="m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3 &lt; 0">
+        <Synthetic Name="Empty" Condition="(m_subs._Mypair._Myval2._Mylast - m_subs._Mypair._Myval2._Myfirst - 3) &lt; 0">
             <DisplayString>This item is empty</DisplayString>
         </Synthetic>
     </Expand>

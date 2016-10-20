@@ -126,10 +126,10 @@ void TestGil()
     {
         using namespace boost::gil;
         rgb8_image_t img;
-        png_read_and_convert_image("C:\\User-Dragon\\Downloads\\1349730285_arrow_up.png", img);
+        png_read_and_convert_image("test_image.png", img);
         typedef boost::mpl::vector<gray8_image_t, rgb8_image_t, rgba8_image_t, gray16_image_t, rgb16_image_t> my_images_t;
         any_image<my_images_t> dyn_img;
-        png_read_image("C:\\User-Dragon\\Downloads\\1349730285_arrow_up.png", dyn_img);
+        png_read_image("test_image.png", dyn_img);
     }
     catch (std::ios_base::failure)
     {
@@ -242,6 +242,8 @@ void TestContainers()
         (*it);
     deque<int> d;
     d.push_back(100);
+    for (deque<int>::const_iterator it = d.begin(); it != d.end();it++)
+        (*it);
     flat_map<int, int> fm;
     fm.insert(std::make_pair(100, 1000));
     for(flat_map<int, int>::const_iterator it = fm.begin(); it!=fm.end();it++)

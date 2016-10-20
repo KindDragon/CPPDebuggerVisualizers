@@ -186,6 +186,22 @@
     </Expand>
 </Type>
 
+<!-- Starting in VS 2015, Update 2, they added a new visualization for map that shows the key in the name column,
+   and the value in the value column.  If desired, the "ShowElementsByIndex" view can be used to fall back to the prior
+   behavior and show the index in the name column and the key-value pair in the value column.
+   Return error for boost::set and fallback to previous visualizer -->
+<Type Name="boost::intrusive::rbtree_impl&lt;boost::intrusive::bhtraits&lt;*&gt;,*&gt;" ExcludeView="ShowElementsByIndex" Priority="MediumHigh">
+    <DisplayString>{{ size={size_} }}</DisplayString>
+    <Expand>
+        <TreeItems>
+            <HeadPointer>holder.root.parent_</HeadPointer>
+            <LeftPointer>left_</LeftPointer>
+            <RightPointer>right_</RightPointer>
+            <ValueNode Condition="this != 0" Name="[{(($T1 *)(this))-&gt;m_data.first}]">(($T1 *)(this))-&gt;m_data.second,view(MapHelper)</ValueNode>
+        </TreeItems>
+    </Expand>
+</Type>
+
 <!-- default base hook with constant size enabled -->
 <!-- boost <= 1.54 -->
 <Type Name="boost::intrusive::set&lt;*,boost::intrusive::none,*&gt;">
@@ -242,7 +258,7 @@
 </Type>
 
 <!-- boost 1.55 >= && < 1.58 -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumLow">
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="Medium">
     <DisplayString Condition="parent_ == 0">{{ empty }}</DisplayString>
     <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
@@ -256,7 +272,7 @@
 </Type>
 
 <!-- boost 1.58 >= -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="Medium">
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumHigh">
     <DisplayString Condition="holder.root.parent_ == 0">{{ empty }}</DisplayString>
     <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
@@ -343,7 +359,7 @@
 </Type>
 
 <!-- boost 1.55 >= && < 1.58-->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumLow">
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="Medium">
     <DisplayString Condition="parent_ == 0">{{ empty }}</DisplayString>
     <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>
@@ -357,7 +373,7 @@
 </Type>
 
 <!-- boost 1.58 >= -->
-<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="Medium">
+<Type Name="boost::intrusive::set&lt;*,boost::intrusive::member_hook&lt;*,*,*&gt;,boost::intrusive::constant_time_size&lt;0&gt;,*&gt;" Priority="MediumHigh">
     <DisplayString Condition="holder.root.parent_ == 0">{{ empty }}</DisplayString>
     <DisplayString>{{ non-empty }}</DisplayString>
     <Expand>

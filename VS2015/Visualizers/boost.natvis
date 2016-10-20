@@ -19,7 +19,7 @@
 </Type>
 
 <!--  boost < 1.61 -->
-<Type Name="boost::atomics::atomic_flag">
+<Type Name="boost::atomics::atomic_flag" Priority="MediumLow">
     <DisplayString>{(bool)(m_storage &amp; 1)}</DisplayString>
     <Expand/>
 </Type>
@@ -33,7 +33,7 @@
 </Type>
 
 <!--  boost >= 1.61 -->
-<Type Name="boost::atomics::atomic_flag">
+<Type Name="boost::atomics::atomic_flag" Priority="Medium">
     <DisplayString>{(bool)(m_storage.value &amp; 1)}</DisplayString>
     <Expand/>
 </Type>

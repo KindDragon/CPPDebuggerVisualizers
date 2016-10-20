@@ -21,7 +21,7 @@
 </Type>
 
 <!-- VS == 2013 -->
-<Type Name="boost::dynamic_bitset&lt;*&gt;" Priority="MediumLow">
+<Type Name="boost::dynamic_bitset&lt;*&gt;" Priority="MediumHigh">
     <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
     <Expand>
         <Item Name="[bits]">m_num_bits</Item>
@@ -32,12 +32,21 @@
     </Expand>
 </Type>
 
-<!-- VS == 2015 -->
-<Type Name="boost::dynamic_bitset&lt;*&gt;">
+<!-- VS == 2015U3 -->
+<Type Name="boost::dynamic_bitset&lt;*&gt;" Priority="Medium">
     <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
     <Expand>
         <Item Name="[bits]">m_num_bits</Item>
+        <IndexListItems>
+            <Size>m_num_bits</Size>
+            <ValueNode>(bool)((m_bits._Mypair._Myval2._Myfirst[$i / bits_per_block] &gt;&gt; ($i % bits_per_block)) &amp; 1)</ValueNode>
+        </IndexListItems>
     </Expand>
+</Type>
+
+<!-- VS == 2015 -->
+<Type Name="boost::dynamic_bitset&lt;*&gt;" Priority="MediumLow">
+    <DisplayString>{{ bits={m_num_bits} }}</DisplayString>
 </Type>
 
 <!--Copyright William Buklis 2007. Use, modification and distribution are subject to-->
@@ -146,28 +155,38 @@
 </Type>
 
 <Type Name="boost::container::deque&lt;*&gt;">
-    <DisplayString>{{ size={(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
+    <DisplayString>{{ size={members_.m_map == 0 ? 0 : ((sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
         (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
-        (members_.m_start.m_last - members_.m_start.m_cur)} }}</DisplayString>
+        (members_.m_start.m_last - members_.m_start.m_cur))} }}</DisplayString>
     <Expand>
-        <Item Name="[size]" ExcludeView="simple">(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
-        (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
-        (members_.m_start.m_last - members_.m_start.m_cur)</Item>
-        <Item Name="[buffer_size]" ExcludeView="simple">sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)</Item>
+        <Item Name="[size]" ExcludeView="simple">members_.m_map == 0 ? 0 :
+            ((sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) * (members_.m_finish.m_node - members_.m_start.m_node - 1)
+            + (members_.m_finish.m_cur - members_.m_finish.m_first) + (members_.m_start.m_last - members_.m_start.m_cur))</Item>
+        <Item Name="[buffer_size]" ExcludeView="simple">members_.m_map == 0 ? 0 :
+            (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1))</Item>
         <IndexListItems>
-            <Size>(sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
-            (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
-            (members_.m_start.m_last - members_.m_start.m_cur)</Size>
+            <Size>members_.m_map == 0 ? 0 : ((sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)) *
+                (members_.m_finish.m_node - members_.m_start.m_node - 1) + (members_.m_finish.m_cur - members_.m_finish.m_first) +
+                (members_.m_start.m_last - members_.m_start.m_cur))</Size>
             <ValueNode>members_.m_start.m_node[(($i + (members_.m_start.m_cur - members_.m_start.m_first)) / (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1)))][($i + (members_.m_start.m_cur - members_.m_start.m_first)) % (sizeof($T1) &lt; 512 ? size_t(512 / sizeof($T1)) : size_t(1))]</ValueNode>
         </IndexListItems>
     </Expand>
 </Type>
 
+<!-- boost < 1.62 -->
 <Type Name="boost::container::deque_base&lt;*&gt;::iterator">
     <AlternativeType Name="boost::container::deque_base&lt;*&gt;::const_iterator" />
     <DisplayString>{m_cur}</DisplayString>
     <Expand>
         <Item Name="[ptr]">m_cur</Item>
+    </Expand>
+</Type>
+
+<!-- boost >= 1.62 -->
+<Type Name="boost::container::container_detail::deque_iterator&lt;*,*&gt;">
+    <DisplayString>{*m_node,na}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">m_node</Item>
     </Expand>
 </Type>
 
@@ -202,7 +221,7 @@
     <AlternativeType Name="boost::container::list&lt;*&gt;::const_iterator" />
     <DisplayString>{m_it}</DisplayString>
     <Expand>
-        <ExpandedItem>m_it</ExpandedItem>
+        <Item Name="[ptr]">m_it</Item>
     </Expand>
 </Type>
 
@@ -210,21 +229,21 @@
     <AlternativeType Name="boost::container::container_detail::slist_node&lt;*,void *&gt;" />
     <DisplayString>{m_data}</DisplayString>
     <Expand>
-        <ExpandedItem>m_data</ExpandedItem>
+        <Item Name="[ptr]">m_data</Item>
     </Expand>
 </Type>
 
 <Type Name="boost::container::container_detail::rbtree_node&lt;*,void *&gt;">
     <DisplayString>{m_data}</DisplayString>
     <Expand>
-        <ExpandedItem>m_data</ExpandedItem>
+        <Item Name="[ptr]">m_data</Item>
     </Expand>
 </Type>
 
 <Type Name="boost::container::container_detail::tree_node&lt;*,void *,*&gt;">
     <DisplayString>{m_data}</DisplayString>
     <Expand>
-        <ExpandedItem>m_data</ExpandedItem>
+        <Item Name="[ptr]">m_data</Item>
     </Expand>
 </Type>
 
@@ -232,7 +251,7 @@
 <Type Name="boost::container::container_detail::iterator&lt;*&gt;">
     <DisplayString>{m_iit}</DisplayString>
     <Expand>
-        <ExpandedItem>m_iit</ExpandedItem>
+        <Item Name="[ptr]">m_iit</Item>
     </Expand>
 </Type>
 
