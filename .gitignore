@@ -9,3 +9,4 @@ _ReSharper.*/
 *.opensdf
 *.user
 .vs/
+packages/

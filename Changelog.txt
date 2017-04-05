@@ -3,6 +3,11 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.19 - 05.04.2017
+=========================
++ Support Visual Studio 2017
++ Support boost 1.63
+
 1.0.18 - 12.07.2015
 =========================
 + Support Visual Studio 2015

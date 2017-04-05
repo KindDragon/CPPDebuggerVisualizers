@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<!-- based on http://wxwidgets.blogspot.com/2009/12/better-display-of-wxtypes-in-msvs.html -->
+<Type Name="wxPoint">
+    <DisplayString>{x},{y}</DisplayString>
+    <Expand>
+        <Item Name="x">x</Item>
+        <Item Name="y">y</Item>
+    </Expand>
+</Type>
+
+<Type Name="wxSize">
+    <DisplayString>{x}*{y}</DisplayString>
+    <Expand>
+        <Item Name="x">x</Item>
+        <Item Name="y">y</Item>
+    </Expand>
+</Type>
+
+<Type Name="wxRect">
+    <DisplayString>{x},{y} {width}*{height}</DisplayString>
+    <Expand>
+        <Item Name="x">x</Item>
+        <Item Name="y">y</Item>
+        <Item Name="width">width</Item>
+        <Item Name="height">height</Item>
+    </Expand>
+</Type>
+
+<Type Name="wxDateTime">
+    <DisplayString>{m_time.m_ll}ms</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="wxLongLong">
+    <DisplayString>{m_ll}</DisplayString>
+    <Expand/>
+</Type>
+
+<!-- wxString visualiser for wxWidgets 2.8
+<Type Name="wxString">
+    <DisplayString>{*((wchar_t**)this),su}</DisplayString>
+    <StringView>*((wchar_t**)this),su</StringView>
+    <Expand>
+        <Item Name="[str]">*((wchar_t**)this)</Item>
+        <Item Name="[size]">(*((wxStringData**)this) - 1)-&gt;nDataLength</Item>
+        <Item Name="[capacity]">(*((wxStringData**)this) - 1)-&gt;nAllocLength</Item>
+        <Item Name="[refs]">(*((wxStringData**)this) - 1)-&gt;nRefs</Item>
+        <Item Name="[stringData]">*((wxStringData**)this) - 1</Item>
+    </Expand>
+</Type> -->
+
+<!--wxString visualiser for wxWidgets 2.9-->
+<Type Name="wxString">
+    <DisplayString>{m_impl,su}</DisplayString>
+    <StringView>m_impl,su</StringView>
+    <Expand>
+        <ExpandedItem>m_impl</ExpandedItem>
+    </Expand>
+</Type>
+
+<!--wxStringImpl visualiser for wxWidgets 2.9-->
+<Type Name="wxStringImpl">
+    <DisplayString>{m_pchData,su}</DisplayString>
+    <StringView>m_pchData,su</StringView>
+    <Expand>
+        <Item Name="[str]">m_pchData</Item>
+        <Item Name="[size]">(*((wxStringData**)m_pchData) - 1)-&gt;nDataLength</Item>
+        <Item Name="[capacity]">(*((wxStringData**)m_pchData) - 1)-&gt;nAllocLength</Item>
+        <Item Name="[refs]">(*((wxStringData**)m_pchData) - 1)-&gt;nRefs</Item>
+        <Item Name="[stringData]">*((wxStringData**)m_pchData) - 1</Item>
+    </Expand>
+</Type>
+
+<Type Name="wxArrayString">
+    <DisplayString>{{ size={m_nCount} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_nCount</Item>
+        <Item Name="[capacity]">m_nSize</Item>
+        <Item Name="[autoSort]">m_autoSort</Item>
+        <ArrayItems>
+            <Size>m_nCount</Size>
+            <ValuePointer>m_pItems</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="wxBaseArrayShort">
+    <AlternativeType Name="wxBaseArrayInt" />
+    <AlternativeType Name="wxBaseArrayDouble" />
+    <AlternativeType Name="wxBaseArrayLong" />
+    <AlternativeType Name="wxBaseArrayPtrVoid" />
+    <DisplayString>{{ size={m_nCount} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_nCount</Item>
+        <Item Name="[capacity]">m_nSize</Item>
+        <ArrayItems>
+            <Size>m_nCount</Size>
+            <ValuePointer>m_pItems</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="wxListBase">
+    <DisplayString>{{ size={m_count} }}</DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <Size>m_count</Size>
+            <HeadPointer>m_nodeFirst</HeadPointer>
+            <NextPointer>m_next</NextPointer>
+            <ValueNode>m_data</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+
+<Type Name="wxVectorBase">
+    <DisplayString>{{ size={m_size} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]">m_size</Item>
+        <Item Name="[capacity]">m_capacity</Item>
+        <ArrayItems>
+            <Size>m_size</Size>
+            <ValuePointer>m_objects</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="wxDir">
+    <DisplayString Condition="m_data == 0">empty</DisplayString>
+    <DisplayString Condition="m_data != 0">wxDir {*((wchar_t**)&amp;m_data-&gt;m_dirname),su}</DisplayString>
+    <Expand>
+        <Item Condition="m_data != 0" Name="[data]">m_data</Item> 
+    </Expand>
+</Type>
+
+<Type Name="wxFileName">
+    <DisplayString>Volume {*((wchar_t**)&amp;m_volume),su}, Dirs {m_dirs}, Name {*((wchar_t**)&amp;m_name),su}, Ext {*((wchar_t**)&amp;m_ext),su}</DisplayString>
+    <Expand/>
+</Type>
+</AutoVisualizer>
