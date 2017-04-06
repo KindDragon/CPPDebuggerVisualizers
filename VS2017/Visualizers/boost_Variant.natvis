@@ -606,6 +606,7 @@
 </Type>
 
 <Type Name="boost::recursive_wrapper&lt;*&gt;">
+    <SmartPointer Usage="Minimal">p_,na</SmartPointer>
     <DisplayString>{*p_}</DisplayString>
     <Expand>
         <Item Name="[ptr]">p_</Item>

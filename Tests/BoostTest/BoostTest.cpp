@@ -171,7 +171,7 @@ void TestPosixTime()
 {
     using namespace boost::posix_time;
     boost::gregorian::date d(2002,boost::date_time::Feb,1); //an arbitrary date
-    ptime t1(d, hours(5)+microsec(100)); //date + time of day offset
+    ptime t1(d, hours(5)+millisec(100)); //date + time of day offset
     ptime t2 = t1 - minutes(4)+seconds(2);
     ptime now = second_clock::local_time(); //use the clock
     boost::gregorian::date today = now.date(); //Get the date part out of the time
@@ -254,6 +254,7 @@ void TestContainers()
     fs.insert(100);
     for(flat_set<int>::const_iterator it = fs.begin(); it!=fs.end();it++)
         (*it);
+    // use intrusive data
     list<int> l;
     l.push_back(100);
     for (auto it = l.cbegin(); it != l.cend(); it++)
@@ -689,13 +690,16 @@ void TestVariantAnyOptional()
     valany = true;
     int val = 5;
     boost::optional<int> opt = 4;
-    boost::optional<int&> optRef = val;
+    boost::optional<int&> optRef;
+    optRef = val;
 
-    boost::string_view sv("boost::string_view");
-    boost::wstring_view wsv(L"boost::wstring_view");
+    const char* str = "very long string";
+    const wchar_t* wstr = L"very long string";
+    boost::string_view sv(str+5, 4);
+    boost::wstring_view wsv(wstr + 5, 4);
 
-    boost::string_ref rsv("boost::string_ref");
-    boost::wstring_ref rwsv(L"boost::wstring_ref");
+    boost::string_ref rsv(str + 5, 4);
+    boost::wstring_ref rwsv(wstr + 5, 4);
 }
 
 struct s{};

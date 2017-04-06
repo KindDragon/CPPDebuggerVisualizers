@@ -18,7 +18,8 @@
 </Type>
 
 <Type Name="boost::void_ptr_iterator&lt;void**,*&gt;">
-    <DisplayString>{($T1*)(*iter_)}</DisplayString>
+    <SmartPointer Usage="Minimal">($T1*)(*iter_)</SmartPointer>
+    <DisplayString>{($T1*)(*iter_),na}</DisplayString>
     <Expand>
         <Item Name="[ptr]">($T1*)(*iter_)</Item>
     </Expand>
@@ -54,6 +55,7 @@
 
 <Type Name="boost::void_ptr_iterator&lt;std::_Vector_iterator&lt;*&gt;,*&gt;">
     <AlternativeType Name="boost::void_ptr_iterator&lt;std::_Vector_const_iterator&lt;*&gt;,*&gt;" />
+    <SmartPointer Usage="Minimal">($T2*)(*iter_._Ptr)</SmartPointer>
     <DisplayString>{($T2*)(*iter_._Ptr)}</DisplayString>
     <Expand>
         <Item Name="[ptr]">($T2*)(*iter_._Ptr)</Item>
@@ -77,7 +79,9 @@
 
 <!-- VS2015 -->
 <Type Name="boost::ptr_map&lt;*,*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::ptr_map&lt;*,*,*&gt;" />
     <AlternativeType Name="boost::ptr_multimap&lt;*,*&gt;" />
+    <AlternativeType Name="boost::ptr_multimap&lt;*,*,*&gt;" />
     <DisplayString>{{ size={c_._Mypair._Myval2._Myval2._Mysize} }}</DisplayString>
     <Expand>
         <TreeItems>
@@ -94,7 +98,9 @@
    and the value in the value column.  If desired, the "ShowElementsByIndex" view can be used to fall back to the prior
    behavior and show the index in the name column and the key-value pair in the value column. -->
 <Type Name="boost::ptr_map&lt;*,*&gt;" ExcludeView="ShowElementsByIndex" Priority="MediumHigh">
+    <AlternativeType Name="boost::ptr_map&lt;*,*,*&gt;" />
     <AlternativeType Name="boost::ptr_multimap&lt;*,*&gt;" />
+    <AlternativeType Name="boost::ptr_multimap&lt;*,*,*&gt;" />
     <DisplayString>{{ size={c_._Mypair._Myval2._Myval2._Mysize} }}</DisplayString>
     <Expand>
         <TreeItems>
@@ -104,6 +110,18 @@
             <RightPointer>_Right</RightPointer>
             <ValueNode Condition="_Isnil == 0" Name="[{_Myval.first}]">*(std::pair&lt;$T1,$T2 *&gt;*)&amp;(_Myval),view(MapHelper)</ValueNode>
         </TreeItems>
+    </Expand>
+</Type>
+
+<Type Name="boost::ptr_map_iterator&lt;std::_Tree_iterator&lt;*&gt;,*,*&gt;">
+    <AlternativeType Name="boost::ptr_map_iterator&lt;std::_Tree_const_iterator&lt;*&gt;,*,*&gt;" />
+    <Intrinsic Name="first" Expression="m_iterator._Ptr-&gt;_Myval.first"/>
+    <Intrinsic Name="second" Expression="*(($T3*)&amp;m_iterator._Ptr-&gt;_Myval.second)"/>
+    <SmartPointer Usage="Minimal">m_iterator._Ptr-&gt;_Isnil ? nullptr : &amp;(m_iterator._Ptr-&gt;_Myval)</SmartPointer>
+    <DisplayString Condition="m_iterator._Ptr-&gt;_Isnil == 0">({first()}, {second()})</DisplayString>
+    <DisplayString Condition="m_iterator._Ptr-&gt;_Isnil != 0">end</DisplayString>
+    <Expand>
+        <Synthetic Condition="m_iterator._Ptr-&gt;_Isnil == 0" Name="[ptr]"><DisplayString>({first()}, {second()})</DisplayString></Synthetic>
     </Expand>
 </Type>
 
@@ -139,7 +157,7 @@
 
 <Type Name="boost::void_ptr_iterator&lt;std::_Tree_iterator&lt;*&gt;,*&gt;">
     <AlternativeType Name="boost::void_ptr_iterator&lt;std::_Tree_const_iterator&lt;*&gt;,*&gt;" />
-    <DisplayString>{($T2*)(iter_._Ptr-&gt;_Myval)}</DisplayString>
+    <SmartPointer Usage="Minimal">($T2*)(iter_._Ptr-&gt;_Myval)</SmartPointer>
     <Expand>
         <Item Name="[ptr]">($T2*)(iter_._Ptr-&gt;_Myval)</Item>
     </Expand>
@@ -175,7 +193,7 @@
 
 <Type Name="boost::void_ptr_iterator&lt;std::_List_iterator&lt;*&gt;,*&gt;">
     <AlternativeType Name="boost::void_ptr_iterator&lt;std::_List_const_iterator&lt;*&gt;,*&gt;" />
-    <DisplayString>{($T2*)(iter_._Ptr-&gt;_Myval)}</DisplayString>
+    <SmartPointer Usage="Minimal">($T2*)(iter_._Ptr-&gt;_Myval)</SmartPointer>
     <Expand>
         <Item Name="[ptr]">($T2*)(iter_._Ptr-&gt;_Myval)</Item>
     </Expand>

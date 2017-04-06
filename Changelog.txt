@@ -7,6 +7,9 @@ Legend:
 =========================
 + Support Visual Studio 2017
 + Support boost 1.63
+! Fixed smart pointers visualisers and boost::optional<T&> for Boost 1.63
+* Rewrited visualisers for boost::date_time
+* Improved visualisers for several other types
 
 1.0.18 - 12.07.2015
 =========================

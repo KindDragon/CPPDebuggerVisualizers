@@ -103,12 +103,20 @@
     </Expand>
 </Type>
 
-<Type Name="boost::optional&lt;*&gt;">
+<Type Name="boost::optional&lt;*&gt;" Priority="Medium">
     <AlternativeType Name="boost::optional_detail::optional_base&lt;*&gt;" />
-    <DisplayString Condition="!m_initialized">empty</DisplayString>
     <DisplayString Condition="m_initialized">{m_storage}</DisplayString>
     <Expand>
-        <ExpandedItem Condition="m_initialized">m_storage</ExpandedItem>
+        <Item Condition="m_initialized" Name="value">m_storage</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::optional&lt;*&gt;" Priority="MediumLow">
+    <AlternativeType Name="boost::optional_detail::optional_base&lt;*&gt;" />
+    <DisplayString Condition="ptr_ == 0">empty</DisplayString>
+    <DisplayString Condition="ptr_ != 0">{*ptr_}</DisplayString>
+    <Expand>
+        <Item Condition="ptr_ != 0" Name="value">*ptr_</Item>
     </Expand>
 </Type>
 
@@ -230,8 +238,8 @@
 
 <Type Name="boost::basic_string_view&lt;*&gt;">
     <AlternativeType Name="boost::basic_string_ref&lt;*&gt;" />
-    <DisplayString>{ptr_}</DisplayString>
-    <StringView>ptr_</StringView>
+    <DisplayString>{ptr_,[len_]}</DisplayString>
+    <StringView>ptr_,[len_]</StringView>
     <Expand>
         <Item Name="[size]" ExcludeView="simple">len_</Item>
         <ArrayItems>
