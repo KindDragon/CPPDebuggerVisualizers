@@ -28,7 +28,7 @@ Microsoft [boost::shared_ptr visualizer](http://archive.msdn.microsoft.com/boost
 * [TinyXML2 library](http://www.grinninglizard.com/tinyxml2/index.html): XMLNode, XMLElement, XMLAttribute
 * HRESULT for DirectX
 
-You can install this extension from [Visual Studio gallery](http://bit.ly/Mn73hE)
+You can install this extension from Visual Studio marketplace for [VS2012](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2012), [VS2013](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2013), [VS2015](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2015) and [VS2017](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2017)
 
 Please submit a request for support for new libraries and classes to this page https://cppvisualizers.codeplex.com/workitem/list/basic
 
