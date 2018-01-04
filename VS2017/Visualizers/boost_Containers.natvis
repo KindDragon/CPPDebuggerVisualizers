@@ -262,10 +262,19 @@
     </Expand>
 </Type>
 
-<Type Name="boost::container::flat_map&lt;*&gt;">
+<!-- boost < 1.65 -->
+<Type Name="boost::container::flat_map&lt;*&gt;" Priority="MediumLow">
     <DisplayString>{m_flat_tree.m_data.m_vect}</DisplayString>
     <Expand>
         <ExpandedItem>m_flat_tree.m_data.m_vect</ExpandedItem>
+    </Expand>
+</Type>
+
+<!-- boost >= 1.65 -->
+<Type Name="boost::container::flat_map&lt;*&gt;" Priority="Medium">
+    <DisplayString>{m_flat_tree.m_data.m_seq}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_flat_tree.m_data.m_seq</ExpandedItem>
     </Expand>
 </Type>
 
@@ -295,6 +304,14 @@
     <DisplayString>{m_data.m_vect}</DisplayString>
     <Expand>
         <ExpandedItem>m_data.m_vect</ExpandedItem>
+    </Expand>
+</Type>
+
+<!-- boost >= 1.65 -->
+<Type Name="boost::container::flat_set&lt;*&gt;" Priority="MediumHigh">
+    <DisplayString>{m_data.m_seq}</DisplayString>
+    <Expand>
+        <ExpandedItem>m_data.m_seq</ExpandedItem>
     </Expand>
 </Type>
 
