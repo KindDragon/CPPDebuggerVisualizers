@@ -27,6 +27,10 @@
 #include <boost/logic/tribool.hpp>
 #include <boost/make_shared.hpp>
 #include <boost/multi_array.hpp>
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/composite_key.hpp>
+#include <boost/multi_index/member.hpp>
+#include <boost/multi_index/ordered_index.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/number.hpp>
@@ -502,6 +506,61 @@ void TestMultiArray()
             myview[i][j];
 }
 
+void TestMultiIndex()
+{
+    using boost::multi_index_container;
+    using namespace boost::multi_index;
+
+    /* an employee record holds its ID, name and age */
+
+    struct employee
+    {
+        int         id;
+        std::string name;
+        int         age;
+
+        employee(int id_, std::string name_, int age_) :id(id_), name(name_), age(age_) {}
+    };
+
+    /* tags for accessing the corresponding indices of employee_set */
+
+    struct id {};
+    struct name {};
+    struct age {};
+    struct member {};
+
+    /* see Compiler specifics: Use of member_offset for info on
+    * BOOST_MULTI_INDEX_MEMBER
+    */
+
+    /* Define a multi_index_container of employees with following indices:
+    *   - a unique index sorted by employee::int,
+    *   - a non-unique index sorted by employee::name,
+    *   - a non-unique index sorted by employee::age.
+    */
+
+    typedef multi_index_container<
+        employee,
+        indexed_by<
+            ordered_unique<
+                tag<id>, BOOST_MULTI_INDEX_MEMBER(employee, int, id)>,
+            ordered_non_unique<
+                tag<name>, BOOST_MULTI_INDEX_MEMBER(employee, std::string, name)>,
+            ordered_non_unique<
+                tag<age>, BOOST_MULTI_INDEX_MEMBER(employee, int, age)>
+        >
+    > employee_set;
+
+    employee_set es;
+
+    es.insert(employee(0, "Joe", 31));
+    es.insert(employee(1, "Robert", 27));
+    es.insert(employee(2, "John", 40));
+    es.insert(employee(2, "Aristotle", 2387));
+    es.insert(employee(3, "Albert", 20));
+    es.insert(employee(4, "John", 57));
+}
+
 void TestMultiprecision()
 {
     boost::multiprecision::cpp_int n("1522605");
@@ -755,6 +814,8 @@ int main(int argc, const char* argv[])
     TestLocalTime();
 
     TestMultiArray();
+
+    TestMultiIndex();
 
     TestMultiprecision();
 
