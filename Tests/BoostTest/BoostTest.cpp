@@ -684,6 +684,7 @@ void TestSmartPointers()
     boost::shared_ptr<Data> shPtr(new Data());
     shPtr->Test();
     boost::weak_ptr<Data> weakPtr(shPtr);
+    shPtr.reset();
     boost::shared_ptr<Data> shPtrEx(new Data(), std::ptr_fun(mallocDeleter));
     shPtrEx->Test();
     boost::shared_array<Data> shPtrAr(new Data[10]());

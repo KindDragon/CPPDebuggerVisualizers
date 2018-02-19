@@ -68,6 +68,41 @@
     </Expand>
 </Type>
 
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1000000000&gt; &gt;">
+    <DisplayString>{rep_} nanoseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,10000000&gt; &gt;">
+    <DisplayString>{rep_}*100 nanoseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1000000&gt; &gt;">
+    <DisplayString>{rep_} microseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1000&gt; &gt;">
+    <DisplayString>{rep_} milliseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1&gt; &gt;">
+    <DisplayString>{rep_} seconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;60,1&gt; &gt;">
+    <DisplayString>{rep_} minutes</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;3600,1&gt; &gt;">
+    <DisplayString>{rep_} hours</DisplayString>
+    <Expand/>
+</Type>
+
 <Type Name="boost::chrono::duration&lt;*,*&gt;">
     <DisplayString>{rep_} {*(($T2*)1)}</DisplayString>
     <Expand>
@@ -80,6 +115,34 @@
     <DisplayString>{d_}</DisplayString>
     <Expand>
         <ExpandedItem>d_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_year">
+    <DisplayString>{value_}</DisplayString>
+    <Expand>
+        <ExpandedItem>value_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_month">
+    <DisplayString>{(boost::date_time::months_of_year)value_,en}</DisplayString>
+    <Expand>
+        <ExpandedItem>(boost::date_time::months_of_year)value_,en</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_weekday">
+    <DisplayString>{(boost::date_time::weekdays)value_,en}</DisplayString>
+    <Expand>
+        <ExpandedItem>(boost::date_time::weekdays)value_,en</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_day">
+    <DisplayString>{value_}</DisplayString>
+    <Expand>
+        <ExpandedItem>value_</ExpandedItem>
     </Expand>
 </Type>
 </AutoVisualizer>

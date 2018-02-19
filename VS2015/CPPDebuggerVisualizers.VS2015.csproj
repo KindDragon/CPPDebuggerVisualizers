@@ -67,6 +67,14 @@
       <Link>Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Visualizers\boost_MultiIndex.natvis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Visualizers\boost_PropertyTree.natvis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Visualizers\external.natjmc">
       <SubType>Designer</SubType>
       <IncludeInVSIX>true</IncludeInVSIX>

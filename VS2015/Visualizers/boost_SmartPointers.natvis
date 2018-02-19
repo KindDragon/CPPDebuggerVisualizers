@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 <Type Name="boost::scoped_ptr&lt;*&gt;">
+    <SmartPointer Usage="Minimal">px,na</SmartPointer>
     <DisplayString Condition="px == 0">empty</DisplayString>
     <DisplayString Condition="px != 0">scoped_ptr {*px}</DisplayString>
     <Expand>
@@ -9,6 +10,7 @@
 </Type>
 
 <Type Name="boost::scoped_array&lt;*&gt;">
+    <SmartPointer Usage="Indexable">px,na</SmartPointer>
     <DisplayString Condition="px == 0">empty</DisplayString>
     <DisplayString Condition="px != 0">scoped_array {px}</DisplayString>
     <Expand>
@@ -37,6 +39,22 @@
     </Expand>
 </Type>
 
+<!-- boost 1.63 >= -->
+<Type Name="boost::shared_ptr&lt;*&gt;">
+    <DisplayString Condition="px == 0">empty</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 1)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 1)"  >shared_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong ref] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 1)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 2)"  >shared_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong ref, {pn.pi_-&gt;weak_count_._My_val - 1} weak ref] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 1)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val &gt; 2)">shared_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong ref, {pn.pi_-&gt;weak_count_._My_val - 1} weak refs] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val &gt; 1) &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 1)"  >shared_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong refs] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val &gt; 1) &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 2)"  >shared_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong refs, {pn.pi_-&gt;weak_count_._My_val - 1} weak ref] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val &gt; 1) &amp;&amp; (pn.pi_-&gt;weak_count_._My_val &gt; 2)">shared_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong refs, {pn.pi_-&gt;weak_count_._My_val - 1} weak refs] [{*pn.pi_}]</DisplayString>
+    <Expand>
+        <Item Condition="px != 0" Name="[ptr]">px</Item>
+        <Item Condition="px != 0" Name="[deleter and allocator]">*pn.pi_</Item>
+    </Expand>
+</Type>
+
+<!-- boost 1.63 < -->
 <Type Name="boost::shared_ptr&lt;*&gt;">
     <DisplayString Condition="px == 0">empty</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_ == 1)   &amp;&amp; (pn.pi_-&gt;weak_count_ == 1)"  >shared_ptr {*px} [{pn.pi_-&gt;use_count_} strong ref] [{*pn.pi_}]</DisplayString>
@@ -51,6 +69,22 @@
     </Expand>
 </Type>
 
+<!-- boost 1.63 >= -->
+<Type Name="boost::weak_ptr&lt;*&gt;">
+    <DisplayString Condition="px == 0">empty</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 0)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 1)"  >expired [{pn.pi_-&gt;weak_count_._My_val} weak ref] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 0)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val &gt; 1)">expired [{pn.pi_-&gt;weak_count_._My_val} weak refs] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 1)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 2)"  >weak_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong ref, {pn.pi_-&gt;weak_count_._My_val - 1} weak ref] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val == 1)   &amp;&amp; (pn.pi_-&gt;weak_count_._My_val &gt; 2)">weak_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong ref, {pn.pi_-&gt;weak_count_._My_val - 1} weak refs] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val &gt; 1) &amp;&amp; (pn.pi_-&gt;weak_count_._My_val == 2)"  >weak_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong refs, {pn.pi_-&gt;weak_count_._My_val - 1} weak ref] [{*pn.pi_}]</DisplayString>
+    <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val &gt; 1) &amp;&amp; (pn.pi_-&gt;weak_count_._My_val &gt; 2)">weak_ptr {*px} [{pn.pi_-&gt;use_count_._My_val} strong refs, {pn.pi_-&gt;weak_count_._My_val - 1} weak refs] [{*pn.pi_}]</DisplayString>
+    <Expand>
+        <Item Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_._My_val &gt; 0)" Name="[ptr]">px</Item>
+        <Item Condition="px != 0" Name="[deleter and allocator]">*pn.pi_</Item>
+    </Expand>
+</Type>
+
+<!-- boost 1.63 < -->
 <Type Name="boost::weak_ptr&lt;*&gt;">
     <DisplayString Condition="px == 0">empty</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (pn.pi_-&gt;use_count_ == 0)   &amp;&amp; (pn.pi_-&gt;weak_count_ == 1)"  >expired [{pn.pi_-&gt;weak_count_} weak ref] [{*pn.pi_}]</DisplayString>
@@ -66,6 +100,7 @@
 </Type>
 
 <Type Name="boost::intrusive_ptr&lt;*&gt;">
+    <SmartPointer Usage="Minimal">px,na</SmartPointer>
     <DisplayString Condition="px == 0">empty</DisplayString>
     <DisplayString Condition="px != 0">intrusive_ptr {*px}</DisplayString>
     <Expand>
