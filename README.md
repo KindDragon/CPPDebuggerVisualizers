@@ -30,7 +30,7 @@ Microsoft [boost::shared_ptr visualizer](http://archive.msdn.microsoft.com/boost
 
 You can install this extension from Visual Studio marketplace for [VS2012](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2012), [VS2013](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2013), [VS2015](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2015) and [VS2017](https://marketplace.visualstudio.com/items?itemName=ArkadyShapkin.CDebuggerVisualizersforVS2017)
 
-Please submit a request for support for new libraries and classes to this page https://cppvisualizers.codeplex.com/workitem/list/basic
+Please submit a request for support for new libraries and classes to this page https://github.com/KindDragon/CPPDebuggerVisualizers/issues
 
 [1]: https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif
 [2]: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=N3QTYHP9LH6UY&lc=RU&item_name=C%2b%2b%20Debugger%20Visualizers&item_number=CPPDebuggerVisualizers&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
