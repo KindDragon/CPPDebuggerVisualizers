@@ -45,6 +45,8 @@
     <Intrinsic Name="weak_count" Expression="pn.pi_-&gt;weak_count_._My_val"/>
     <SmartPointer Usage="Minimal">px,na</SmartPointer>
     <DisplayString Condition="px == 0">empty</DisplayString>
+    <DisplayString IncludeView="ptr" Condition="px == 0">nullptr</DisplayString>
+    <DisplayString IncludeView="ptr" Condition="px != 0">{*px}</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (use_count() == 1)   &amp;&amp; (weak_count() == 1)"  >shared_ptr {*px} [{use_count()} strong ref] [{*pn.pi_}]</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (use_count() == 1)   &amp;&amp; (weak_count() == 2)"  >shared_ptr {*px} [{use_count()} strong ref, {weak_count() - 1} weak ref] [{*pn.pi_}]</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (use_count() == 1)   &amp;&amp; (weak_count() &gt; 2)">shared_ptr {*px} [{use_count()} strong ref, {weak_count() - 1} weak refs] [{*pn.pi_}]</DisplayString>
@@ -80,6 +82,8 @@
     <Intrinsic Name="use_count" Expression="pn.pi_-&gt;use_count_._My_val"/>
     <Intrinsic Name="weak_count" Expression="pn.pi_-&gt;weak_count_._My_val"/>
     <DisplayString Condition="px == 0">empty</DisplayString>
+    <DisplayString IncludeView="ptr" Condition="px == 0">nullptr</DisplayString>
+    <DisplayString IncludeView="ptr" Condition="px != 0">{*px}</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (use_count() == 0)   &amp;&amp; (weak_count() == 1)"  >expired [{weak_count()} weak ref] [{*pn.pi_}]</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (use_count() == 0)   &amp;&amp; (weak_count() &gt; 1)">expired [{weak_count()} weak refs] [{*pn.pi_}]</DisplayString>
     <DisplayString Condition="(px != 0) &amp;&amp; (use_count() == 1)   &amp;&amp; (weak_count() == 2)"  >weak_ptr {*px} [{use_count()} strong ref, {weak_count() - 1} weak ref] [{*pn.pi_}]</DisplayString>

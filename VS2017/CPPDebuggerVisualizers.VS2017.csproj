@@ -65,13 +65,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="source.extension.vsixmanifest" />
     <Content Include="..\CPPDebuggerVisualizersNatvisAddIn\Release\Win32\CPPDebuggerVisualizersNatvisAddIn.dll">
       <Link>Visualizers\CPPDebuggerVisualizersNatvisAddIn.dll</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Visualizers\boost_MultiIndex.natvis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Visualizers\boost_PropertyTree.natvis">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

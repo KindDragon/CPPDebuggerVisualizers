@@ -21,6 +21,7 @@
 #include <boost/foreach.hpp>
 #include <boost/gil/rgb.hpp>
 #include <boost/gil/extension/io/png_dynamic_io.hpp>
+#include <boost/interprocess/offset_ptr.hpp>
 #include <boost/intrusive/list.hpp>
 #include <boost/intrusive/set.hpp>
 #include <boost/intrusive/slist.hpp>
@@ -39,6 +40,7 @@
 #include <boost/numeric/ublas/vector_sparse.hpp>
 #include <boost/optional.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/ptr_container/ptr_array.hpp>
 #include <boost/ptr_container/ptr_deque.hpp>
@@ -174,9 +176,9 @@ void TestGregorian()
 void TestPosixTime()
 {
     using namespace boost::posix_time;
-    boost::gregorian::date d(2002,boost::date_time::Feb,1); //an arbitrary date
-    ptime t1(d, hours(5)+millisec(100)); //date + time of day offset
-    ptime t2 = t1 - minutes(4)+seconds(2);
+    boost::gregorian::date d(2002, boost::date_time::Feb, 1); //an arbitrary date
+    ptime t1(d, hours(5) + millisec(100)); //date + time of day offset
+    ptime t2 = t1 - minutes(4) + seconds(2);
     ptime now = second_clock::local_time(); //use the clock
     boost::gregorian::date today = now.date(); //Get the date part out of the time
     boost::gregorian::date tomorrow = today + boost::gregorian::date_duration(1);
@@ -184,7 +186,7 @@ void TestPosixTime()
     auto ts = boost::posix_time::to_simple_string(tomorrow_start);
 
     //starting at current time iterator adds by one hour
-    time_iterator titr(now,hours(1));
+    time_iterator titr(now, hours(1));
     for (; titr < tomorrow_start; ++titr) {
     }
 }
@@ -283,6 +285,31 @@ void TestContainers()
     basic_string<wchar_t> wstr2(L"lk;lgdfkg;lka;glk''l;'sfgllllllllllllllllllllllllllllllllllll;f");
 }
 
+void TestInterprocess()
+{
+    using namespace boost::interprocess;
+    struct structure
+    {
+        int               integer1;   //The compiler places this at offset 0 in the structure
+        offset_ptr<int>   ptr;        //The compiler places this at offset 4 in the structure
+        int               integer2;   //The compiler places this at offset 8 in the structure
+    };
+
+    structure s;
+    s.integer1 = 33;
+    s.integer2 = 77;
+
+    //Assign the address of "integer1" to "ptr".
+    //"ptr" will store internally "-4":
+    //    (char*)&s.integer1 - (char*)&s.ptr;
+    s.ptr = &s.integer1;
+
+    //Assign the address of "integer2" to "ptr".
+    //"ptr" will store internally "4":
+    //    (char*)&s.integer2 - (char*)&s.ptr;
+    s.ptr = &s.integer2;
+}
+
 class MyClass : public boost::intrusive::list_base_hook<>   //This is a derivation hook
 {
     int int_;
@@ -292,17 +319,9 @@ public:
     boost::intrusive::list_member_hook<> member_hook_;
 
     MyClass(int i)
-        :  int_(i)
+        : int_(i)
     {}
 };
-
-//Define a list that will store MyClass using the public base hook
-typedef boost::intrusive::list<MyClass>   BaseList;
-
-//Define a list that will store MyClass using the public member hook
-typedef boost::intrusive::list< MyClass
-    , boost::intrusive::member_hook< MyClass, boost::intrusive::list_member_hook<>, &MyClass::member_hook_>
-> MemberList;
 
 //This is a base hook
 class MyClassS : public boost::intrusive::slist_base_hook<>
@@ -314,12 +333,21 @@ public:
     boost::intrusive::slist_member_hook<> member_hook_;
 
     MyClassS(int i)
-        :  int_(i)
+        : int_(i)
     {}
 };
 
 void TestIntrusiveList()
 {
+
+    //Define a list that will store MyClass using the public base hook
+    typedef boost::intrusive::list<MyClass>   BaseList;
+
+    //Define a list that will store MyClass using the public member hook
+    typedef boost::intrusive::list< MyClass
+        , boost::intrusive::member_hook< MyClass, boost::intrusive::list_member_hook<>, &MyClass::member_hook_>
+    > MemberList;
+
     using namespace boost::intrusive;
 
     BaseList baselist;
@@ -384,14 +412,15 @@ struct Belem : public boost::intrusive::set_base_hook<>
 {
     int mval;
     Belem(int val) : mval(val) {}
-    bool operator<(const Belem& other) const {return mval < other.mval;}
-    bool operator>(const Belem& other) const {return mval > other.mval;}
-    bool operator==(const Belem& other) const {return mval == other.mval;}
+    bool operator<(const Belem& other) const { return mval < other.mval; }
+    bool operator>(const Belem& other) const { return mval > other.mval; }
+    bool operator==(const Belem& other) const { return mval == other.mval; }
 };
-typedef boost::intrusive::set<Belem> Container;
 
 void TestIntrusiveSet_BaseHook()
 {
+    typedef boost::intrusive::set<Belem> Container;
+
     Container container;
     Belem belem1(1);
     Belem belem2(2);
@@ -408,15 +437,16 @@ struct Melem
     int mval;
     boost::intrusive::set_member_hook<> mhook;
     Melem(int val) : mval(val) {}
-    bool operator<(const Melem& other) const {return mval < other.mval;}
-    bool operator>(const Melem& other) const {return mval > other.mval;}
-    bool operator==(const Melem& other) const {return mval == other.mval;}
+    bool operator<(const Melem& other) const { return mval < other.mval; }
+    bool operator>(const Melem& other) const { return mval > other.mval; }
+    bool operator==(const Melem& other) const { return mval == other.mval; }
 };
-typedef boost::intrusive::member_hook<Melem, boost::intrusive::set_member_hook<>, &Melem::mhook> MemberHookOptions;
-typedef boost::intrusive::set<Melem, MemberHookOptions> MContainer;
 
 void TestIntrusiveSet_MemberHook()
 {
+    typedef boost::intrusive::member_hook<Melem, boost::intrusive::set_member_hook<>, &Melem::mhook> MemberHookOptions;
+    typedef boost::intrusive::set<Melem, MemberHookOptions> MContainer;
+
     MContainer container;
     Melem melem1(1);
     Melem melem2(2);
@@ -431,14 +461,15 @@ struct Belem_NoSz : public boost::intrusive::set_base_hook<>
 {
     int mval;
     Belem_NoSz(int val) : mval(val) {}
-    bool operator<(const Belem_NoSz& other) const {return mval < other.mval;}
-    bool operator>(const Belem_NoSz& other) const {return mval > other.mval;}
-    bool operator==(const Belem_NoSz& other) const {return mval == other.mval;}
+    bool operator<(const Belem_NoSz& other) const { return mval < other.mval; }
+    bool operator>(const Belem_NoSz& other) const { return mval > other.mval; }
+    bool operator==(const Belem_NoSz& other) const { return mval == other.mval; }
 };
-typedef boost::intrusive::set<Belem_NoSz, boost::intrusive::constant_time_size<false> > Container_NoSz;
 
 void TestIntrusiveSet_BaseHook_NoSizeMember()
 {
+    typedef boost::intrusive::set<Belem_NoSz, boost::intrusive::constant_time_size<false> > Container_NoSz;
+
     Container_NoSz container;
     Belem_NoSz belem1(1);
     Belem_NoSz belem2(2);
@@ -454,15 +485,16 @@ struct Melem_NoSz
     int mval;
     boost::intrusive::set_member_hook<> mhook;
     Melem_NoSz(int val) : mval(val) {}
-    bool operator<(const Melem_NoSz& other) const {return mval < other.mval;}
-    bool operator>(const Melem_NoSz& other) const {return mval > other.mval;}
-    bool operator==(const Melem_NoSz& other) const {return mval == other.mval;}
+    bool operator<(const Melem_NoSz& other) const { return mval < other.mval; }
+    bool operator>(const Melem_NoSz& other) const { return mval > other.mval; }
+    bool operator==(const Melem_NoSz& other) const { return mval == other.mval; }
 };
-typedef boost::intrusive::member_hook<Melem_NoSz, boost::intrusive::set_member_hook<>, &Melem_NoSz::mhook> MemberHookOptions_NoSz;
-typedef boost::intrusive::set<Melem_NoSz, MemberHookOptions_NoSz, boost::intrusive::constant_time_size<false> > MContainer_NoSz;
 
 void TestIntrusiveSet_MemberHook_NoSizeMember()
 {
+    typedef boost::intrusive::member_hook<Melem_NoSz, boost::intrusive::set_member_hook<>, &Melem_NoSz::mhook> MemberHookOptions_NoSz;
+    typedef boost::intrusive::set<Melem_NoSz, MemberHookOptions_NoSz, boost::intrusive::constant_time_size<false> > MContainer_NoSz;
+
     MContainer_NoSz container;
     Melem_NoSz melem1(1);
     Melem_NoSz melem2(2);
@@ -489,11 +521,10 @@ void TestMultiArray()
     array_type A(boost::extents[3][4][2]);
 
     // Assign values to the elements
-    int values = 0;
     for (index i = 0; i != 3; ++i)
         for (index j = 0; j != 4; ++j)
             for (index k = 0; k != 2; ++k)
-                A[i][j][k] = values++;
+                A[i][j][k] = i * 100 + j * 10 + k;
 
     typedef boost::multi_array<double, 2> array_type_2D;
     array_type_2D myarray(boost::extents[3][4]);
@@ -573,16 +604,12 @@ void TestMultiprecision()
 void display(int depth, boost::property_tree::ptree& tree)
 {
     using boost::property_tree::ptree;
-    BOOST_FOREACH(ptree::value_type const&v, tree.get_child("")) {
-        ptree subtree = v.second;
-        std::string nodestr = tree.get<std::string>(v.first);
+    if (tree.empty())
+        return;
 
-        // print current node
-        //if (nodestr.length() > 0)
-        //	cout << "=\"" << tree.get<string>(v.first) << "\"";
-
-        // recursive go down the hierarchy
-        display(depth + 1, subtree);
+    for (ptree::iterator pos = tree.begin(); pos != tree.end(); ++pos) {
+        //std::cout << pos->first << "\n";
+        display(depth + 1, pos->second);
     }
 }
 
@@ -593,6 +620,45 @@ void TestPropertyTree()
     std::ifstream input("test.xml");
     read_xml(input, pt);
     display(0, pt);
+
+    std::stringstream ss;
+    const char * json_string = R"(
+{
+    "particles": [
+        {
+            "electron": {
+                "pos": [
+                    0,
+                    0,
+                    0
+                ],
+                "vel": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "proton": {
+                "pos": [
+                    -1,
+                    0,
+                    0
+                ],
+                "vel": [
+                    0,
+                    -0.1,
+                    -0.1
+                ]
+            }
+        }
+    ]
+}
+)";
+    ss << json_string;
+
+    ptree pt_json;
+    read_json(ss, pt_json);
+    display(0, pt_json);
 }
 
 void TestRational()
@@ -725,6 +791,7 @@ void TestVariantAnyOptional()
     boost::apply_visitor(visitor(), result[1]);
     result.push_back(7);
 
+    // boost::mpl::vector not supported for boost >= 1.66
     typedef boost::mpl::vector4<int, std::string, Data, bool> vec4_t;
     boost::make_variant_over<vec4_t>::type variant_from_mpl_v4; // now contains int
     variant_from_mpl_v4 = std::string("Hello word!");
@@ -761,9 +828,10 @@ void TestVariantAnyOptional()
     boost::wstring_ref rwsv(wstr + 5, 4);
 }
 
-struct s{};
 int main(int argc, const char* argv[])
 {
+    struct s {};
+
     boost::filesystem::path p (argv[0]);   // p reads clearer than argv[1] in the following code
 
     boost::filesystem::file_status status;
@@ -806,6 +874,8 @@ int main(int argc, const char* argv[])
     TestGil();
 
     TestGregorian();
+
+    TestInterprocess();
 
     TestIntrusiveList();
 

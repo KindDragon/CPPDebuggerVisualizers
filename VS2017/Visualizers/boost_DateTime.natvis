@@ -124,7 +124,7 @@
     <Intrinsic Name="second"      Expression="(_t_minutes()-60000000*minute())/1000000"/>
     <Intrinsic Name="millisecond" Expression="(base_utc_offset_.ticks_.value_%1000000)/1000"/>
     <Intrinsic Name="nanosecond"  Expression="base_utc_offset_.ticks_.value_%1000"/>
-    <DisplayString>{zone_names_.std_zone_abbrev_,sb}{hour()/10}{hour()%10}:{minute()/10}{minute()%10}:{second()/10}{second()%10}</DisplayString>
+    <DisplayString>{zone_names_.std_zone_abbrev_,sb}{hour()}:{minute()/10}{minute()%10}:{second()/10}{second()%10}</DisplayString>
 </Type>
 
 <Type Name="boost::local_time::local_date_time_base&lt;boost::posix_time::ptime,*&gt;">

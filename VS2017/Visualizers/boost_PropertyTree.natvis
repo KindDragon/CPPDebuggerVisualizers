@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="boost::property_tree::basic_ptree&lt;*&gt;">
+    <DisplayString>{*static_cast&lt;boost::property_tree::ptree::subs::base_container*&gt;(m_children)}</DisplayString>
+    <Expand>
+      <ExpandedItem>*static_cast&lt;boost::property_tree::ptree::subs::base_container*&gt;(m_children)</ExpandedItem>
+    </Expand>
+  </Type>
+</AutoVisualizer>

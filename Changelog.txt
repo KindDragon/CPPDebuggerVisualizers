@@ -3,12 +3,23 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.20 - 20.02.2018
+=========================
++ Support boost 1.66
++ Support boost 1.65 flat_map & flat_set (#15)
++ Boost.MultiIndex visualizer added. Thanks to Anton Tokar
++ Boost.PropertyTree visualizer added
+! Fixed boost::unordered_map and unordered_set for Boost 1.66
+! Fixed Boost.Gil with ImageWatch
+! Fixed boost::interprocess::offset_ptr for Boost 1.66
+* Improved visualisers for several other types
+
 1.0.19 - 05.04.2017
 =========================
 + Support Visual Studio 2017
 + Support boost 1.63
 ! Fixed smart pointers visualisers and boost::optional<T&> for Boost 1.63
-* Rewrited visualisers for boost::date_time
+* Rewrited visualisers for boost::date_time for VS2017
 * Improved visualisers for several other types
 
 1.0.18 - 12.07.2015
