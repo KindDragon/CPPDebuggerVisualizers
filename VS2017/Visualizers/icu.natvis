@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 
-    <Type Name="icu_61::UnicodeString">
+    <Type Name="icu::UnicodeString">
+        <AlternativeType Name="icu_58::UnicodeString" />
+        <AlternativeType Name="icu_59::UnicodeString" />
+        <AlternativeType Name="icu_60::UnicodeString" />
+        <AlternativeType Name="icu_61::UnicodeString" />
+        <AlternativeType Name="icu_62::UnicodeString" />
+        <AlternativeType Name="icu_63::UnicodeString" />
+
         <!-- small (stack) string -->
         <DisplayString Condition="fUnion.fFields.fLengthAndFlags &amp; kUsingStackBuffer">
             {fUnion.fStackFields.fBuffer,[fUnion.fFields.fLengthAndFlags >> kLengthShift]na}
