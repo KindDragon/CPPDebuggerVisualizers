@@ -106,6 +106,7 @@
 <Type Name="boost::optional&lt;*&gt;" Priority="Medium">
     <AlternativeType Name="boost::optional_detail::optional_base&lt;*&gt;" />
     <DisplayString Condition="m_initialized">{m_storage}</DisplayString>
+    <DisplayString Condition="!m_initialized">nullopt</DisplayString>
     <Expand>
         <Item Condition="m_initialized" Name="value">m_storage</Item>
     </Expand>
