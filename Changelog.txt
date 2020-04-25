@@ -3,6 +3,14 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.21 - 26.04.2020
+=========================
++ Support Visual Studio 2019 (boost::uuid doesn't work right now)
++ Support boost 1.72
+* Use 64-bit literals in boost::date_time to prevent arithmetic overflow. Thanks to Andy Webber
+* boost::optional. Print 'nullopt' for empty optional. Thanks to Artem Tokmakov
+
+Derives from tag: v1.0.20 + 1 commits
 1.0.20 - 20.02.2018
 =========================
 + Support boost 1.66

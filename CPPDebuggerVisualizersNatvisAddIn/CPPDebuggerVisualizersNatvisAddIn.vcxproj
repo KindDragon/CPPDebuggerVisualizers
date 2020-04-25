@@ -14,7 +14,6 @@
     <ProjectGuid>{A1C04A4B-8BDE-48B6-9106-CADC8D39C99C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CPPDebuggerVisualizersNatvisAddIn</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

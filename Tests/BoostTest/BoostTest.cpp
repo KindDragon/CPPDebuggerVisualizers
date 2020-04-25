@@ -20,7 +20,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/foreach.hpp>
 #include <boost/gil/rgb.hpp>
-#include <boost/gil/extension/io/png_dynamic_io.hpp>
+#include <boost/gil/extension/io/png.hpp>
 #include <boost/interprocess/offset_ptr.hpp>
 #include <boost/intrusive/list.hpp>
 #include <boost/intrusive/set.hpp>
@@ -63,6 +63,7 @@
 #include <boost/utility/value_init.hpp>
 #include <boost/variant.hpp>
 #include <boost/weak_ptr.hpp>
+#include <gsl/gsl>
 
 void TestAtomic()
 {
@@ -134,10 +135,11 @@ void TestGil()
     {
         using namespace boost::gil;
         rgb8_image_t img;
-        png_read_and_convert_image("test_image.png", img);
-        typedef boost::mpl::vector<gray8_image_t, rgb8_image_t, rgba8_image_t, gray16_image_t, rgb16_image_t> my_images_t;
+        read_and_convert_image("test_image.png", img, png_tag());
+        using my_images_t = boost::mp11::mp_list<gray8_image_t, rgb8_image_t, gray16_image_t, rgb16_image_t>;
         any_image<my_images_t> dyn_img;
-        png_read_image("test_image.png", dyn_img);
+        read_image("test_image.png", dyn_img, png_tag());
+        auto view = flipped_up_down_view(const_view(dyn_img));
     }
     catch (std::ios_base::failure)
     {
@@ -264,16 +266,14 @@ void TestContainers()
     list<int> l;
     l.push_back(100);
     for (auto it = l.cbegin(); it != l.cend(); it++)
-    {
         *it;
-    }
     slist<int> sl;
     sl.push_front(100);
     for(slist<int>::const_iterator it = sl.begin(); it!=sl.end();it++)
         (*it);
     map<int, int> m;
     m[100] = 1000;
-    for(map<int, int>::const_iterator it = m.begin(); it!=m.end();it++)
+    for (map<int, int>::const_iterator it = m.begin(); it != m.end(); it++)
         (*it);
     set<int> s;
     s.insert(100);
@@ -685,7 +685,7 @@ void TestSmartPointers()
     shPtr->Test();
     boost::weak_ptr<Data> weakPtr(shPtr);
     shPtr.reset();
-    boost::shared_ptr<Data> shPtrEx(new Data(), std::ptr_fun(mallocDeleter));
+    boost::shared_ptr<Data> shPtrEx(new Data(), mallocDeleter);
     shPtrEx->Test();
     boost::shared_array<Data> shPtrAr(new Data[10]());
     shPtrAr[0].Test();
@@ -829,6 +829,17 @@ void TestVariantAnyOptional()
     boost::wstring_ref rwsv(wstr + 5, 4);
 }
 
+void TestGsl()
+{
+    std::array<int, 5> a{ 0, 1, 2, 3, 4};
+    gsl::span a_sp(&a[2], &a[4]);
+    gsl::span<int, 2> a_ssp(&a[2], &a[4]);
+
+    std::string s("abcdefghi");
+    gsl::string_span<> str_sp(&s[3], 3);
+    gsl::string_span<3> str_sps(&s[3], 3);
+}
+
 int main(int argc, const char* argv[])
 {
     struct s {};
@@ -909,6 +920,8 @@ int main(int argc, const char* argv[])
     TestValueInitialized();
 
     TestVariantAnyOptional();
+
+    TestGsl();
 
     return EXIT_SUCCESS;
 }

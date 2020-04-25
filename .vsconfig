@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+    "components": [
+        "Microsoft.VisualStudio.Component.CoreEditor",
+        "Microsoft.VisualStudio.Workload.CoreEditor",
+        "Microsoft.VisualStudio.Component.NuGet",
+        "Microsoft.VisualStudio.Component.Roslyn.Compiler",
+        "Microsoft.VisualStudio.Component.Roslyn.LanguageServices",
+        "Microsoft.Component.MSBuild",
+        "Microsoft.VisualStudio.Component.TextTemplating",
+        "Microsoft.VisualStudio.Component.DiagnosticTools",
+        "Microsoft.VisualStudio.Component.VC.CoreIde",
+        "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
+        "Microsoft.VisualStudio.Component.Graphics.Tools",
+        "Microsoft.VisualStudio.Component.VC.DiagnosticTools",
+        "Microsoft.VisualStudio.Component.Windows10SDK.18362",
+        "Microsoft.VisualStudio.Component.VC.Redist.14.Latest",
+        "Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core",
+        "Microsoft.VisualStudio.Component.VC.CMake.Project",
+        "Microsoft.VisualStudio.Workload.NativeDesktop",
+        "Microsoft.VisualStudio.Component.VSSDK",
+        "Microsoft.VisualStudio.ComponentGroup.VisualStudioExtension.Prerequisites",
+        "Microsoft.VisualStudio.Workload.VisualStudioExtension"
+    ]
+}
