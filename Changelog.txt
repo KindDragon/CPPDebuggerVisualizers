@@ -3,6 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.22 - 20.06.2020
+=========================
+* Updated version for Visual Studio 2017
+
 1.0.21 - 26.04.2020
 =========================
 + Support Visual Studio 2019 (boost::uuid doesn't work right now)

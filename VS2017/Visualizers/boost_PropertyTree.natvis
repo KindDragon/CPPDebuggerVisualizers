@@ -4,7 +4,8 @@
 
     <!--Common ptree view-->
     <Type Name="boost::property_tree::basic_ptree&lt;*&gt;">
-        <DisplayString>{m_data}:{*static_cast&lt;subs::base_container*&gt;(this->m_children)}</DisplayString>
+        <DisplayString Condition="m_data.size() != 0">{m_data}:{*static_cast&lt;subs::base_container*&gt;(this->m_children)}</DisplayString>
+        <DisplayString Condition="m_data.size() == 0">{*static_cast&lt;subs::base_container*&gt;(this->m_children)}</DisplayString>
         <Expand HideRawView="true">
             <Item Name ="[Data]" Condition="m_data._Mypair._Myval2._Mysize!=0" Optional="true">m_data</Item>
             <!--<Item Name ="[Elements]" Condition="static_cast&lt;base_container*&gt;(this->m_children)->node_count!=0">*static_cast&lt;base_container*&gt;(this->m_children),view(ptree)</Item>-->
@@ -15,7 +16,8 @@
 
     <!--Pseudo-raw view.  m_children is casted to actual container type (pointer. May be dereference?)-->
     <Type Name="boost::property_tree::basic_ptree&lt;*&gt;" IncludeView="raw">
-        <DisplayString>{m_data}:{*static_cast&lt;subs::base_container*&gt;(m_children)}</DisplayString>
+        <DisplayString Condition="m_data.size() != 0">{m_data}:{*static_cast&lt;subs::base_container*&gt;(m_children)}</DisplayString>
+        <DisplayString Condition="m_data.size() == 0">{*static_cast&lt;subs::base_container*&gt;(m_children)}</DisplayString>
         <Expand HideRawView="true">
             <Item Name="m_data">m_data</Item>
             <Item Name="m_children">static_cast&lt;subs::base_container*&gt;(m_children)</Item>
@@ -44,5 +46,4 @@
             <!--<Item Name="[Data]">second</Item>-->
         </Expand>
     </Type>
-
 </AutoVisualizer>

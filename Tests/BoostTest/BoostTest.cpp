@@ -832,7 +832,7 @@ void TestVariantAnyOptional()
 void TestGsl()
 {
     std::array<int, 5> a{ 0, 1, 2, 3, 4};
-    gsl::span a_sp(&a[2], &a[4]);
+    gsl::span<int> a_sp(&a[2], &a[4]);
     gsl::span<int, 2> a_ssp(&a[2], &a[4]);
 
     std::string s("abcdefghi");
