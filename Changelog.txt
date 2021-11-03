@@ -3,6 +3,10 @@ Legend:
 * Changed
 ! Fixed
 
+1.0.23 - 03.11.2021
+=========================
+* Updated version for Visual Studio 2022
+
 1.0.22 - 20.06.2020
 =========================
 * Updated version for Visual Studio 2017

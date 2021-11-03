@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+    <Type Name="icu::UnicodeString">
+        <AlternativeType Name="icu_58::UnicodeString" />
+        <AlternativeType Name="icu_59::UnicodeString" />
+        <AlternativeType Name="icu_60::UnicodeString" />
+        <AlternativeType Name="icu_61::UnicodeString" />
+        <AlternativeType Name="icu_62::UnicodeString" />
+        <AlternativeType Name="icu_63::UnicodeString" />
+
+        <!-- small (stack) string -->
+        <DisplayString Condition="fUnion.fFields.fLengthAndFlags &amp; kUsingStackBuffer">
+            {fUnion.fStackFields.fBuffer,[fUnion.fFields.fLengthAndFlags >> kLengthShift]na}
+        </DisplayString>
+
+        <!-- large string, small length -->
+        <DisplayString Condition="fUnion.fFields.fLengthAndFlags > 0">
+            {fUnion.fFields.fArray,[fUnion.fFields.fLengthAndFlags >> kLengthShift]na}
+        </DisplayString>
+
+        <!-- large string -->
+        <DisplayString Condition="fUnion.fFields.fLengthAndFlags &amp; kLengthIsLarge">
+            {fUnion.fFields.fArray,[fUnion.fFields.fLength]na}
+        </DisplayString>
+
+
+        <!-- small (stack) string -->
+        <StringView Condition="fUnion.fFields.fLengthAndFlags &amp; kUsingStackBuffer">
+            fUnion.fStackFields.fBuffer,[fUnion.fFields.fLengthAndFlags >> kLengthShift]na
+        </StringView>
+
+        <!-- large string, small length -->
+        <StringView Condition="fUnion.fFields.fLengthAndFlags > 0">
+            fUnion.fFields.fArray,[fUnion.fFields.fLengthAndFlags >> kLengthShift]na
+        </StringView>
+
+        <!-- large string -->
+        <StringView Condition="fUnion.fFields.fLengthAndFlags &amp; kLengthIsLarge">
+            fUnion.fFields.fArray,[fUnion.fFields.fLength]na
+        </StringView>
+    </Type>
+
+</AutoVisualizer>
