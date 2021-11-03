@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<!-- based on https://svn.boost.org/trac/boost/wiki/DebuggerVisualizers -->
+<!--Copyright Bruno Durin 2010-->
+<!--@version  1.0-->
+<!--@author   Bruno Durin-->
+<!--@email    bruno dot durin at gmail dot com-->
+
+<!--https://github.com/boostorg/date_time/blob/6015e3039114c0f2ba456e00dd50404e3fb88275/include/boost/date_time/gregorian_calendar.ipp#L108-L126-->
+<Type Name="boost::date_time::date&lt;boost::gregorian::date,boost::gregorian::gregorian_calendar,*&gt;">
+    <Intrinsic Name="_a"          Expression="days_+32044"/>
+    <Intrinsic Name="_b"          Expression="(4*_a()+3)/146097"/>
+    <Intrinsic Name="_c"          Expression="_a()-((146097*_b())/4)"/>
+    <Intrinsic Name="_d"          Expression="(4*_c()+3)/1461"/>
+    <Intrinsic Name="_e"          Expression="_c()-(1461*_d())/4"/>
+    <Intrinsic Name="_m"          Expression="(5*_e()+2)/153"/>
+    <Intrinsic Name="day"         Expression="_e()-((153*_m()+2)/5)+1"/>
+    <Intrinsic Name="month"       Expression="_m()+3-12*(_m()/10)"/>
+    <Intrinsic Name="year"        Expression="100*_b()+_d()-4800+(_m()/10)"/>
+    <DisplayString>{year()}-{month()}-{day()}</DisplayString>
+    <Expand>
+        <Synthetic Name="[year]"><DisplayString>{year()}</DisplayString></Synthetic>
+        <Synthetic Name="[month]"><DisplayString>{month()}</DisplayString></Synthetic>
+        <Synthetic Name="[day]"><DisplayString>{day()}</DisplayString></Synthetic>
+    </Expand>
+</Type>
+
+<Type Name="boost::date_time::nth_kday_of_month&lt;boost::gregorian::date&gt;">
+    <DisplayString>{wn_,en} {dow_} {month_}</DisplayString>
+    <Expand>
+        <Synthetic Name="[nth_week]"><DisplayString>{wn_,en}</DisplayString></Synthetic>
+        <Synthetic Name="[day_of_week]"><DisplayString>{dow_}</DisplayString></Synthetic>
+        <Synthetic Name="[month]"><DisplayString>{month_}</DisplayString></Synthetic>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::date_duration">
+    <DisplayString Condition="days_.value_ == 1">{days_.value_} day</DisplayString>
+    <DisplayString Condition="days_.value_ != 1">{days_.value_} days</DisplayString>
+</Type>
+
+<!--boost::posix_time::time_duration-->
+<Type Name="boost::date_time::time_duration&lt;boost::posix_time::time_duration,boost::date_time::time_resolution_traits&lt;boost::date_time::time_resolution_traits_adapted64_impl,*,*&gt; &gt;">
+    <Intrinsic Name="day"         Expression="ticks_.value_/(86400ll*$T2)"/>
+    <Intrinsic Name="_t_hours"    Expression="ticks_.value_-(86400ll*$T2)*day()"/>
+    <Intrinsic Name="hour"        Expression="_t_hours()/(3600ll*$T2)"/>
+    <Intrinsic Name="_t_minutes"  Expression="_t_hours()-(3600ll*$T2)*hour()"/>
+    <Intrinsic Name="minute"      Expression="_t_minutes()/(60ll*$T2)"/>
+    <Intrinsic Name="second"      Expression="(_t_minutes()-(60ll*$T2)*minute())/$T2"/>
+    <Intrinsic Name="millisecond" Expression="(ticks_.value_%$T2)/1000ll"/>
+    <Intrinsic Name="nanosecond"  Expression="ticks_.value_%1000ll"/>
+    <DisplayString>{day()}d {hour()/10}{hour()%10}:{minute()/10}{minute()%10}:{second()/10}{second()%10} {millisecond()}ms {nanosecond()}us</DisplayString>
+    <Expand>
+        <Synthetic Name="[day]"><DisplayString>{day()}</DisplayString></Synthetic>
+        <Synthetic Name="[hour]"><DisplayString>{hour()}</DisplayString></Synthetic>
+        <Synthetic Name="[minute]"><DisplayString>{minute()}</DisplayString></Synthetic>
+        <Synthetic Name="[second]"><DisplayString>{second()}</DisplayString></Synthetic>
+        <Synthetic Name="[millisecond]"><DisplayString>{millisecond()}</DisplayString></Synthetic>
+        <Synthetic Name="[nanosecond]"><DisplayString>{nanosecond()}</DisplayString></Synthetic>
+    </Expand>
+</Type>
+
+<!--only works with microseconds resolution-->
+<Type Name="boost::posix_time::ptime">
+    <Intrinsic Name="_x"          Expression="time_.time_count_.value_/86400000000"/>
+    <Intrinsic Name="_a"          Expression="_x()+32044"/>
+    <Intrinsic Name="_b"          Expression="(4*_a()+3)/146097"/>
+    <Intrinsic Name="_c"          Expression="_a()-((146097*_b())/4)"/>
+    <Intrinsic Name="_d"          Expression="(4*_c()+3)/1461"/>
+    <Intrinsic Name="_e"          Expression="_c()-(1461*_d())/4"/>
+    <Intrinsic Name="_m"          Expression="(5*_e()+2)/153"/>
+    <Intrinsic Name="day"         Expression="_e()-((153*_m()+2)/5)+1"/>
+    <Intrinsic Name="month"       Expression="_m()+3-12*(_m()/10)"/>
+    <Intrinsic Name="year"        Expression="100*_b()+_d()-4800+(_m()/10)"/>
+
+    <Intrinsic Name="_t_hours"    Expression="time_.time_count_.value_-86400000000*_x()"/>
+    <Intrinsic Name="hour"        Expression="_t_hours()/3600000000"/>
+    <Intrinsic Name="_t_minutes"  Expression="_t_hours()-3600000000*hour()"/>
+    <Intrinsic Name="minute"      Expression="_t_minutes()/60000000"/>
+    <Intrinsic Name="second"      Expression="(_t_minutes()-60000000*minute())/1000000"/>
+    <Intrinsic Name="millisecond" Expression="(time_.time_count_.value_%1000000)/1000"/>
+    <Intrinsic Name="nanosecond"  Expression="time_.time_count_.value_%1000"/>
+    <DisplayString>{year()}-{month()}-{day()} {hour()/10}{hour()%10}:{minute()/10}{minute()%10}:{second()/10}{second()%10} {millisecond()}ms {nanosecond()}us</DisplayString>
+    <Expand>
+        <Synthetic Name="[year]"><DisplayString>{year()}</DisplayString></Synthetic>
+        <Synthetic Name="[month]"><DisplayString>{month()}</DisplayString></Synthetic>
+        <Synthetic Name="[day]"><DisplayString>{day()}</DisplayString></Synthetic>
+        <Synthetic Name="[hour]"><DisplayString>{hour()}</DisplayString></Synthetic>
+        <Synthetic Name="[minute]"><DisplayString>{minute()}</DisplayString></Synthetic>
+        <Synthetic Name="[second]"><DisplayString>{second()}</DisplayString></Synthetic>
+        <Synthetic Name="[millisecond]"><DisplayString>{millisecond()}</DisplayString></Synthetic>
+        <Synthetic Name="[nanosecond]"><DisplayString>{nanosecond()}</DisplayString></Synthetic>
+    </Expand>
+</Type>
+
+<Type Name="boost::date_time::period&lt;*&gt;">
+    <DisplayString>{begin_}/{last_}</DisplayString>
+    <Expand>
+        <Item Name="begin">begin_</Item>
+        <Item Name="last">last_</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::date_time::date_itr&lt;*&gt;">
+    <DisplayString>{current_}</DisplayString>
+    <Expand>
+        <ExpandedItem>current_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::date_time::time_itr&lt;*&gt;">
+    <DisplayString>{current_}</DisplayString>
+    <Expand>
+        <ExpandedItem>current_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::local_time::posix_time_zone_base&lt;*&gt;">
+    <Intrinsic Name="_x"          Expression="base_utc_offset_.ticks_.value_/86400000000"/>
+    <Intrinsic Name="_t_hours"    Expression="base_utc_offset_.ticks_.value_-86400000000*_x()"/>
+    <Intrinsic Name="hour"        Expression="_t_hours()/3600000000"/>
+    <Intrinsic Name="_t_minutes"  Expression="_t_hours()-3600000000*hour()"/>
+    <Intrinsic Name="minute"      Expression="_t_minutes()/60000000"/>
+    <Intrinsic Name="second"      Expression="(_t_minutes()-60000000*minute())/1000000"/>
+    <Intrinsic Name="millisecond" Expression="(base_utc_offset_.ticks_.value_%1000000)/1000"/>
+    <Intrinsic Name="nanosecond"  Expression="base_utc_offset_.ticks_.value_%1000"/>
+    <DisplayString>{zone_names_.std_zone_abbrev_,sb}{hour()}:{minute()/10}{minute()%10}:{second()/10}{second()%10}</DisplayString>
+</Type>
+
+<Type Name="boost::local_time::local_date_time_base&lt;boost::posix_time::ptime,*&gt;">
+    <DisplayString>{zone_}</DisplayString>
+    <Expand>
+        <ExpandedItem>zone_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1000000000&gt; &gt;">
+    <DisplayString>{rep_} nanoseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,10000000&gt; &gt;">
+    <DisplayString>{rep_}*100 nanoseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1000000&gt; &gt;">
+    <DisplayString>{rep_} microseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1000&gt; &gt;">
+    <DisplayString>{rep_} milliseconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;1,1&gt; &gt;">
+    <DisplayString>{rep_} seconds</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;60,1&gt; &gt;">
+    <DisplayString>{rep_} minutes</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,boost::ratio&lt;3600,1&gt; &gt;">
+    <DisplayString>{rep_} hours</DisplayString>
+    <Expand/>
+</Type>
+
+<Type Name="boost::chrono::duration&lt;*,*&gt;">
+    <DisplayString>{rep_} {*(($T2*)1)}</DisplayString>
+    <Expand>
+        <Item Name="rep">rep_</Item>
+        <Item Name="ratio">*(($T2*)1)</Item>
+    </Expand>
+</Type>
+
+<Type Name="boost::chrono::time_point&lt;*&gt;">
+    <DisplayString>{d_}</DisplayString>
+    <Expand>
+        <ExpandedItem>d_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_year">
+    <DisplayString>{value_}</DisplayString>
+    <Expand>
+        <ExpandedItem>value_</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_month">
+    <DisplayString>{(boost::date_time::months_of_year)value_,en}</DisplayString>
+    <Expand>
+        <ExpandedItem>(boost::date_time::months_of_year)value_,en</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_weekday">
+    <DisplayString>{(boost::date_time::weekdays)value_,en}</DisplayString>
+    <Expand>
+        <ExpandedItem>(boost::date_time::weekdays)value_,en</ExpandedItem>
+    </Expand>
+</Type>
+
+<Type Name="boost::gregorian::greg_day">
+    <DisplayString>{value_}</DisplayString>
+    <Expand>
+        <ExpandedItem>value_</ExpandedItem>
+    </Expand>
+</Type>
+</AutoVisualizer>

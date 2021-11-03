@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<Type Name="TiXmlNode">
+    <DisplayString>[{type}] {value}</DisplayString>
+    <StringView>value</StringView>
+    <Expand>
+        <LinkedListItems>
+            <HeadPointer>firstChild</HeadPointer>
+            <NextPointer>next</NextPointer>
+            <ValueNode>*this</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+<Type Name="TiXmlElement">
+    <DisplayString>[{type}] {value}</DisplayString>
+    <StringView>value</StringView>
+    <Expand>
+        <Item Name="[attributes]">attributeSet</Item>
+        <LinkedListItems>
+            <HeadPointer>firstChild</HeadPointer>
+            <NextPointer>next</NextPointer>
+            <ValueNode>*this</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+<Type Name="TiXmlAttribute">
+    <DisplayString>{name} = {value}</DisplayString>
+    <Expand/>
+</Type>
+<Type Name="TiXmlAttributeSet">
+    <DisplayString></DisplayString>
+    <Expand>
+        <LinkedListItems>
+            <HeadPointer>sentinel.next</HeadPointer>
+            <NextPointer>next</NextPointer>
+            <ValueNode>this</ValueNode>
+        </LinkedListItems>
+    </Expand>
+</Type>
+<Type Name="TiXmlString">
+    <DisplayString>[{rep_-&lt;size}] {rep_-&lt;str,s}</DisplayString>
+    <StringView>rep_-&lt;str,s</StringView>
+</Type>
+</AutoVisualizer>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+<Type Name="gsl::basic_string_span&lt;*,-1&gt;" Priority="Low">
+    <SmartPointer Usage="Indexable">span_.storage_.data_</SmartPointer>
+    <DisplayString>{span_.storage_.data_,[span_.storage_.size_]}</DisplayString>
+    <StringView>span_.storage_.data_,[span_.storage_.size_]</StringView>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">span_.storage_.size_</Item>
+        <ArrayItems>
+            <Size>span_.storage_.size_</Size>
+            <ValuePointer>span_.storage_.data_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="gsl::basic_string_span&lt;*,*&gt;" Priority="Low">
+    <SmartPointer Usage="Indexable">span_.storage_.data_</SmartPointer>
+    <DisplayString>{span_.storage_.data_,[$T2]}</DisplayString>
+    <StringView>span_.storage_.data_,[$T2]</StringView>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">$T2</Item>
+        <ArrayItems>
+            <Size>$T2</Size>
+            <ValuePointer>span_.storage_.data_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="gsl::span&lt;*,-1&gt;" Priority="Low">
+    <SmartPointer Usage="Indexable">storage_.data_</SmartPointer>
+    <DisplayString>{{ size={storage_.size_} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">storage_.size_</Item>
+        <ArrayItems>
+            <Size>storage_.size_</Size>
+            <ValuePointer>storage_.data_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="gsl::span&lt;*,*&gt;" Priority="Low">
+    <SmartPointer Usage="Indexable">storage_.data_</SmartPointer>
+    <DisplayString>{{ size={$T2} }}</DisplayString>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">$T2</Item>
+        <ArrayItems>
+            <Size>$T2</Size>
+            <ValuePointer>storage_.data_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="gsl::not_null&lt;*&gt;" Priority="Low">
+    <SmartPointer Usage="Minimal">ptr_</SmartPointer>
+    <DisplayString>not_null {*ptr_}</DisplayString>
+    <Expand>
+        <Item Name="[ptr]">ptr_</Item>
+    </Expand>
+</Type>
+</AutoVisualizer>

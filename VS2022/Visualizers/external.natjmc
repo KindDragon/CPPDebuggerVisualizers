@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NonUserCode xmlns="http://schemas.microsoft.com/vstudio/debugger/jmc/2013">
+  <File Name="*\boost\*" />
+  <Function Name="boost::.*" />
+  <Function Name="TiXml[A-Z].*" />
+  <Function Name="tinyxml2::.*" />
+  <Function Name="wx[A-Z].*" />
+</NonUserCode>
