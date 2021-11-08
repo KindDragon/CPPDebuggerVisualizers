@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="CPPDebuggerVisualizers.VS2022.DD7259EC-D23B-478B-A647-6162C579CCD4" Version="1.0.22" Language="en-US" Publisher="Arkady Shapkin" />
+        <Identity Id="CPPDebuggerVisualizers.VS2022.DD7259EC-D23B-478B-A647-6162C579CCD4" Version="1.0.23" Language="en-US" Publisher="Arkady Shapkin" />
         <DisplayName>C++ Debugger Visualizers for VS2022</DisplayName>
         <Description xml:space="preserve">C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
         <MoreInfo>https://github.com/KindDragon/CPPDebuggerVisualizers</MoreInfo>
