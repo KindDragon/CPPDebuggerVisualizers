@@ -12,10 +12,13 @@
         <Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Version="17.0" Id="Microsoft.VisualStudio.Community">
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
-        <InstallationTarget Version="17.0" Id="Microsoft.VisualStudio.Pro">
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Pro">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Community">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
     </Installation>
@@ -48,6 +51,6 @@
         <Asset Type="StepFilter" d:Source="File" Path="Visualizers\boost.natstepfilter" />
     </Assets>
     <Prerequisites>
-        <Prerequisite DisplayName="Visual Studio C++ core features" Id="Microsoft.VisualStudio.Component.VC.CoreIde" Version="17.0" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.VC.CoreIde" Version="[17.1.32112.364,18.0)" DisplayName="C++ core features" />
     </Prerequisites>
 </PackageManifest>
