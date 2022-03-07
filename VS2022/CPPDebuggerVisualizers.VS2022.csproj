@@ -62,8 +62,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CopyVsixExtensionFiles>True</CopyVsixExtensionFiles>
-    <CopyVsixExtensionLocation>a:\</CopyVsixExtensionLocation>
   </PropertyGroup>
   <ItemGroup>
     <None Include="packages.config">
