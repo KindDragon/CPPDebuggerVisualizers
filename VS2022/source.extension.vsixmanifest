@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="CPPDebuggerVisualizers.VS2022.DD7259EC-D23B-478B-A647-6162C579CCD4" Version="1.0.23" Language="en-US" Publisher="Arkady Shapkin" />
+        <Identity Id="CPPDebuggerVisualizers.VS2022.DD7259EC-D23B-478B-A647-6162C579CCD6" Version="1.0.23" Language="en-US" Publisher="Arkady Shapkin" />
         <DisplayName>C++ Debugger Visualizers for VS2022</DisplayName>
         <Description xml:space="preserve">C++ Debugger Visualizers for Boost, wxWidgets, TinyXML, TinyXML2</Description>
         <MoreInfo>https://github.com/KindDragon/CPPDebuggerVisualizers</MoreInfo>
@@ -12,10 +12,13 @@
         <Tags>C++, Debugger, Visualizer, Boost, wxWidgets, TinyXML2</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Version="17.0" Id="Microsoft.VisualStudio.Community">
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
-        <InstallationTarget Version="17.0" Id="Microsoft.VisualStudio.Pro">
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Pro">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Community">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
     </Installation>
@@ -48,6 +51,6 @@
         <Asset Type="StepFilter" d:Source="File" Path="Visualizers\boost.natstepfilter" />
     </Assets>
     <Prerequisites>
-        <Prerequisite DisplayName="Visual Studio C++ core features" Id="Microsoft.VisualStudio.Component.VC.CoreIde" Version="17.0" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.VC.CoreIde" Version="[17.1.32112.364,18.0)" DisplayName="C++ core features" />
     </Prerequisites>
 </PackageManifest>
