@@ -388,44 +388,11 @@
 </Type>
 
 <Type Name="boost::uuids::uuid">
-    <DisplayString LegacyAddin="CPPDebuggerVisualizersNatvisAddIn.dll" Export="BoostUuidFormatter" />
-    <Expand>
-        <Synthetic Name="variant" Condition="(data[8] &amp; 0x80) == 0x00 &amp;&amp; (data[8] &amp; 0xC0) != 0x80
-             &amp;&amp; (data[8] &amp; 0xE0) != 0xC0">
-            <DisplayString>ncs</DisplayString>
-        </Synthetic>
-        <Synthetic Name="variant" Condition="(data[8] &amp; 0xE0) != 0xC0 &amp;&amp; (data[8] &amp; 0xC0) == 0x80
-             &amp;&amp; (data[8] &amp; 0xE0) != 0xC0">
-            <DisplayString>rfc 4122</DisplayString>
-        </Synthetic>
-        <Synthetic Name="variant" Condition="(data[8] &amp; 0xE0) != 0xC0 &amp;&amp; (data[8] &amp; 0xC0) != 0x80
-             &amp;&amp; (data[8] &amp; 0xE0) == 0xC0">
-            <DisplayString>microsoft</DisplayString>
-        </Synthetic>
-        <Synthetic Name="variant" Condition="(data[8] &amp; 0xE0) != 0xC0 &amp;&amp; (data[8] &amp; 0xC0) != 0x80
-             &amp;&amp; (data[8] &amp; 0xE0) != 0xC0">
-            <DisplayString>future</DisplayString>
-        </Synthetic>
-        <Synthetic Name="version" Condition="(data[6] &amp; 0xF0) == 0x10">
-            <DisplayString>time based</DisplayString>
-        </Synthetic>
-        <Synthetic Name="version" Condition="(data[6] &amp; 0xF0) == 0x20">
-            <DisplayString>dce security</DisplayString>
-        </Synthetic>
-        <Synthetic Name="version" Condition="(data[6] &amp; 0xF0) == 0x30">
-            <DisplayString>name based md5</DisplayString>
-        </Synthetic>
-        <Synthetic Name="version" Condition="(data[6] &amp; 0xF0) == 0x40">
-            <DisplayString>random number based</DisplayString>
-        </Synthetic>
-        <Synthetic Name="version" Condition="(data[6] &amp; 0xF0) == 0x50">
-            <DisplayString>name based sha1</DisplayString>
-        </Synthetic>
-        <ArrayItems>
-            <Size>16</Size>
-            <ValuePointer>data,x</ValuePointer>
-        </ArrayItems>
-    </Expand>
+    <DisplayString>{((((uint32_t)data[3] &amp; 0xFF)) + (((uint32_t)data[2] &amp; 0xFF) &lt;&lt; 8) + (((uint32_t)data[1] &amp; 0xFF) &lt;&lt; 16) + (((uint32_t)data[0] &amp; 0xFF) &lt;&lt; 24)),xb} - {((((uint32_t)data[7] &amp; 0xFF)) + (((uint32_t)data[6] &amp; 0xFF) &lt;&lt; 8) + (((uint32_t)data[5] &amp; 0xFF) &lt;&lt; 16) + (((uint32_t)data[4] &amp; 0xFF) &lt;&lt; 24)),xb} - {((((uint32_t)data[11] &amp; 0xFF)) + (((uint32_t)data[10] &amp; 0xFF) &lt;&lt; 8) + (((uint32_t)data[9] &amp; 0xFF) &lt;&lt; 16) + (((uint32_t)data[8] &amp; 0xFF) &lt;&lt; 24)),xb} - {((((uint32_t)data[15] &amp; 0xFF)) + (((uint32_t)data[14] &amp; 0xFF) &lt;&lt; 8) + (((uint32_t)data[13] &amp; 0xFF) &lt;&lt; 16) + (((uint32_t)data[12] &amp; 0xFF) &lt;&lt; 24)),xb}</DisplayString>
+</Type>
+
+<Type Name="boost::value_initialized&lt;*&gt;">
+
 </Type>
 
 <Type Name="boost::value_initialized&lt;*&gt;">
