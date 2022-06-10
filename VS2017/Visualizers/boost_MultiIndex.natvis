@@ -55,7 +55,7 @@
   </Type>
 
   <Type Name="boost::multi_index::detail::header_holder&lt;boost::multi_index::detail::hashed_index_node&lt;*&gt;*,*&gt;">
-    <DisplayString>{{ size={ (($T2*)this)-&gt;node_count } ende  }}</DisplayString>
+    <DisplayString>{{ size={ (($T2*)this)-&gt;node_count } }}</DisplayString>
     <Expand>
       <!--Easier to take size from auto_space<...> since it always +1 from real size-->
       <Item Name="[buckets]" IncludeView="detailed">(($T2*)this)-&gt;buckets.spc.n_ - 1</Item>
