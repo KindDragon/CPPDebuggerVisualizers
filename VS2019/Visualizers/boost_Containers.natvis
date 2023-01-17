@@ -525,4 +525,33 @@
     </Expand>
 </Type>
 
+<!-- boost 1.73 >= -->
+<Type Name="boost::static_strings::basic_static_string&lt;*,char,*&gt;" Priority="Medium">
+    <DisplayString>{data_,s}</DisplayString>
+    <StringView>data_,s</StringView>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">(int)size_</Item>
+        <Item Name="[capacity]" ExcludeView="simple">(int)$T1</Item>
+        <ArrayItems>
+            <Size>size_</Size>
+            <ValuePointer>data_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<!-- boost 1.73 >= -->
+<Type Name="boost::static_strings::basic_static_string&lt;*,unsigned short,*&gt;" Priority="Medium">
+    <AlternativeType Name="boost::static_strings::basic_static_string&lt;*,wchar_t,*&gt;" />
+    <DisplayString>{data_,su}</DisplayString>
+    <StringView>data_,su</StringView>
+    <Expand>
+        <Item Name="[size]" ExcludeView="simple">(int)size_</Item>
+        <Item Name="[capacity]" ExcludeView="simple">(int)$T1</Item>
+        <ArrayItems>
+            <Size>size_</Size>
+            <ValuePointer>data_</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
 </AutoVisualizer>
